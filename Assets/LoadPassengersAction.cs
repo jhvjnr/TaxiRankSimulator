@@ -17,7 +17,7 @@ namespace Assets
 
             addEffect("Passenger number", thisTaxi.NumSeated += 1);
             addPrecondition("stoppedAtAppropriateBay", true);
-            addPrecondition("taxi full", false);
+            addPrecondition("fullTaxi", false);
         }
 
         private void Update()

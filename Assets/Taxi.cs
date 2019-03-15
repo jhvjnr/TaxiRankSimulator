@@ -319,8 +319,10 @@ public class Taxi : MonoBehaviour, IGoap {
     public Dictionary<string, object> getWorldState()
     {
         Dictionary<string, object> worldState = new Dictionary<string, object>();
+        worldState.Add("Passenger number", numSeated);
         worldState.Add("fullTaxi", false);
         worldState.Add("stoppedAtAppropriateBay", false);
+        worldState.Add("Left", false);
         return worldState;
     }
 
@@ -328,6 +330,7 @@ public class Taxi : MonoBehaviour, IGoap {
     {
         Dictionary<string, object> goalState = new Dictionary<string, object>();
         goalState.Add("fullTaxi", true);
+        goalState.Add("Left", true);
         return goalState;
     }
 
