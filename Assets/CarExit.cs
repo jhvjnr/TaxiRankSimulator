@@ -16,6 +16,8 @@ public class CarExit : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
+        Taxi currentTaxi = collision.gameObject.GetComponent<Taxi>();
+        currentTaxi.getWorldState()["Left"] = true;
         Destroy(collision.gameObject);
     }
 }

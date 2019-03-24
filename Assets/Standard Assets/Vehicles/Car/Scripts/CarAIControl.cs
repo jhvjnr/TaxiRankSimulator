@@ -9,7 +9,7 @@ namespace UnityStandardAssets.Vehicles.Car
     {
         [Header("Sensor details:")]
         [SerializeField] public float sensorLength;
-        [SerializeField] public Vector3 frontSensorPos = new Vector3(0, 0, -2f);
+        [SerializeField] public Vector3 frontSensorPos = new Vector3(0, 1, -2f);
         [SerializeField] public float rightSideSensorPos = 2f;
         [SerializeField] public float sideSensorAngles = 30;
         [SerializeField] public bool avoiding = false;
@@ -224,7 +224,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 {
                     // we'll take evasive action for 1 second
                     m_AvoidOtherCarTime = Time.time + 1;
-                    print("Add evasive action!");
+                   // print("Add evasive action!");
                     // but who's in front?...
                     if (Vector3.Angle(transform.forward, otherAI.transform.position - transform.position) < 90)
                     {
@@ -255,16 +255,16 @@ namespace UnityStandardAssets.Vehicles.Car
         public void Sense()
         {
 
-
+            // Debug.Log("<color=magenta>Sensing</color>");
             //RaycastHit raycastHit;
             Vector3 sensorStartPosition = transform.position;
-
+            //Vector3 sensorStartPosition = transform.position + frontSensorPos;
             sensorStartPosition += transform.forward * frontSensorPos.z;
-            //sensorStartPosition += transform.up * frontSensorPos.y;
+            sensorStartPosition += transform.up * frontSensorPos.y;
 
-            
+
             Vector3 direction = transform.forward;
-            direction = gameObject.transform.GetChild(5).GetChild(0).forward;
+            // direction = gameObject.transform.GetChild(5).GetChild(0).forward;
             //direction.y = 0f;
             //sensorStartPosition.y = 0.1f;
 
@@ -273,141 +273,184 @@ namespace UnityStandardAssets.Vehicles.Car
             // if (Physics.BoxCastAll(sensorStartPosition, new Vector3(3, 3, 3), direction, Quaternion.LookRotation(direction, transform.up), sensorLength).Length != 0)
             // {
 
-            var hits = Physics.BoxCastAll(sensorStartPosition, new Vector3(boxSize, boxSize, boxSize), direction, Quaternion.LookRotation(direction, transform.up), sensorLength);
+            /* var hits = Physics.BoxCastAll(sensorStartPosition, new Vector3(boxSize, boxSize, boxSize), direction, Quaternion.LookRotation(direction, transform.up), sensorLength);
 
-            if (hits.Length > 0)
-            {
-                foreach (var hit in hits)
-                {
-                    if ((hit.transform.tag != "Terrain") && (hit.distance < sensorLength) && (hit.point != Vector3.zero))
-                    {
+             if (hits.Length > 0)
+             {
+                 foreach (var hit in hits)
+                 {
+                     if ((hit.transform.tag != "Terrain") && (hit.distance < sensorLength) && (hit.point != Vector3.zero))
+                     {
 
-                        var rayData = transform.InverseTransformPoint(hit.point);
-                        float angle = Mathf.Atan2(rayData.x, rayData.z);
-                        //m_AvoidPathOffset = m_LateralWanderDistance * -Mathf.Sign(angle);
-                        //print(Mathf.Rad2Deg * angle);
-                        if ((Mathf.Rad2Deg * angle < this.sideSensorAngles) && (hit.transform.tag == "Commuter" && GetComponent<CarController>().CurrentSpeed < 5)) accel -= GetComponent<CarController>().CurrentSpeed * brakingSensitivity * this.sensorLength / hit.distance;
-                        //if (Mathf.Rad2Deg * angle < this.sideSensorAngles) accel -= brakingSensitivity * this.sensorLength / raycastHit.distance;
-                        //steer += Mathf.Clamp(-Mathf.Sign(angle) * steerSensitivity * this.sensorLength / hit.distance, -1, 1);
-                        //print(steer);
+                         var rayData = transform.InverseTransformPoint(hit.point);
+                         float angle = Mathf.Atan2(rayData.x, rayData.z);
+                         //m_AvoidPathOffset = m_LateralWanderDistance * -Mathf.Sign(angle);
+                         //print(Mathf.Rad2Deg * angle);
+                         if ((Mathf.Rad2Deg * angle < this.sideSensorAngles) && (hit.transform.tag == "Commuter" && GetComponent<CarController>().CurrentSpeed < 5)) accel -= GetComponent<CarController>().CurrentSpeed * brakingSensitivity * this.sensorLength / hit.distance;
+                         //if (Mathf.Rad2Deg * angle < this.sideSensorAngles) accel -= brakingSensitivity * this.sensorLength / raycastHit.distance;
+                         //steer += Mathf.Clamp(-Mathf.Sign(angle) * steerSensitivity * this.sensorLength / hit.distance, -1, 1);
+                         //print(steer);
 
-                        /*if (raycastHit.transform.tag == "Player" && GetComponent<CarController>().CurrentSpeed < 5)
-                        {
-                            accel = Mathf.Max(0, accel);
-                        }
-                        else
-                        {
-                          //  if (Mathf.Rad2Deg * angle < this.sideSensorAngles) accel -= brakingSensitivity * this.sensorLength / raycastHit.distance;
-                        }*/
-                        Debug.DrawLine(sensorStartPosition, hit.point, Color.blue);
-                    }
-                }
-            }
-               // }
+                         /*if (raycastHit.transform.tag == "Player" && GetComponent<CarController>().CurrentSpeed < 5)
+                         {
+                             accel = Mathf.Max(0, accel);
+                         }
+                         else
+                         {
+                           //  if (Mathf.Rad2Deg * angle < this.sideSensorAngles) accel -= brakingSensitivity * this.sensorLength / raycastHit.distance;
+                         }
+                         Debug.DrawLine(sensorStartPosition, hit.point, Color.blue);
+                     }
+                 }
+             }*/
+            // }
             //}
-            /*
-            if (Physics.Raycast(sensorStartPosition, direction, out raycastHit, sensorLength))
-            {
-                if (raycastHit.transform.tag != "Terrain")
-                {
-                    accel -= brakingSensitivity * raycastHit.distance / this.sensorLength;
-                    Debug.DrawLine(sensorStartPosition, raycastHit.point, Color.red);
-                    /* m_AvoidOtherCarTime = Time.time + .1f;
-                     var otherCarLocalDelta = transform.InverseTransformPoint(raycastHit.point);
-                     float otherCarAngle = Mathf.Atan2(otherCarLocalDelta.x, otherCarLocalDelta.z);
-                     m_AvoidPathOffset = m_LateralWanderDistance * -Mathf.Sign(otherCarAngle);
 
-                     //avoiding = true;
-                     //gameObject.GetComponentInParent<CarAIControl>().enabled = false;
-                     //gameObject.GetComponentInParent<CarController>().Move(0, 0, 20, 0);
-                
+            //Debug.DrawRay(sensorStartPosition, direction * sensorLength, Color.blue);
+            if (Physics.Raycast(sensorStartPosition, direction * sensorLength, out raycastHit, sensorLength))
+            {
+                if (raycastHit.transform.tag != "Terrain" && raycastHit.transform.tag != "RankGeometry")
+                {
+                    var other = raycastHit.collider.gameObject;
+                    var xmDot = this.gameObject.GetComponent<Rigidbody>().velocity;
+                   // Debug.Log("<color=white>Vn+1 = " + xmDot + " </color>");
+                    if (!other.GetComponentInParent<Rigidbody>()) return;
+                    //Debug.Log("<color=cyan>Rigidbody sensed!</color>");
+                    var xnDot = other.gameObject.GetComponentInParent<Rigidbody>().velocity;
+                    //Debug.Log("<color=white>Vn = " + xnDot + " </color>");
+                    var xm = gameObject.transform.position;
+                    var xn = other.transform.position;
+                    var dx = Vector3.Distance(xm, xn);
+                    var l = 1;
+                    var m = 2;
+
+                    accel = (float)( brakingSensitivity * (Mathf.Pow(xmDot.magnitude, m)/Mathf.Pow(dx, l)) * (xmDot - xnDot).magnitude * Mathf.Sign(xnDot.magnitude - xmDot.magnitude));
+                    accel = brakingSensitivity * (1f / dx) * Mathf.Sign(xnDot.magnitude - xmDot.magnitude);
+                    //Debug.Log("<color=green>Acceleration = " + accel + "</color>");
+                    //accel += -brakingSensitivity * (1 / dx);
+                    //Debug.DrawLine(sensorStartPosition, raycastHit.point, Color.red);
+                    /*  m_AvoidOtherCarTime = Time.time + .1f;
+                      var otherCarLocalDelta = transform.InverseTransformPoint(raycastHit.point);
+                      float otherCarAngle = Mathf.Atan2(otherCarLocalDelta.x, otherCarLocalDelta.z);
+                      m_AvoidPathOffset = m_LateralWanderDistance * -Mathf.Sign(otherCarAngle);
+                      */
+                    //avoiding = true;
+                    //gameObject.GetComponentInParent<CarAIControl>().enabled = false;
+                    //gameObject.GetComponentInParent<CarController>().Move(0, 0, 20, 0);
+
                 }
             }
 
 
-
+            /*
             //Right
             sensorStartPosition += transform.right * rightSideSensorPos;
-            if (Physics.Raycast(sensorStartPosition, direction, out raycastHit, sensorLength))
+            //Debug.DrawRay(sensorStartPosition, direction * sensorLength, Color.blue);
+            if (Physics.Raycast(sensorStartPosition, direction * sensorLength, out raycastHit, sensorLength))
             {
-                if (raycastHit.transform.tag != "Terrain")
+                if (raycastHit.transform.tag != "Terrain" && raycastHit.transform.tag != "RankGeometry")
                 {
-                    /*m_AvoidOtherCarTime = Time.time + .1f;
+                    var other = raycastHit.collider.gameObject;
+                    var xmDot = this.gameObject.GetComponent<Rigidbody>().velocity;
+                    if (!other.GetComponentInParent<Rigidbody>()) return;
+                    Debug.Log("<color=cyan>Rigidbody sensed!</color>");
+
+                    var xnDot = other.gameObject.GetComponentInParent<Rigidbody>().velocity;
+                    var xm = gameObject.transform.position;
+                    var xn = other.transform.position;
+                    var dx = Vector3.Distance(xm, xn);
+                    var l = 1;
+                    var m = 2;
+
+                    /*
+                    m_AvoidOtherCarTime = Time.time + .1f;
                     var otherCarLocalDelta = transform.InverseTransformPoint(raycastHit.point);
                     float otherCarAngle = Mathf.Atan2(otherCarLocalDelta.x, otherCarLocalDelta.z);
                     m_AvoidPathOffset = m_LateralWanderDistance * -Mathf.Sign(otherCarAngle);
-
-                    //avoiding = true;
-                    // gameObject.GetComponentInParent<CarAIControl>().enabled = false;
-        
-                    accel -= brakingSensitivity * raycastHit.distance / this.sensorLength;
-                    steer -= steerSensitivity * raycastHit.distance / this.sensorLength;
-                    Debug.DrawLine(sensorStartPosition, raycastHit.point, Color.red);
-                }
-            }
-
-
-
-            //RightAngled
-
-            if (Physics.Raycast(sensorStartPosition, Quaternion.AngleAxis(sideSensorAngles, transform.up) * direction, out raycastHit, sensorLength))
-            {
-                if (raycastHit.transform.tag != "Terrain")
-                {
-                    steer -= steerSensitivity * raycastHit.distance / this.sensorLength;
-                    /* m_AvoidOtherCarTime = Time.time + .1f;
-                     var otherCarLocalDelta = transform.InverseTransformPoint(raycastHit.point);
-                     float otherCarAngle = Mathf.Atan2(otherCarLocalDelta.x, otherCarLocalDelta.z);
-                     m_AvoidPathOffset = m_LateralWanderDistance * -Mathf.Sign(otherCarAngle);
-                     // avoiding = true;
-                     // gameObject.GetComponentInParent<CarAIControl>().enabled = false;
-                     //gameObject.GetComponentInParent<CarController>().Move(-20, 0, 0, 0);
-                     
-                    Debug.DrawLine(sensorStartPosition, raycastHit.point, Color.red);
-                }
-            }
-
-
-            //Left
-            sensorStartPosition -= 2 * transform.right * rightSideSensorPos;
-            if (Physics.Raycast(sensorStartPosition, direction, out raycastHit, sensorLength))
-            {
-                if (raycastHit.transform.tag != "Terrain")
-                {
-                    accel -= brakingSensitivity * raycastHit.distance / this.sensorLength;
-                    steer += steerSensitivity * raycastHit.distance / this.sensorLength;
-                    /*m_AvoidOtherCarTime = Time.time + .1f;
-                    var otherCarLocalDelta = transform.InverseTransformPoint(raycastHit.point);
-                    float otherCarAngle = Mathf.Atan2(otherCarLocalDelta.x, otherCarLocalDelta.z);
-                    m_AvoidPathOffset = m_LateralWanderDistance * -Mathf.Sign(otherCarAngle);
-                    //avoiding = true;
-                    // gameObject.GetComponentInParent<CarAIControl>().enabled = false;
                     
-                    Debug.DrawLine(sensorStartPosition, raycastHit.point, Color.red);
-                }
-            }
-
-
-
-            //LeftAngled
-            if (Physics.Raycast(sensorStartPosition, Quaternion.AngleAxis(-sideSensorAngles, transform.up) * direction, out raycastHit, sensorLength))
-            {
-                if (raycastHit.transform.tag != "Terrain")
-                {
-                    steer += steerSensitivity * raycastHit.distance / this.sensorLength;
-                    /*m_AvoidOtherCarTime = Time.time + .1f;
-                    var otherCarLocalDelta = transform.InverseTransformPoint(raycastHit.point);
-                    float otherCarAngle = Mathf.Atan2(otherCarLocalDelta.x, otherCarLocalDelta.z);
-                    m_AvoidPathOffset = m_LateralWanderDistance * -Mathf.Sign(otherCarAngle);
                     //avoiding = true;
                     // gameObject.GetComponentInParent<CarAIControl>().enabled = false;
-                    //gameObject.GetComponentInParent<CarAIControl>().enabled = false;
-                    //gameObject.GetComponentInParent<CarController>().Move(20, 0, 0, 0);
-                    
+
+                    //accel = (float)(brakingSensitivity * (Math.Pow(xmDot.magnitude, m) / Math.Pow(dx, l)) * (xmDot - xnDot).magnitude);
+                    // steer -= steerSensitivity * raycastHit.distance / this.sensorLength;
                     Debug.DrawLine(sensorStartPosition, raycastHit.point, Color.red);
                 }
             }
-            */
+
+
+
+    //RightAngled
+    /*
+    if (Physics.Raycast(sensorStartPosition, Quaternion.AngleAxis(sideSensorAngles, transform.up) * direction, out raycastHit, sensorLength))
+    {
+        if (raycastHit.transform.tag != "Terrain" && raycastHit.transform.tag != "RankGeometry")
+        {
+           // steer -= steerSensitivity * raycastHit.distance / this.sensorLength;
+             m_AvoidOtherCarTime = Time.time + .1f;
+             var otherCarLocalDelta = transform.InverseTransformPoint(raycastHit.point);
+             float otherCarAngle = Mathf.Atan2(otherCarLocalDelta.x, otherCarLocalDelta.z);
+             m_AvoidPathOffset = m_LateralWanderDistance * -Mathf.Sign(otherCarAngle);
+             // avoiding = true;
+             // gameObject.GetComponentInParent<CarAIControl>().enabled = false;
+             //gameObject.GetComponentInParent<CarController>().Move(-20, 0, 0, 0);
+
+            Debug.DrawLine(sensorStartPosition, raycastHit.point, Color.red);
+        }
+    }
+
+
+    //Left
+    sensorStartPosition -= 2 * transform.right * rightSideSensorPos;
+   // Debug.DrawRay(sensorStartPosition, direction * sensorLength, Color.blue);
+    if (Physics.Raycast(sensorStartPosition, direction * sensorLength, out raycastHit, sensorLength))
+    {
+        if (raycastHit.transform.tag != "Terrain" && raycastHit.transform.tag != "RankGeometry")
+        {
+            var other = raycastHit.collider.gameObject;
+            var xmDot = this.gameObject.GetComponent<Rigidbody>().velocity;
+            if (!other.GetComponentInParent<Rigidbody>()) return;
+            Debug.Log("<color=cyan>Rigidbody sensed!</color>");
+            var xnDot = other.gameObject.GetComponentInParent<Rigidbody>().velocity;
+            var xm = gameObject.transform.position;
+            var xn = other.transform.position;
+            var dx = Vector3.Distance(xm, xn);
+            var l = 1;
+            var m = 2;
+
+            accel = (float)(brakingSensitivity * (Math.Pow(xmDot.magnitude, m) / Math.Pow(dx, l)) * (xmDot - xnDot).magnitude);
+            // steer += steerSensitivity * raycastHit.distance / this.sensorLength;
+           /* m_AvoidOtherCarTime = Time.time + .1f;
+            var otherCarLocalDelta = transform.InverseTransformPoint(raycastHit.point);
+            float otherCarAngle = Mathf.Atan2(otherCarLocalDelta.x, otherCarLocalDelta.z);
+            m_AvoidPathOffset = m_LateralWanderDistance * -Mathf.Sign(otherCarAngle);
+            //avoiding = true;
+            // gameObject.GetComponentInParent<CarAIControl>().enabled = false;
+
+            Debug.DrawLine(sensorStartPosition, raycastHit.point, Color.red);
+        }
+    }
+
+
+
+    //LeftAngled
+   /* if (Physics.Raycast(sensorStartPosition, Quaternion.AngleAxis(-sideSensorAngles, transform.up) * direction, out raycastHit, sensorLength))
+    {
+        if (raycastHit.transform.tag != "Terrain" && raycastHit.transform.tag != "RankGeometry")
+        {
+            //steer += steerSensitivity * raycastHit.distance / this.sensorLength;
+            m_AvoidOtherCarTime = Time.time + .1f;
+            var otherCarLocalDelta = transform.InverseTransformPoint(raycastHit.point);
+            float otherCarAngle = Mathf.Atan2(otherCarLocalDelta.x, otherCarLocalDelta.z);
+            m_AvoidPathOffset = m_LateralWanderDistance * -Mathf.Sign(otherCarAngle);
+            //avoiding = true;
+            // gameObject.GetComponentInParent<CarAIControl>().enabled = false;
+            //gameObject.GetComponentInParent<CarAIControl>().enabled = false;
+            //gameObject.GetComponentInParent<CarController>().Move(20, 0, 0, 0);
+
+            Debug.DrawLine(sensorStartPosition, raycastHit.point, Color.red);
+        }
+    }*/
+
 
         }
 

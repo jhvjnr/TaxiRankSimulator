@@ -37,16 +37,17 @@ public class GoapPlanner
 
 		// build graph
 		Node start = new Node (null, 0, worldState, null);
+        
 		bool success = buildGraph(start, leaves, usableActions, goal);
 
 		if (!success) {
 			// oh no, we didn't get a plan
-			Debug.Log("NO PLAN");
+			Debug.Log("NO PLAN FOUND");
 			return null;
 		}
-
-		// get the cheapest leaf
-		Node cheapest = null;
+        //Debug.Log("<color=green>PLAN FOUND</color>");
+        // get the cheapest leaf
+        Node cheapest = null;
 		foreach (Node leaf in leaves) {
 			if (cheapest == null)
 				cheapest = leaf;
@@ -73,6 +74,10 @@ public class GoapPlanner
 		}
 
 		// hooray we have a plan!
+        foreach (var planElement in queue)
+        {
+          //  Debug.Log("<color=magenta>" + planElement.ActionName + "</color>");
+        }
 		return queue;
 	}
 
@@ -85,7 +90,7 @@ public class GoapPlanner
 	private bool buildGraph (Node parent, List<Node> leaves, HashSet<GoapAction> usableActions, Dictionary<string, object> goal)
 	{
 		bool foundOne = false;
-
+        Debug.Log("Usable actions size:" + usableActions.Count);
 		// go through each action available at this node and see if we can use it here
 		foreach (GoapAction action in usableActions) {
 
@@ -132,10 +137,11 @@ public class GoapPlanner
 	 */
 	private bool inState(Dictionary<string,object> test, Dictionary<string,object> state) {
 		bool allMatch = true;
-		foreach (KeyValuePair<string,object> t in test) {
+		foreach (var t in test.Keys) {
 			bool match = false;
-			foreach (KeyValuePair<string,object> s in state) {
-				if (s.Equals(t)) {
+			foreach (var s in state.Keys) {
+                Debug.Log(s +" " + state[s]);
+				if (s.Equals(t) && state[s].Equals(test[t])) {
 					match = true;
 					break;
 				}
@@ -160,15 +166,16 @@ public class GoapPlanner
 		foreach (var change in stateChange) {
 			// if the key exists in the current state, update the Value
 			bool exists = false;
-
-			foreach (var s in state) {
+            exists = state.ContainsKey(change.Key);
+			/*foreach (var s in state) {
 				if (s.Equals(change)) {
 					exists = true;
 					break;
 				}
-			}
+			}*/
 
 			if (exists) {
+               
                 state.Remove(change.Key);
 				state.Add(change.Key, change.Value);
 			}

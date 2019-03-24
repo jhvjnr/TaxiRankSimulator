@@ -76,6 +76,7 @@ public Vector3Graph()
         var iterNode = endNode;
         IList<Node> path = new List<Node>();
 
+        Debug.Log("endNode:" + endNode.ToString());
         if (endNode.Equals(startNode) || !nodeParents.ContainsKey(nodeParents[endNode]) || iterNode == null)
         {
             nodeParents.Clear();

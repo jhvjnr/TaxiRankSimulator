@@ -61,16 +61,19 @@ public sealed class GoapAgent : MonoBehaviour {
 
 	private void createIdleState() {
 		idleState = (fsm, gameObj) => {
-			// GOAP planning
+            // GOAP planning
 
-			// get the world state and the goal we want to plan for
+            // get the world state and the goal we want to plan for
+            Debug.Log("Getting goal and world state");
 			Dictionary<string,object> worldState = dataProvider.getWorldState();
 			Dictionary<string,object> goal = dataProvider.createGoalState();
-
+            Debug.Log("World state size:" + worldState.Count);
+            Debug.Log("Goal state size:" + goal.Count);
 			// Plan
 			Queue<GoapAction> plan = planner.plan(gameObject, availableActions, worldState, goal);
 			if (plan != null) {
-				// we have a plan, hooray!
+                // we have a plan, hooray!
+                Debug.Log("<color=green>Plan found :) !</color>");
 				currentActions = plan;
 				dataProvider.planFound(goal, plan);
 
@@ -103,10 +106,11 @@ public sealed class GoapAgent : MonoBehaviour {
 
 			// get the agent to move itself
 			if ( dataProvider.moveAgent(action) ) {
+                //action.setInRange(true);
 				fsm.popState();
 			}
 
-			/*MovableComponent movable = (MovableComponent) gameObj.GetComponent(typeof(MovableComponent));
+            /*MovableComponent movable = (MovableComponent) gameObj.GetComponent(typeof(MovableComponent));
 			if (movable == null) {
 				Debug.Log("<color=red>Fatal error:</color> Trying to move an Agent that doesn't have a MovableComponent. Please give it one.");
 				fsm.popState(); // move
@@ -117,13 +121,13 @@ public sealed class GoapAgent : MonoBehaviour {
 
 			float step = movable.moveSpeed * Time.deltaTime;
 			gameObj.transform.position = Vector3.MoveTowards(gameObj.transform.position, action.target.transform.position, step);
-
-			if (gameObj.transform.position.Equals(action.target.transform.position) ) {
+            
+            if (gameObj.transform.position.Equals(action.target.transform.position) ) {
 				// we are at the target location, we are done
 				action.setInRange(true);
 				fsm.popState();
 			}*/
-		};
+        };
 	}
 	
 	private void createPerformActionState() {

@@ -282,7 +282,7 @@ public class ClickObject : MonoBehaviour {
 
     }
 
-    public void sendAllToDestination()
+  /*  public void sendAllToDestination()
     {
         foreach (GameObject aiChar in ThirdPersonSpawner.aiChars)
         {
@@ -291,7 +291,7 @@ public class ClickObject : MonoBehaviour {
                 aiChar.GetComponent<AICharacterControl>().target = destination.transform;
             }
         }
-    }
+    }*/
 
     public void evaluateQueue()
     {
@@ -327,7 +327,7 @@ public class ClickObject : MonoBehaviour {
             priority_Queue.Enqueue(aiChar, distance(aiChar, destination));
         }*/
     }
-
+    /*
     public void reorderByDistance()
     {
         priority_Queue.Clear();
@@ -336,7 +336,7 @@ public class ClickObject : MonoBehaviour {
         {
             priority_Queue.Enqueue(aiChar, distance(aiChar, destination));
         }
-    }
+    }*/
 
     public float distance(GameObject origin, GameObject destination)
     {
@@ -350,8 +350,8 @@ public class ClickObject : MonoBehaviour {
         lineOut.AddComponent<LineRenderer>();
         LineRenderer myline = lineOut.GetComponent<LineRenderer>();
         myline.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
-        myline.startColor = Color.red;
-        myline.endColor = Color.red;
+        myline.startColor = Color.grey;
+        myline.endColor = Color.grey;
         myline.SetWidth(0.3f, 0.3f);
         myline.transform.position = edge.startNode.position;
         myline.SetPosition(0, edge.startNode.position + new Vector3(0, .2f, 0));

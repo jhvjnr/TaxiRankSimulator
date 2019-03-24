@@ -16,6 +16,17 @@ namespace Assets
             this.position = position;
         }
 
+        public GameObject GetCorrespondingGameObject()
+        {
+            GameObject output = new GameObject();
+            RaycastHit hitInfo;
+            if (Physics.Raycast(position + new Vector3(0, 3, 0), Vector3.down, out hitInfo))
+            {
+                    output = hitInfo.collider.gameObject;
+            }
+            return output;
+        }
+
         // override object.Equals
         public override bool Equals(object obj)
         {

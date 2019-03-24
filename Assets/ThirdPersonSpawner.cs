@@ -7,6 +7,7 @@ using System.Linq;
 using System.IO;
 using UnityStandardAssets.Utility;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class ThirdPersonSpawner : MonoBehaviour {
 
@@ -14,15 +15,15 @@ public class ThirdPersonSpawner : MonoBehaviour {
 
     public GameObject taxi;
     public static LinkedList<GameObject> taxis;
-    public static LinkedList<GameObject> aiChars = new LinkedList<GameObject>();
+  //  public static LinkedList<GameObject> aiChars = new LinkedList<GameObject>();
     public int maxToSpawn = 10;
 
 	void Start ()
     {
-        Time.timeScale = 25;
+        Time.timeScale = 6;
         print(Time.fixedDeltaTime);
         Time.fixedDeltaTime = 0.005f *  Time.timeScale;
-        var frictionModification = 1f/(Time.timeScale);
+        var frictionModification = 8f/(Time.timeScale);
         WheelFrictionCurve tempForwardFrictionCurve = taxi.GetComponentInChildren<WheelCollider>().forwardFriction;
         WheelFrictionCurve tempSidewaysFrictionCurve = taxi.GetComponentInChildren<WheelCollider>().sidewaysFriction;
         tempForwardFrictionCurve.stiffness = frictionModification;
@@ -62,8 +63,8 @@ public class ThirdPersonSpawner : MonoBehaviour {
               
 
             Taxi taxiToAddScript = newTaxi.GetComponent<Taxi>();
-            taxiToAddScript.ArrivalTime = (timeToSpawn - 6.03f) * 3600;
-            taxiToAddScript.NumSeated = numPassengers;
+            taxiToAddScript.ArrivalTime = (timeToSpawn - 6.028f) * 3600;// (timeToSpawn - 6.03f) * 3600;
+            taxiToAddScript.Passengers = SpawnInactivePeopleInTaxi(numPassengers);
             taxiToAddScript.Fare = fare;
             taxiToAddScript.NextDestination = destination;
             taxiToAddScript.RouteNumber = routeNumber;
@@ -71,19 +72,18 @@ public class ThirdPersonSpawner : MonoBehaviour {
 
             k++;
             taxis.AddLast(newTaxi);
+            newTaxi.transform.SetPositionAndRotation(new Vector3(50, 0, 160), taxi.transform.rotation);
+            StartCoroutine(TaxiSpawn(newTaxi, taxiToAddScript.ArrivalTime));
+            SpawnCommutersForTaxi(15, destination, taxiToAddScript.ArrivalTime);
+            //print("Spawn Coroutines started");
         }
 
 
-        Invoke("spawnMen", 1f);
+        //Invoke("spawnMen", 1f);
         //spawnMen();
         //GameObject taxiToSpawn = GameObject.Find("taxi");
 
-        var cars = new double[4] {2,3,4,5 };
-        foreach (var car in cars)
-        {
-            print(car);
-        }
-        int j = 0;
+      /*  int j = 0;
         foreach (GameObject spawntaxi in taxis)
         {
             j++;
@@ -96,7 +96,8 @@ public class ThirdPersonSpawner : MonoBehaviour {
             // Invoke("taxis.ElementAt(j).SetActive(true)", spawntaxi.GetComponent<Taxi>().ArrivalTime) ;
            // spawntaxi.GetComponent<CarAIControl>().enabled = false;
             StartCoroutine(TaxiSpawn(spawntaxi, spawntaxi.GetComponent<Taxi>().ArrivalTime));// * 0.01f));
-        }
+            
+        }*/
         List<string> dests = new List<string>();
         foreach (Destination dest in Destination.destinations)
         {
@@ -115,6 +116,60 @@ public class ThirdPersonSpawner : MonoBehaviour {
         taxi.transform.position += new Vector3(Random.Range(-30, 30), 0, Random.Range(0, 30));
     }
 
+    private LinkedList<GameObject> SpawnInactivePeopleInTaxi(int number)
+    {
+        GameObject toSpawn = GameObject.Find("Ethan");
+        var passengers = new LinkedList<GameObject>();
+        for (int i = 0; i < number; i++)
+        {
+            GameObject spawn = Instantiate(toSpawn);
+            spawn.GetComponent<NavMeshAgent>().speed = Random.Range(0.3f, 0.8f);
+            spawn.name = "" + i;
+            spawn.transform.SetPositionAndRotation(spawn.transform.position + new Vector3(Random.Range(60f, 200f), 0, Random.Range(60f, 200f)), spawn.transform.rotation);
+            spawn.SetActive(false);
+            passengers.AddLast(spawn);
+        }
+        return passengers;
+    }
+
+    
+
+
+    public void SpawnCommutersForTaxi(int number, Destination destination, float time)
+    {
+        //var adjTime = time - Random.Range(0f, 300f);
+       // yield return new WaitForSeconds(0f);
+
+        for (int i = 0; i < number; i++)
+        {
+          //  print("before coroutine");
+            StartCoroutine(SpawnCommuter(destination, time));
+           // print("after coroutine");
+        }
+    }
+    IEnumerator SpawnCommuter(Destination destination, float time)
+    {
+        var adjTime = time - Random.Range(0f, 180f);
+        print("adjTime: " + adjTime);
+
+        yield return new WaitForSeconds(adjTime);
+        print("Spawning commuter at: " + adjTime);
+        GameObject toSpawn = GameObject.Find("Ethan");
+        GameObject spawn = Instantiate(toSpawn);
+        spawn.GetComponent<NavMeshAgent>().speed = Random.Range(0.3f, 0.8f);
+        spawn.name = ":)";
+        if (Random.Range(0, 2) == 0)
+        {
+            spawn.transform.SetPositionAndRotation(new Vector3(Random.Range(20f,170f), 0, Random.Range(155f, 160f)), spawn.transform.rotation);
+        }
+        else
+        {
+            spawn.transform.SetPositionAndRotation(new Vector3(Random.Range(180f, 185f), 0, Random.Range(20f, 160f)), spawn.transform.rotation);
+        }
+        spawn.GetComponent<Commuter>().destination = destination;
+       // aiChars.AddLast(spawn);
+    }
+
     private void spawnMen()
     {
         GameObject toSpawn = GameObject.Find("Ethan");
@@ -125,7 +180,7 @@ public class ThirdPersonSpawner : MonoBehaviour {
             spawn.GetComponent<NavMeshAgent>().speed = Random.Range(0.3f, 0.8f);
             spawn.name = "" + i;
             spawn.transform.SetPositionAndRotation(spawn.transform.position + new Vector3(Random.Range(60f, 200f), 0, Random.Range(60f, 200f)), spawn.transform.rotation);
-            aiChars.AddLast(spawn);
+            //aiChars.AddLast(spawn);
         }
     }
     private void FixedUpdate()

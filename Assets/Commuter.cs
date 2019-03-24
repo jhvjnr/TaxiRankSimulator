@@ -26,7 +26,7 @@ public class Commuter : MonoBehaviour, IGoap {
 
 
         //print(Destination.destinations.Count);
-        if (Destination.destinations.Count != 0) destination = Destination.destinations.ElementAt(UnityEngine.Random.Range(0, Destination.destinations.Count - 1));
+        //if (Destination.destinations.Count != 0) destination = Destination.destinations.ElementAt(UnityEngine.Random.Range(0, Destination.destinations.Count - 1));
         //print(destination);
         Bay[] bays = FindObjectsOfType(typeof(Bay)) as Bay[];
 

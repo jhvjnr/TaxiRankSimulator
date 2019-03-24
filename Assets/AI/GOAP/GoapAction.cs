@@ -6,13 +6,16 @@ public abstract class GoapAction : MonoBehaviour {
 
     private Dictionary<string, object> preconditions;
 	private Dictionary<string,object> effects;
+    public abstract string ActionName { get;}
 
-	private bool inRange = false;
+    private bool inRange = false;
 
 	/* The cost of performing the action. 
 	 * Figure out a weight that suits the action. 
 	 * Changing it will affect what actions are chosen during planning.*/
-	public float cost = 1f;
+	public float cost { get; set; }
+
+
 
 	/**
 	 * An action often has to perform on an object. This is that object. Can be null. */

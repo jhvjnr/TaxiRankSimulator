@@ -97,6 +97,7 @@
     <Compile Include="Assets\StartNode.cs" />
     <Compile Include="Assets\Taxi.cs" />
     <Compile Include="Assets\TaxiBayStop.cs" />
+    <Compile Include="Assets\TaxiLeaveRank.cs" />
     <Compile Include="Assets\ThirdPersonSpawner.cs" />
     <None Include="Assets\StandardShader.shader" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />

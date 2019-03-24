@@ -26,8 +26,18 @@ namespace Assets
         public Bay getCorrespondingBay()
         {
             Bay output = new Bay();
-            RaycastHit hitInfo;
-            if (Physics.Raycast(position + new Vector3(0, 3, 0),Vector3.down, out hitInfo))
+           // RaycastHit hitInfo;
+            var rayResult = Physics.RaycastAll(position + new Vector3(0, 3, 0), Vector3.down);
+
+            foreach (var hit in rayResult)
+            {
+                if (hit.collider.gameObject.tag == "BayNode")
+                {
+                    return hit.collider.gameObject.GetComponent<Bay>();
+                }
+            }
+
+           /* if (Physics.Raycast(position + new Vector3(0, 2, 0),Vector3.down, out hitInfo))
             {
                 if (hitInfo.collider.gameObject.tag == "BayNode")
                 {
@@ -35,7 +45,7 @@ namespace Assets
                     output = hitInfo.collider.gameObject.GetComponent<Bay>();
                 }
                 
-            }
+            }*/
             return output;
         }
         // override object.Equals

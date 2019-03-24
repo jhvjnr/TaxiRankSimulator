@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,39 +11,59 @@ namespace Assets
     public class LoadPassengersAction : GoapAction
     {
         private bool passengersLoaded = false;
+        
+
+        public override string ActionName
+        {
+            get
+            {
+                return "LoadPassengerAction";
+            }
+
+        }
 
         public LoadPassengersAction()
         {
-            Taxi thisTaxi = GetComponent<Taxi>();
+            addEffect("LoadedPassengers", true);
+           // addEffect("stoppedAtAppropriateBay", true);
+            //addPrecondition("fullTaxi", false);
+        }
 
-            addEffect("Passenger number", thisTaxi.NumSeated += 1);
-            addPrecondition("stoppedAtAppropriateBay", true);
-            addPrecondition("fullTaxi", false);
+        private void Start()
+        {
         }
 
         private void Update()
         {
             Taxi thisTaxi = GetComponent<Taxi>();
-            if (thisTaxi.NumSeated == thisTaxi.MaxSeated)
+            if (thisTaxi.NumSeated() == thisTaxi.MaxSeated)
             {
-                thisTaxi.getWorldState()["taxi full"] = true;
+                thisTaxi.getWorldState()["fulltaxi"] = true;
             }
         }
 
         public override bool checkProceduralPrecondition(GameObject agent)
         {
             Taxi thisTaxi = GetComponent<Taxi>();
-            RaycastHit hitInfo = new RaycastHit();
-            if (Physics.SphereCast(thisTaxi.Target.position, 1f, Vector3.up,out hitInfo))// thisTaxi.Target;
-            {
-                target = hitInfo.collider.gameObject;
-            }
+            target = thisTaxi.GetAppropriateBay();
+            if (isDone()) return false;
+            /*RaycastHit hitInfo = new RaycastHit();
 
-            if (Vector3.Distance(gameObject.transform.position, target.gameObject.transform.position) < GetComponent<CarAIControl>().ReachTargetThreshold)
+            if (thisTaxi.endNode != null)
             {
-                return true;
-            }
-            return false;
+                if (Physics.SphereCast(thisTaxi.endNode.position, 1f, Vector3.up, out hitInfo))// thisTaxi.Target;
+                {
+                    target = hitInfo.collider.gameObject;
+                }
+
+
+                if (Vector3.Distance(gameObject.transform.position, target.gameObject.transform.position) < GetComponent<CarAIControl>().ReachTargetThreshold)
+                {
+                    return true;
+                }
+            }*/
+
+            return true;
         }
 
         public override bool isDone()
@@ -50,16 +71,25 @@ namespace Assets
             return passengersLoaded;
         }
 
+        private IEnumerator LoadPassengers(GameObject taxi)
+        {
+            Taxi currentTaxi = taxi.GetComponent<Taxi>();
+            currentTaxi.loadPassengers();
+            yield return new WaitUntil(() => currentTaxi.isTaxiFull());
+
+        }
+
         public override bool perform(GameObject agent)
         {
             Taxi currentTaxi = agent.GetComponent<Taxi>();
-
-            if ((currentTaxi.NumSeated < currentTaxi.MaxSeated) && (agent.GetComponent<Rigidbody>().velocity.magnitude < 0.5f))
+            //StartCoroutine(LoadPassengers(agent));
+            if (currentTaxi.isTaxiFull())
             {
-                currentTaxi.loadPassengers();
-                return true;
+                currentTaxi.getWorldState()["LoadedPassengers"] = true;
+                passengersLoaded = true;
+                Debug.Log("<color=Lime>Successfully picked up passengers</color>");
             }
-            return false;
+            return true;
         }
 
         public override bool requiresInRange()
@@ -69,8 +99,8 @@ namespace Assets
 
         public override void reset()
         {
-            passengersLoaded = false;
-            target = null;
+            //passengersLoaded = false;
+            //target = null;
         }
     }
 }
