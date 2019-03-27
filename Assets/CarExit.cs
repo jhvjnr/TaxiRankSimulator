@@ -1,23 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class CarExit : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+    // Use this for initialization
+    public static GameObject exitObject;
+    //FileStream file;
+	void Start ()
+    {
+     exitObject = gameObject;
+     var  file = File.Open("ExitLog.txt", FileMode.Create);
+     
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        Taxi currentTaxi = collision.gameObject.GetComponent<Taxi>();
-        currentTaxi.getWorldState()["Left"] = true;
-        Destroy(collision.gameObject);
+       
+        if (other.gameObject.GetComponentInParent<Taxi>() != null)
+        {
+            Taxi currentTaxi = other.gameObject.GetComponentInParent<Taxi>();
+            currentTaxi.getWorldState()["Left"] = true;
+            
+            using (StreamWriter writer = new StreamWriter("ExitLog.txt", append: true))
+            {
+
+                double outNum = Time.time / 3600 + 6.028f;
+                double inNum = currentTaxi.ArrivalTime / 3600 + 6.028f;
+                writer.WriteLine("" + outNum + "," + inNum);
+            }
+        }
+        //(timeToSpawn - 6.028f) * 3600;
+        Destroy(other.gameObject);
+        if (other != null && other.transform.parent != null && other.transform.parent.gameObject != null)
+        {
+            Destroy(other.transform.parent.gameObject);
+        }
     }
 }

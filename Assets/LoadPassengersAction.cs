@@ -25,6 +25,7 @@ namespace Assets
         public LoadPassengersAction()
         {
             addEffect("LoadedPassengers", true);
+            addPrecondition("PassengersAlighted", true);
            // addEffect("stoppedAtAppropriateBay", true);
             //addPrecondition("fullTaxi", false);
         }
@@ -46,6 +47,7 @@ namespace Assets
         {
             Taxi thisTaxi = GetComponent<Taxi>();
             target = thisTaxi.GetAppropriateBay();
+            if (thisTaxi.alightingPassengers == true) return false;
             if (isDone()) return false;
             /*RaycastHit hitInfo = new RaycastHit();
 
@@ -70,7 +72,7 @@ namespace Assets
         {
             return passengersLoaded;
         }
-
+/*
         private IEnumerator LoadPassengers(GameObject taxi)
         {
             Taxi currentTaxi = taxi.GetComponent<Taxi>();
@@ -78,7 +80,7 @@ namespace Assets
             yield return new WaitUntil(() => currentTaxi.isTaxiFull());
 
         }
-
+        */
         public override bool perform(GameObject agent)
         {
             Taxi currentTaxi = agent.GetComponent<Taxi>();

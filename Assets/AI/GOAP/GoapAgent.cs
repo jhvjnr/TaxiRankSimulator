@@ -64,11 +64,11 @@ public sealed class GoapAgent : MonoBehaviour {
             // GOAP planning
 
             // get the world state and the goal we want to plan for
-            Debug.Log("Getting goal and world state");
+           // Debug.Log("Getting goal and world state");
 			Dictionary<string,object> worldState = dataProvider.getWorldState();
-			Dictionary<string,object> goal = dataProvider.createGoalState();
-            Debug.Log("World state size:" + worldState.Count);
-            Debug.Log("Goal state size:" + goal.Count);
+			Dictionary<string,object> goal = dataProvider.getGoalState();
+           // Debug.Log("World state size:" + worldState.Count);
+            //Debug.Log("Goal state size:" + goal.Count);
 			// Plan
 			Queue<GoapAction> plan = planner.plan(gameObject, availableActions, worldState, goal);
 			if (plan != null) {
@@ -196,7 +196,7 @@ public sealed class GoapAgent : MonoBehaviour {
 		foreach (GoapAction a in actions) {
 			availableActions.Add (a);
 		}
-		Debug.Log("Found actions: "+prettyPrint(actions));
+		//Debug.Log("Found actions: "+prettyPrint(actions));
 	}
 
 	public static string prettyPrint(Dictionary<string,object> state) {

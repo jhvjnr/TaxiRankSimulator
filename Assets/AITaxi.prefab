@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 114856485586491998}
   - component: {fileID: 114847241522995178}
   - component: {fileID: 114793627460110054}
+  - component: {fileID: 114116241345041786}
   m_Layer: 0
   m_Name: AITaxi
   m_TagString: Taxi
@@ -1749,6 +1750,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 114219165070212212}
+--- !u!114 &114116241345041786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1540636260490060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a29d6a56dad3cf144a8718ebcf43f45d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &114219165070212212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1805,6 +1818,7 @@ MonoBehaviour:
   fare: 0
   navtarget: {fileID: 0}
   loadingPassengers: 0
+  alightingPassengers: 0
   hasStoppedForPassengers: 0
   loadingPassenger: 0
 --- !u!114 &114707208160900402

@@ -90,7 +90,7 @@ public class GoapPlanner
 	private bool buildGraph (Node parent, List<Node> leaves, HashSet<GoapAction> usableActions, Dictionary<string, object> goal)
 	{
 		bool foundOne = false;
-        Debug.Log("Usable actions size:" + usableActions.Count);
+        //Debug.Log("Usable actions size:" + usableActions.Count);
 		// go through each action available at this node and see if we can use it here
 		foreach (GoapAction action in usableActions) {
 
@@ -140,7 +140,7 @@ public class GoapPlanner
 		foreach (var t in test.Keys) {
 			bool match = false;
 			foreach (var s in state.Keys) {
-                Debug.Log(s +" " + state[s]);
+                //Debug.Log(s +" " + state[s]);
 				if (s.Equals(t) && state[s].Equals(test[t])) {
 					match = true;
 					break;

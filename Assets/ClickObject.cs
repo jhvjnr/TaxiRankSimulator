@@ -65,6 +65,7 @@ public class ClickObject : MonoBehaviour {
             {
                 GameObject newNode = Instantiate(NavNode);
                 newNode.transform.SetPositionAndRotation(node.position, Quaternion.identity);
+                newNode.transform.localScale = new Vector3(.5f, .5f, .5f);
             }
         }
 
@@ -183,7 +184,7 @@ public class ClickObject : MonoBehaviour {
                 
                 if (Physics.Raycast(camRay, out objHit, 200f))
                 {
-                    if (objHit.collider.gameObject.tag == "Terrain")
+                    //if (objHit.collider.gameObject.tag == "Terrain")
                     {
                         
                
@@ -204,7 +205,7 @@ public class ClickObject : MonoBehaviour {
                                     Dropdown dropdown = FindObjectOfType<Dropdown>();
                                     newNode.GetComponent<Bay>().destination = new Destination(dropdown.options[dropdown.value].text);
                                     newNode.GetComponent<Bay>().priority = Mathf.FloorToInt(GameObject.Find("sldBayPriority").GetComponent<Slider>().value);
-                                    newNode.transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = dropdown.options[dropdown.value].text;
+                                    newNode.transform.GetChild(1).gameObject.GetComponent<TextMesh>().text = dropdown.options[dropdown.value].text;
                                    
                                     //Instantiate(label);
                                     print("bayNode");

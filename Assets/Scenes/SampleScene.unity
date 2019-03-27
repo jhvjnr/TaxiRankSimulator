@@ -1616,7 +1616,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &762069602
 MonoBehaviour:
@@ -1636,7 +1636,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 762069601}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1690,7 +1690,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 762069601}
   m_LocalRotation: {x: -0.027418805, y: -0.095720686, z: 0.038526893, w: 0.99428445}
-  m_LocalPosition: {x: 178.8, y: 1.08, z: 32.61}
+  m_LocalPosition: {x: 177.72, y: 1.05, z: 30.58}
   m_LocalScale: {x: 1, y: 1, z: 5.016495}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2871,7 +2871,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.06666667
+  m_VoxelSize: 0.074999996
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 71177ec9bd6966c40884936228d03b7f, type: 2}
 --- !u!1 &1318907228
@@ -3431,6 +3431,10 @@ Prefab:
     - target: {fileID: 1048667100758864, guid: 8627b7ff140246e4aa9c5e024c9f83dd, type: 2}
       propertyPath: m_Name
       value: Ethan
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048667100758864, guid: 8627b7ff140246e4aa9c5e024c9f83dd, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8627b7ff140246e4aa9c5e024c9f83dd, type: 2}
@@ -4180,6 +4184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taxi: {fileID: 1540636260490060, guid: 4b5c594cecc8ecf41b4e4f8ca153897c, type: 2}
+  exampleCommuter: {fileID: 1048667100758864, guid: 8627b7ff140246e4aa9c5e024c9f83dd,
+    type: 2}
   maxToSpawn: 200
 --- !u!1 &1778789853
 GameObject:

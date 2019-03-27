@@ -10,22 +10,25 @@ public class Bay : MonoBehaviour
     public GameObject occupant;
     public int priority;
     public CommuterQueue queue = new CommuterQueue();
-
+   // public GameObject queueEnd;
     private void Start()
-    {
+    { 
+        //queueEnd = new GameObject();
+       // queueEnd.transform.SetPositionAndRotation(gameObject.transform.GetChild(0).transform.position, gameObject.transform.GetChild(0).transform.rotation);
         occupant = null;
     }
 
     private void Update()
     {
+       // Debug.Log("<color=blue> Bay Update </color>");
         if (occupant && occupant.tag == "Taxi")
         {
             Taxi taxi = occupant.GetComponentInParent<Taxi>();
-
-            if (queue.Commuters.Count > 0)
+            //Debug.Log("<color=red>Bay queue count: </color>" + queue.Commuters.Count);
+            if (queue.Commuters.Count > 0 )
             {
                 queue.Commuters.First().GetComponent<AICharacterControl>().SetTarget(gameObject.transform.GetChild(0).transform);
-                if (!taxi.loadingPassenger)
+                if (!taxi.loadingPassenger && !taxi.alightingPassengers && taxi.alightedPassengers)
                 {
                     StartCoroutine(taxi.addPassengerFromQueue(queue));
                 }
@@ -34,9 +37,14 @@ public class Bay : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.GetComponentInParent<Taxi>() != null) occupant = collision.gameObject;
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        occupant = other.gameObject;
+        if (other.gameObject.GetComponentInParent<Taxi>() != null) occupant = other.gameObject;
     }
 
     private void OnTriggerExit(Collider other)
@@ -45,7 +53,7 @@ public class Bay : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        occupant = collision.gameObject;
+        if (collision.gameObject.GetComponentInParent<Taxi>() != null) occupant = collision.gameObject;
     }
 
     private void OnCollisionExit(Collision collision)
@@ -56,12 +64,19 @@ public class Bay : MonoBehaviour
     public void addCommuterToQueue(GameObject commuter)
     {
         queue.addCommuterToQueue(commuter);
+        //queueEnd.transform.SetPositionAndRotation(commuter.transform.position, commuter.transform.rotation);
     }
 
     public Transform getQueingPosition()
     {
         // print(gameObject);
-        if (queue.isEmpty()) return gameObject.transform.GetChild(0).transform;
-        else return queue.getLastTransform();
+        if (queue.Commuters.Count > 0)
+        {
+            return queue.getLastTransform();
+        }
+        else
+        {
+            return gameObject.transform.GetChild(0).transform;
+        }
     }
 }

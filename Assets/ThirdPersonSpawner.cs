@@ -14,6 +14,7 @@ public class ThirdPersonSpawner : MonoBehaviour {
     // Use this for initialization
 
     public GameObject taxi;
+    public GameObject exampleCommuter;
     public static LinkedList<GameObject> taxis;
   //  public static LinkedList<GameObject> aiChars = new LinkedList<GameObject>();
     public int maxToSpawn = 10;
@@ -118,11 +119,11 @@ public class ThirdPersonSpawner : MonoBehaviour {
 
     private LinkedList<GameObject> SpawnInactivePeopleInTaxi(int number)
     {
-        GameObject toSpawn = GameObject.Find("Ethan");
+        //GameObject toSpawn = GameObject.Find("Ethan");
         var passengers = new LinkedList<GameObject>();
         for (int i = 0; i < number; i++)
         {
-            GameObject spawn = Instantiate(toSpawn);
+            GameObject spawn = Instantiate(exampleCommuter);
             spawn.GetComponent<NavMeshAgent>().speed = Random.Range(0.3f, 0.8f);
             spawn.name = "" + i;
             spawn.transform.SetPositionAndRotation(spawn.transform.position + new Vector3(Random.Range(60f, 200f), 0, Random.Range(60f, 200f)), spawn.transform.rotation);
@@ -150,12 +151,12 @@ public class ThirdPersonSpawner : MonoBehaviour {
     IEnumerator SpawnCommuter(Destination destination, float time)
     {
         var adjTime = time - Random.Range(0f, 180f);
-        print("adjTime: " + adjTime);
+        //print("adjTime: " + adjTime);
 
         yield return new WaitForSeconds(adjTime);
-        print("Spawning commuter at: " + adjTime);
-        GameObject toSpawn = GameObject.Find("Ethan");
-        GameObject spawn = Instantiate(toSpawn);
+       // print("Spawning commuter at: " + adjTime);
+        //GameObject toSpawn = GameObject.Find("Ethan");
+        GameObject spawn = Instantiate(exampleCommuter);
         spawn.GetComponent<NavMeshAgent>().speed = Random.Range(0.3f, 0.8f);
         spawn.name = ":)";
         if (Random.Range(0, 2) == 0)
@@ -169,7 +170,7 @@ public class ThirdPersonSpawner : MonoBehaviour {
         spawn.GetComponent<Commuter>().destination = destination;
        // aiChars.AddLast(spawn);
     }
-
+/*
     private void spawnMen()
     {
         GameObject toSpawn = GameObject.Find("Ethan");
@@ -182,7 +183,7 @@ public class ThirdPersonSpawner : MonoBehaviour {
             spawn.transform.SetPositionAndRotation(spawn.transform.position + new Vector3(Random.Range(60f, 200f), 0, Random.Range(60f, 200f)), spawn.transform.rotation);
             //aiChars.AddLast(spawn);
         }
-    }
+    }*/
     private void FixedUpdate()
     {
        // print(Time.time/3600 + 6.03);

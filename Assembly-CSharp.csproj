@@ -67,16 +67,19 @@
     <Compile Include="Assets\AI\GOAP\GoapAgent.cs" />
     <Compile Include="Assets\AI\GOAP\GoapPlanner.cs" />
     <Compile Include="Assets\AI\GOAP\IGoap.cs" />
+    <Compile Include="Assets\AlightPassengersAction.cs" />
     <Compile Include="Assets\Bay.cs" />
     <Compile Include="Assets\BayNode.cs" />
     <Compile Include="Assets\CarExit.cs" />
     <Compile Include="Assets\ClickObject.cs" />
     <Compile Include="Assets\Commuter.cs" />
+    <Compile Include="Assets\CommuterLeaveRank.cs" />
     <Compile Include="Assets\CommuterQueue.cs" />
     <Compile Include="Assets\Destination.cs" />
     <Compile Include="Assets\Edge.cs" />
     <Compile Include="Assets\Exit.cs" />
     <Compile Include="Assets\ExitNode.cs" />
+    <Compile Include="Assets\GetOnAppropriateTaxiAction.cs" />
     <Compile Include="Assets\GraphSolver.cs" />
     <Compile Include="Assets\LoadPassengersAction.cs" />
     <Compile Include="Assets\NavigationBaker.cs" />
@@ -96,7 +99,6 @@
     <Compile Include="Assets\SetState.cs" />
     <Compile Include="Assets\StartNode.cs" />
     <Compile Include="Assets\Taxi.cs" />
-    <Compile Include="Assets\TaxiBayStop.cs" />
     <Compile Include="Assets\TaxiLeaveRank.cs" />
     <Compile Include="Assets\ThirdPersonSpawner.cs" />
     <None Include="Assets\StandardShader.shader" />

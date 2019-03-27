@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityStandardAssets.Vehicles.Car;
 using System.Linq;
 using System;
+using UnityEngine.AI;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class Taxi : MonoBehaviour, IGoap {
 
@@ -21,6 +23,8 @@ public class Taxi : MonoBehaviour, IGoap {
     [SerializeField] private GameObject navtarget;
     [SerializeField] private Node target;
     [SerializeField] private bool loadingPassengers;
+    [SerializeField] public bool alightingPassengers = false;
+    [SerializeField] public bool alightedPassengers = false;
     [SerializeField] private LinkedList<GameObject> passengers = new LinkedList<GameObject>();
     private Node endNode;
     public Dictionary<string, object> worldState = new Dictionary<string, object>();
@@ -150,10 +154,11 @@ public class Taxi : MonoBehaviour, IGoap {
     public IEnumerator addPassengerFromQueue(CommuterQueue queue)
     {
         
-        if (NumSeated() < maxSeated && !loadingPassenger)
+        if (NumSeated() < maxSeated && !loadingPassenger && !alightingPassengers)
         {
             loadingPassenger = true;
-            yield return new WaitForSeconds(3);
+            var loadTime = UnityEngine.Random.Range(3f, 60);
+            yield return new WaitForSeconds(loadTime);
             queue.Commuters.First().SetActive(false);
             passengers.AddLast(queue.Commuters.First.Value);
             queue.Commuters.RemoveFirst();
@@ -228,6 +233,29 @@ public class Taxi : MonoBehaviour, IGoap {
     public void loadPassengers()
     {
         loadingPassengers = true;
+    }
+
+    public IEnumerator alightPassenger()
+    {
+        var alightTime = UnityEngine.Random.Range(3f, 60);
+        yield return new WaitForSeconds(alightTime);
+        if (Passengers.Count > 0)
+        {
+            Debug.Log("<color=green>Yippee! I'm getting off!</color>");
+            var alighter = Passengers.First();
+            Passengers.RemoveFirst();
+            alighter.transform.SetPositionAndRotation(transform.position + new Vector3(1, 0, 0), transform.rotation);
+            alighter.SetActive(true);
+        }
+    }
+
+    public void alightPassengers()
+    {
+        alightingPassengers = true;
+        foreach (GameObject passenger in Passengers)
+        {
+            StartCoroutine(alightPassenger());
+        }
     }
 
     public void planRoute(Node endNode)
@@ -328,6 +356,7 @@ public class Taxi : MonoBehaviour, IGoap {
     {
         Dictionary<string, object> worldState = new Dictionary<string, object>();
         worldState.Add("LoadedPassengers", false);
+        worldState.Add("PassengersAlighted", false);
         //worldState.Add("fullTaxi", new Func<bool>(this.isTaxiFull));
         //worldState.Add("stoppedAtAppropriateBay", false);
         worldState.Add("Left", false);
@@ -346,7 +375,7 @@ public class Taxi : MonoBehaviour, IGoap {
         return worldState;
     }
 
-    public Dictionary<string, object> createGoalState()
+    public Dictionary<string, object> getGoalState()
     {
 
         Dictionary<string, object> goalState = new Dictionary<string, object>();

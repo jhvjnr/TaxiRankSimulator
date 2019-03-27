@@ -13,14 +13,45 @@ public class Commuter : MonoBehaviour, IGoap {
     public double timeStanding;
     public double timeSiting;
     public double timeInSim;
-    public bool inQueue;
+    public bool inQueue = false;
     public bool atBackOfQueue;
     public Bay toEmbarkAt;
+    public Dictionary<string, object> goalState;// = new Dictionary<string, object>();
 
 
-	// Use this for initialization
-	void Start () {
+    
 
+    public Bay getAppropriateBay()
+    {
+        Bay appropriateBay = null;
+        Bay[] bays = FindObjectsOfType(typeof(Bay)) as Bay[];
+
+       // print("Bays found: " + bays.Count());
+
+        foreach (Bay bay in bays)
+        {
+            if (bay.destination.Equals(destination))
+            {
+                appropriateBay = bay;
+            }
+        }
+        if (appropriateBay == null)
+        {
+            Debug.Log("No appropriate bay found:(");
+        }
+        else
+        {
+          //  Debug.Log("Appropriate bay found :)");
+        }
+        toEmbarkAt = appropriateBay;
+        return appropriateBay;
+    }
+
+    // Use this for initialization
+    void Start ()
+    {
+        initializeGoalState();
+        /*
         inQueue = false;
 
 
@@ -48,14 +79,14 @@ public class Commuter : MonoBehaviour, IGoap {
         else
         {
             gameObject.GetComponent<AICharacterControl>().target = toEmbarkAt.getQueingPosition();
-        }
+        }*/
         
 	}
 
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         if (toEmbarkAt == null)
         {
             Bay[] bays = FindObjectsOfType(typeof(Bay)) as Bay[];
@@ -80,7 +111,7 @@ public class Commuter : MonoBehaviour, IGoap {
             inQueue = true;
             //print("I'm in the queue now");
         }
-      //  if (inQueue) this.gameObject.transform.localScale = new Vector3(1f, 2f, 1f);
+      //  if (inQueue) this.gameObject.transform.localScale = new Vector3(1f, 2f, 1f);*/
     }
 
     public float distance(Transform origin, Transform destination)
@@ -92,35 +123,55 @@ public class Commuter : MonoBehaviour, IGoap {
     {
         Dictionary<string, object> worldState = new Dictionary<string, object>();
         worldState.Add("getToDestination", false);
+        worldState.Add("LeaveRank", false);
         //worldState.Add("stayHealthy", false);
         return worldState;
     }
 
-    public Dictionary<string, object> createGoalState()
+    public Dictionary<string, object> initializeGoalState()
     {
-        Dictionary<string, object> goalState = new Dictionary<string, object>();
+        goalState = new Dictionary<string, object>();
         goalState.Add("getToDestination", true);
-
+        
         return goalState;
     }
 
+    public Dictionary<string, object> getGoalState()
+    {
+        return goalState;
+    }
+
+
     public void planFailed(Dictionary<string, object> failedGoal)
     {
+        goalState.Clear();
+        goalState.Add("LeaveRank", true);
+        return;
         throw new NotImplementedException();
     }
 
     public void planFound(Dictionary<string, object> goal, Queue<GoapAction> actions)
     {
+        Debug.Log("<color=yellow>I found a plan :):</color>");
+        int i = 0;
+        foreach (GoapAction action in actions)
+        {
+            Debug.Log("Step " + ++i + ": " + action.ActionName);
+        }
+        return;
+
         throw new NotImplementedException();
     }
 
     public void actionsFinished()
     {
+        return;
         throw new NotImplementedException();
     }
 
     public void planAborted(GoapAction aborter)
     {
+        return;
         throw new NotImplementedException();
     }
 
@@ -136,6 +187,7 @@ public class Commuter : MonoBehaviour, IGoap {
         if (dist <= gameObject.GetComponent<AICharacterControl>().agent.stoppingDistance)
         {
             nextAction.setInRange(true);
+            //Debug.Log("I am in range to: " + nextAction.ActionName);
             return true;
         }
         else
