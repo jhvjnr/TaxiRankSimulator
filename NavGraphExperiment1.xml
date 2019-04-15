@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Vector3Graph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<Vector3Graph xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <nodes>
     <Node>
       <position>
@@ -36,11 +36,11 @@
         <z>113.397812</z>
       </position>
     </Node>
-    <Node>
+    <Node xsi:type="ExitNode">
       <position>
-        <x>66.02313</x>
-        <y>0.55</y>
-        <z>116.684296</z>
+        <x>-7.362053</x>
+        <y>0.550995</y>
+        <z>144.806</z>
       </position>
     </Node>
     <Node>
@@ -52,16 +52,9 @@
     </Node>
     <Node>
       <position>
-        <x>55.55474</x>
-        <y>0.55</y>
-        <z>125.802818</z>
-      </position>
-    </Node>
-    <Node>
-      <position>
-        <x>51.3804436</x>
-        <y>0.55</y>
-        <z>136.458984</z>
+        <x>55.2909241</x>
+        <y>0.550996959</y>
+        <z>128.027863</z>
       </position>
     </Node>
     <Node>
@@ -87,16 +80,16 @@
     </Node>
     <Node>
       <position>
-        <x>92.75268</x>
-        <y>0.55</y>
-        <z>97.1584854</z>
+        <x>6.369835</x>
+        <y>0.5509952</y>
+        <z>143.240234</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>93.83376</x>
-        <y>0.55</y>
-        <z>92.7462158</z>
+        <x>10.5439529</x>
+        <y>0.550995231</y>
+        <z>142.8878</z>
       </position>
     </Node>
     <Node>
@@ -311,9 +304,9 @@
     </Node>
     <Node>
       <position>
-        <x>71.34012</x>
-        <y>0.55</y>
-        <z>108.9252</z>
+        <x>0.223640442</x>
+        <y>0.5509951</y>
+        <z>143.771774</z>
       </position>
     </Node>
     <Node xsi:type="BayNode">
@@ -323,72 +316,58 @@
         <z>50.06442</z>
       </position>
       <destination>
-        <Name>Cloetesville</Name>
+        <Name>CLOETESVILLE</Name>
       </destination>
       <occupied>false</occupied>
       <priority>0</priority>
     </Node>
     <Node>
       <position>
-        <x>80.3893356</x>
-        <y>0.55</y>
-        <z>100.106339</z>
+        <x>53.0670776</x>
+        <y>0.5509975</y>
+        <z>123.63932</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>84.63994</x>
-        <y>0.55</y>
-        <z>96.5757446</z>
+        <x>57.28188</x>
+        <y>0.550998</y>
+        <z>119.683533</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>86.0160751</x>
-        <y>0.55</y>
-        <z>91.5077057</z>
+        <x>71.51608</x>
+        <y>0.5509992</y>
+        <z>109.019417</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>88.24161</x>
-        <y>0.55</y>
-        <z>85.96007</z>
+        <x>79.47176</x>
+        <y>0.5510001</y>
+        <z>101.83799</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>87.49563</x>
-        <y>0.55</y>
-        <z>80.78717</z>
+        <x>86.3472</x>
+        <y>0.5510008</y>
+        <z>96.41331</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>87.74411</x>
-        <y>0.55</y>
-        <z>77.33172</z>
+        <x>88.91188</x>
+        <y>0.5510015</y>
+        <z>90.11074</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>87.20969</x>
-        <y>0.55</y>
-        <z>72.70104</z>
-      </position>
-    </Node>
-    <Node>
-      <position>
-        <x>87.59296</x>
-        <y>0.55</y>
-        <z>68.9979248</z>
-      </position>
-    </Node>
-    <Node>
-      <position>
-        <x>91.24659</x>
-        <y>0.55</y>
-        <z>65.11804</z>
+        <x>90.396965</x>
+        <y>0.5510029</y>
+        <z>78.15533</z>
       </position>
     </Node>
     <Node>
@@ -396,13 +375,6 @@
         <x>93.47416</x>
         <y>0.55</y>
         <z>59.21331</z>
-      </position>
-    </Node>
-    <Node>
-      <position>
-        <x>95.43932</x>
-        <y>0.55</y>
-        <z>52.1989</z>
       </position>
     </Node>
     <Node>
@@ -421,9 +393,9 @@
     </Node>
     <Node>
       <position>
-        <x>100.720123</x>
-        <y>0.55</y>
-        <z>47.5675735</z>
+        <x>136.171082</x>
+        <y>0.551007</y>
+        <z>44.3666153</z>
       </position>
     </Node>
     <Node>
@@ -449,16 +421,16 @@
     </Node>
     <Node>
       <position>
-        <x>141.6541</x>
-        <y>0.55</y>
-        <z>36.9978943</z>
+        <x>150.7618</x>
+        <y>0.551008</y>
+        <z>35.8058624</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>153.811432</x>
-        <y>0.55</y>
-        <z>35.5310364</z>
+        <x>135.560287</x>
+        <y>0.5510082</y>
+        <z>33.5187759</z>
       </position>
     </Node>
     <Node>
@@ -484,51 +456,51 @@
     </Node>
     <Node>
       <position>
-        <x>106.762291</x>
-        <y>0.55</y>
-        <z>47.0715828</z>
-      </position>
-    </Node>
-    <Node>
-      <position>
-        <x>112.784157</x>
-        <y>0.55</y>
-        <z>45.52884</z>
-      </position>
-    </Node>
-    <Node>
-      <position>
-        <x>118.101547</x>
-        <y>0.55</y>
-        <z>44.5896759</z>
-      </position>
-    </Node>
-    <Node>
-      <position>
-        <x>124.180695</x>
+        <x>130.134018</x>
         <y>0.551007</y>
-        <z>44.234</z>
+        <z>44.3276329</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>129.721786</x>
-        <y>0.55</y>
-        <z>43.4747047</z>
+        <x>128.550018</x>
+        <y>0.55100733</y>
+        <z>41.3804665</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>136.194046</x>
-        <y>0.5510071</y>
-        <z>43.13434</z>
+        <x>124.452209</x>
+        <y>0.5510068</y>
+        <z>45.78881</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>142.073242</x>
-        <y>0.55</y>
-        <z>42.14443</z>
+        <x>118.325874</x>
+        <y>0.5510067</y>
+        <z>46.8336</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>112.412979</x>
+        <y>0.5510066</y>
+        <z>47.1176643</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>106.448425</x>
+        <y>0.551006556</y>
+        <z>47.81189</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>100.596611</x>
+        <y>0.5510065</y>
+        <z>48.43002</z>
       </position>
     </Node>
     <Node>
@@ -561,16 +533,16 @@
     </Node>
     <Node>
       <position>
-        <x>137.5078</x>
-        <y>0.55</y>
-        <z>32.7351074</z>
+        <x>154.670242</x>
+        <y>0.551008344</y>
+        <z>32.602562</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>150.584534</x>
-        <y>0.55</y>
-        <z>30.9631023</z>
+        <x>139.658356</x>
+        <y>0.5510078</y>
+        <z>37.23256</z>
       </position>
     </Node>
     <Node>
@@ -589,37 +561,23 @@
     </Node>
     <Node>
       <position>
-        <x>158.918945</x>
-        <y>0.55</y>
-        <z>63.64491</z>
+        <x>159.157822</x>
+        <y>0.5510058</y>
+        <z>54.484272</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>159.232513</x>
-        <y>0.55</y>
-        <z>54.1266251</z>
+        <x>159.574615</x>
+        <y>0.5510076</y>
+        <z>38.9819031</z>
       </position>
     </Node>
     <Node>
       <position>
-        <x>160.051041</x>
-        <y>0.55</y>
-        <z>46.52751</z>
-      </position>
-    </Node>
-    <Node>
-      <position>
-        <x>160.250641</x>
-        <y>0.55</y>
-        <z>39.9659653</z>
-      </position>
-    </Node>
-    <Node>
-      <position>
-        <x>53.9824066</x>
-        <y>0.55</y>
-        <z>123.394119</z>
+        <x>90.53081</x>
+        <y>0.551004052</y>
+        <z>68.64465</z>
       </position>
     </Node>
     <Node>
@@ -631,9 +589,9 @@
     </Node>
     <Node>
       <position>
-        <x>57.6400146</x>
-        <y>0.55</y>
-        <z>118.480324</z>
+        <x>-4.74807</x>
+        <y>0.550995052</y>
+        <z>144.245758</z>
       </position>
     </Node>
     <Node>
@@ -832,7 +790,7 @@
         <z>43.65754</z>
       </position>
       <destination>
-        <Name />
+        <Name>EERSTERIVIER</Name>
       </destination>
       <occupied>false</occupied>
       <priority>0</priority>
@@ -844,16 +802,16 @@
         <z>46.153553</z>
       </position>
       <destination>
-        <Name>Devon Valley</Name>
+        <Name>DEVON VALLEY</Name>
       </destination>
       <occupied>false</occupied>
       <priority>0</priority>
     </Node>
     <Node xsi:type="BayNode">
       <position>
-        <x>159.429169</x>
-        <y>0.551007032</y>
-        <z>43.5372543</z>
+        <x>159.6672</x>
+        <y>0.5510071</y>
+        <z>43.2454376</z>
       </position>
       <destination>
         <Name />
@@ -868,7 +826,7 @@
         <z>45.933075</z>
       </position>
       <destination>
-        <Name>Somerset West</Name>
+        <Name>SOMERSET WEST</Name>
       </destination>
       <occupied>false</occupied>
       <priority>0</priority>
@@ -880,7 +838,7 @@
         <z>47.2379951</z>
       </position>
       <destination>
-        <Name>Vlottenburg</Name>
+        <Name>VLOTTENBURG</Name>
       </destination>
       <occupied>false</occupied>
       <priority>0</priority>
@@ -892,7 +850,7 @@
         <z>45.3202477</z>
       </position>
       <destination>
-        <Name>Koelenhof</Name>
+        <Name>KOELENHOF</Name>
       </destination>
       <occupied>false</occupied>
       <priority>0</priority>
@@ -904,7 +862,7 @@
         <z>49.2998238</z>
       </position>
       <destination>
-        <Name>Idas Valley</Name>
+        <Name>IDAS VALLEY</Name>
       </destination>
       <occupied>false</occupied>
       <priority>0</priority>
@@ -916,7 +874,7 @@
         <z>48.1949463</z>
       </position>
       <destination>
-        <Name>Kayamandi</Name>
+        <Name>KAYAMANDI</Name>
       </destination>
       <occupied>false</occupied>
       <priority>0</priority>
@@ -928,16 +886,16 @@
         <z>47.50058</z>
       </position>
       <destination>
-        <Name>Jamestown</Name>
+        <Name>JAMESTOWN</Name>
       </destination>
       <occupied>false</occupied>
       <priority>0</priority>
     </Node>
     <Node>
       <position>
-        <x>93.54801</x>
-        <y>0.55</y>
-        <z>68.7797852</z>
+        <x>16.5429077</x>
+        <y>0.5509953</y>
+        <z>142.1291</z>
       </position>
     </Node>
     <Node xsi:type="ExitNode">
@@ -1001,25 +959,267 @@
         <z>40.66795</z>
       </position>
     </Node>
+    <Node>
+      <position>
+        <x>155.379333</x>
+        <y>0.551007748</y>
+        <z>37.9597473</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>159.354721</x>
+        <y>0.551008165</y>
+        <z>34.45079</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>45.4461746</x>
+        <y>0.550995767</y>
+        <z>138.0142</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>47.18505</x>
+        <y>0.550996661</y>
+        <z>130.812225</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>50.14986</x>
+        <y>0.550997138</y>
+        <z>126.6256</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>63.7155533</x>
+        <y>0.550998569</y>
+        <z>114.811562</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>66.04732</x>
+        <y>0.550998151</y>
+        <z>118.452187</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>141.808121</x>
+        <y>0.5510071</y>
+        <z>43.34382</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>23.3902817</x>
+        <y>0.5509954</y>
+        <z>141.490479</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>30.1389313</x>
+        <y>0.550995469</y>
+        <z>140.856628</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>34.50712</x>
+        <y>0.550995469</y>
+        <z>140.913574</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>41.527</x>
+        <y>0.5509955</y>
+        <z>140.0548</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>50.7791138</x>
+        <y>0.5509958</y>
+        <z>137.578186</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>52.64978</x>
+        <y>0.550996542</y>
+        <z>131.6441</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>49.7295074</x>
+        <y>0.5509936</y>
+        <z>156.37439</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>54.0343437</x>
+        <y>0.5509935</y>
+        <z>157.467941</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>60.652565</x>
+        <y>0.550993145</y>
+        <z>160.428818</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>75.48202</x>
+        <y>0.5509928</y>
+        <z>163.369141</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>88.575676</x>
+        <y>0.550992846</y>
+        <z>162.691132</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>85.92938</x>
+        <y>0.5509918</y>
+        <z>171.977448</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>98.80478</x>
+        <y>0.550992846</y>
+        <z>162.691132</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>73.97758</x>
+        <y>0.5509918</y>
+        <z>171.525055</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>61.5981674</x>
+        <y>0.55099225</y>
+        <z>167.704224</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>52.80309</x>
+        <y>0.550992966</y>
+        <z>161.6182</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>49.48942</x>
+        <y>0.5509924</y>
+        <z>166.340012</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>44.1660538</x>
+        <y>0.5509932</y>
+        <z>159.642838</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>30.41867</x>
+        <y>0.550993</y>
+        <z>161.068512</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>19.9620667</x>
+        <y>0.550992966</y>
+        <z>161.857224</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>7.21322632</x>
+        <y>0.5509929</y>
+        <z>162.254547</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>-1.44554138</x>
+        <y>0.550992668</y>
+        <z>164.134827</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>6.764183</x>
+        <y>0.5509912</y>
+        <z>176.550766</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>17.3674622</x>
+        <y>0.550991237</y>
+        <z>176.3981</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>31.475769</x>
+        <y>0.5509915</y>
+        <z>174.143326</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>38.7514648</x>
+        <y>0.550991535</y>
+        <z>173.944427</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>35.0848846</x>
+        <y>0.5509905</y>
+        <z>182.2367</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>116.181122</x>
+        <y>0.551007032</y>
+        <z>43.7098961</z>
+      </position>
+    </Node>
+    <Node>
+      <position>
+        <x>108.181137</x>
+        <y>0.5510069</y>
+        <z>44.9666939</z>
+      </position>
+    </Node>
   </nodes>
   <edges>
-    <Edge>
-      <weight>25.790271759033203</weight>
-      <startNode>
-        <position>
-          <x>97.13035</x>
-          <y>0.55</y>
-          <z>108.9721</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>71.34012</x>
-          <y>0.55</y>
-          <z>108.9252</z>
-        </position>
-      </endNode>
-    </Edge>
     <Edge>
       <weight>13.928359031677246</weight>
       <startNode>
@@ -1089,87 +1289,70 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>8.97739028930664</weight>
+      <weight>5.13009786605835</weight>
       <startNode>
         <position>
-          <x>74.37733</x>
-          <y>0.55</y>
-          <z>113.397812</z>
+          <x>47.18505</x>
+          <y>0.550996661</y>
+          <z>130.812225</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>66.02313</x>
-          <y>0.55</y>
-          <z>116.684296</z>
+          <x>50.14986</x>
+          <y>0.550997138</y>
+          <z>126.6256</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>3.7819716930389404</weight>
+      <weight>5.5119314193725586</weight>
       <startNode>
+        <position>
+          <x>55.2909241</x>
+          <y>0.550996959</y>
+          <z>128.027863</z>
+        </position>
+      </startNode>
+      <endNode>
         <position>
           <x>58.69145</x>
           <y>0.55</y>
           <z>123.689911</z>
         </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>7.4089279174804688</weight>
+      <startNode>
+        <position>
+          <x>45.4461746</x>
+          <y>0.550995767</y>
+          <z>138.0142</z>
+        </position>
       </startNode>
       <endNode>
         <position>
-          <x>55.55474</x>
-          <y>0.55</y>
-          <z>125.802818</z>
+          <x>47.18505</x>
+          <y>0.550996661</y>
+          <z>130.812225</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>10.140623092651367</weight>
+      <weight>9.87995719909668</weight>
       <startNode>
         <position>
-          <x>58.69145</x>
+          <x>93.47416</x>
           <y>0.55</y>
-          <z>123.689911</z>
+          <z>59.21331</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>66.02313</x>
-          <y>0.55</y>
-          <z>116.684296</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>11.444589614868164</weight>
-      <startNode>
-        <position>
-          <x>55.55474</x>
-          <y>0.55</y>
-          <z>125.802818</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>51.3804436</x>
-          <y>0.55</y>
-          <z>136.458984</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>7.2588720321655273</weight>
-      <startNode>
-        <position>
-          <x>51.3804436</x>
-          <y>0.55</y>
-          <z>136.458984</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>49.888</x>
-          <y>0.55</y>
-          <z>143.562775</z>
+          <x>90.53081</x>
+          <y>0.551004052</y>
+          <z>68.64465</z>
         </position>
       </endNode>
     </Edge>
@@ -1204,40 +1387,6 @@
           <x>90.46918</x>
           <y>0.55</y>
           <z>102.409935</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>5.7264385223388672</weight>
-      <startNode>
-        <position>
-          <x>90.46918</x>
-          <y>0.55</y>
-          <z>102.409935</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>92.75268</x>
-          <y>0.55</y>
-          <z>97.1584854</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>4.5427818298339844</weight>
-      <startNode>
-        <position>
-          <x>92.75268</x>
-          <y>0.55</y>
-          <z>97.1584854</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>93.83376</x>
-          <y>0.55</y>
-          <z>92.7462158</z>
         </position>
       </endNode>
     </Edge>
@@ -1597,7 +1746,7 @@
           <z>46.153553</z>
         </position>
         <destination>
-          <Name>Devon Valley</Name>
+          <Name>DEVON VALLEY</Name>
         </destination>
         <occupied>false</occupied>
         <priority>0</priority>
@@ -1893,19 +2042,19 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>9.4060554504394531</weight>
+      <weight>5.7815895080566406</weight>
       <startNode>
         <position>
-          <x>66.02313</x>
+          <x>50.7552147</x>
           <y>0.55</y>
-          <z>116.684296</z>
+          <z>100.234589</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>71.34012</x>
+          <x>55.36876</x>
           <y>0.55</y>
-          <z>108.9252</z>
+          <z>96.75005</z>
         </position>
       </endNode>
     </Edge>
@@ -1925,7 +2074,7 @@
           <z>49.2998238</z>
         </position>
         <destination>
-          <Name>Idas Valley</Name>
+          <Name>IDAS VALLEY</Name>
         </destination>
         <occupied>false</occupied>
         <priority>0</priority>
@@ -1940,7 +2089,7 @@
           <z>50.06442</z>
         </position>
         <destination>
-          <Name>Cloetesville</Name>
+          <Name>CLOETESVILLE</Name>
         </destination>
         <occupied>false</occupied>
         <priority>0</priority>
@@ -1954,189 +2103,138 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>5.525641918182373</weight>
+      <weight>4.1746902465820313</weight>
       <startNode>
         <position>
-          <x>80.3893356</x>
-          <y>0.55</y>
-          <z>100.106339</z>
+          <x>50.14986</x>
+          <y>0.550997138</y>
+          <z>126.6256</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>84.63994</x>
-          <y>0.55</y>
-          <z>96.5757446</z>
+          <x>53.0670776</x>
+          <y>0.5509975</y>
+          <z>123.63932</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>5.251549243927002</weight>
+      <weight>5.7803816795349121</weight>
       <startNode>
         <position>
-          <x>84.63994</x>
-          <y>0.55</y>
-          <z>96.5757446</z>
+          <x>53.0670776</x>
+          <y>0.5509975</y>
+          <z>123.63932</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>86.0160751</x>
-          <y>0.55</y>
-          <z>91.5077057</z>
+          <x>57.28188</x>
+          <y>0.550998</y>
+          <z>119.683533</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>5.9773974418640137</weight>
+      <weight>8.0702085494995117</weight>
       <startNode>
         <position>
-          <x>86.0160751</x>
-          <y>0.55</y>
-          <z>91.5077057</z>
+          <x>57.28188</x>
+          <y>0.550998</y>
+          <z>119.683533</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>88.24161</x>
-          <y>0.55</y>
-          <z>85.96007</z>
+          <x>63.7155533</x>
+          <y>0.550998569</y>
+          <z>114.811562</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>5.2264089584350586</weight>
+      <weight>9.7158222198486328</weight>
       <startNode>
         <position>
-          <x>88.24161</x>
-          <y>0.55</y>
-          <z>85.96007</z>
+          <x>63.7155533</x>
+          <y>0.550998569</y>
+          <z>114.811562</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>87.49563</x>
-          <y>0.55</y>
-          <z>80.78717</z>
+          <x>71.51608</x>
+          <y>0.5509992</y>
+          <z>109.019417</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>3.4643745422363281</weight>
+      <weight>10.717544555664063</weight>
       <startNode>
         <position>
-          <x>87.49563</x>
-          <y>0.55</y>
-          <z>80.78717</z>
+          <x>71.51608</x>
+          <y>0.5509992</y>
+          <z>109.019417</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>87.74411</x>
-          <y>0.55</y>
-          <z>77.33172</z>
+          <x>79.47176</x>
+          <y>0.5510001</y>
+          <z>101.83799</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>4.6614131927490234</weight>
+      <weight>8.7577838897705078</weight>
       <startNode>
         <position>
-          <x>87.20969</x>
-          <y>0.55</y>
-          <z>72.70104</z>
+          <x>79.47176</x>
+          <y>0.5510001</y>
+          <z>101.83799</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>87.74411</x>
-          <y>0.55</y>
-          <z>77.33172</z>
+          <x>86.3472</x>
+          <y>0.5510008</y>
+          <z>96.41331</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>3.7228984832763672</weight>
+      <weight>13.055573463439941</weight>
       <startNode>
-        <position>
-          <x>87.20969</x>
-          <y>0.55</y>
-          <z>72.70104</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>87.59296</x>
-          <y>0.55</y>
-          <z>68.9979248</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>5.329401969909668</weight>
-      <startNode>
-        <position>
-          <x>91.24659</x>
-          <y>0.55</y>
-          <z>65.11804</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>87.59296</x>
-          <y>0.55</y>
-          <z>68.9979248</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>6.31093692779541</weight>
-      <startNode>
-        <position>
-          <x>91.24659</x>
-          <y>0.55</y>
-          <z>65.11804</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>93.47416</x>
-          <y>0.55</y>
-          <z>59.21331</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>7.2844934463500977</weight>
-      <startNode>
-        <position>
-          <x>93.47416</x>
-          <y>0.55</y>
-          <z>59.21331</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>95.43932</x>
-          <y>0.55</y>
-          <z>52.1989</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>5.9739251136779785</weight>
-      <startNode>
-        <position>
-          <x>95.43932</x>
-          <y>0.55</y>
-          <z>52.1989</z>
-        </position>
-      </startNode>
-      <endNode>
         <position>
           <x>94.96858</x>
           <y>0.55</y>
           <z>46.24355</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>93.47416</x>
+          <y>0.55</y>
+          <z>59.21331</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>6.804405689239502</weight>
+      <startNode>
+        <position>
+          <x>86.3472</x>
+          <y>0.5510008</y>
+          <z>96.41331</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>88.91188</x>
+          <y>0.5510015</y>
+          <z>90.11074</z>
         </position>
       </endNode>
     </Edge>
@@ -2147,23 +2245,6 @@
           <x>94.96858</x>
           <y>0.55</y>
           <z>46.24355</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>100.986984</x>
-          <y>0.55</y>
-          <z>44.7053833</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>2.8746039867401123</weight>
-      <startNode>
-        <position>
-          <x>100.720123</x>
-          <y>0.55</y>
-          <z>47.5675735</z>
         </position>
       </startNode>
       <endNode>
@@ -2226,46 +2307,46 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>10.944075584411621</weight>
+      <weight>9.0300922393798828</weight>
       <startNode>
         <position>
-          <x>141.6541</x>
+          <x>58.69145</x>
           <y>0.55</y>
-          <z>36.9978943</z>
+          <z>123.689911</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>130.889252</x>
-          <y>0.55</y>
-          <z>38.97042</z>
+          <x>66.04732</x>
+          <y>0.550998151</y>
+          <z>118.452187</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>12.245506286621094</weight>
+      <weight>6.778350830078125</weight>
       <startNode>
         <position>
-          <x>153.811432</x>
-          <y>0.55</y>
-          <z>35.5310364</z>
+          <x>23.3902817</x>
+          <y>0.5509954</y>
+          <z>141.490479</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>141.6541</x>
-          <y>0.55</y>
-          <z>36.9978943</z>
+          <x>30.1389313</x>
+          <y>0.550995469</y>
+          <z>140.856628</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>8.9418191909790039</weight>
+      <weight>7.1362290382385254</weight>
       <startNode>
         <position>
-          <x>153.811432</x>
-          <y>0.55</y>
-          <z>35.5310364</z>
+          <x>154.670242</x>
+          <y>0.551008344</y>
+          <z>32.602562</z>
         </position>
       </startNode>
       <endNode>
@@ -2311,57 +2392,6 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>5.3214197158813477</weight>
-      <startNode>
-        <position>
-          <x>106.762291</x>
-          <y>0.55</y>
-          <z>47.0715828</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>109.902367</x>
-          <y>0.55</y>
-          <z>42.77537</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>6.552940845489502</weight>
-      <startNode>
-        <position>
-          <x>112.784157</x>
-          <y>0.55</y>
-          <z>45.52884</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>118.149544</x>
-          <y>0.55</y>
-          <z>41.7667046</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>2.8233792781829834</weight>
-      <startNode>
-        <position>
-          <x>118.101547</x>
-          <y>0.55</y>
-          <z>44.5896759</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>118.149544</x>
-          <y>0.55</y>
-          <z>41.7667046</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
       <weight>4.2823834419250488</weight>
       <startNode>
         <position>
@@ -2379,46 +2409,12 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>6.5163130760192871</weight>
+      <weight>7.5509366989135742</weight>
       <startNode>
         <position>
-          <x>124.180695</x>
+          <x>136.171082</x>
           <y>0.551007</y>
-          <z>44.234</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>118.149544</x>
-          <y>0.55</y>
-          <z>41.7667046</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>3.5705099105834961</weight>
-      <startNode>
-        <position>
-          <x>124.180695</x>
-          <y>0.551007</y>
-          <z>44.234</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>124.35907</x>
-          <y>0.5510074</y>
-          <z>40.66795</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>4.6531224250793457</weight>
-      <startNode>
-        <position>
-          <x>129.721786</x>
-          <y>0.55</y>
-          <z>43.4747047</z>
+          <z>44.3666153</z>
         </position>
       </startNode>
       <endNode>
@@ -2430,36 +2426,53 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>5.1635737419128418</weight>
+      <weight>6.0187654495239258</weight>
       <startNode>
         <position>
-          <x>142.073242</x>
-          <y>0.55</y>
-          <z>42.14443</z>
+          <x>124.452209</x>
+          <y>0.5510068</y>
+          <z>45.78881</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>141.6541</x>
-          <y>0.55</y>
-          <z>36.9978943</z>
+          <x>128.550018</x>
+          <y>0.55100733</y>
+          <z>41.3804665</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>7.7818942070007324</weight>
+      <weight>6.1691365242004395</weight>
       <startNode>
         <position>
-          <x>147.964218</x>
-          <y>0.55</y>
-          <z>40.66601</z>
+          <x>0.223640442</x>
+          <y>0.5509951</y>
+          <z>143.771774</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>153.811432</x>
-          <y>0.55</y>
-          <z>35.5310364</z>
+          <x>6.369835</x>
+          <y>0.5509952</y>
+          <z>143.240234</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>5.0534238815307617</weight>
+      <startNode>
+        <position>
+          <x>150.7618</x>
+          <y>0.551008</y>
+          <z>35.8058624</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>154.670242</x>
+          <y>0.551008344</y>
+          <z>32.602562</z>
         </position>
       </endNode>
     </Edge>
@@ -2515,53 +2528,19 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>11.190807342529297</weight>
+      <weight>5.5304927825927734</weight>
       <startNode>
         <position>
-          <x>126.327873</x>
-          <y>0.55</y>
-          <z>33.2285271</z>
+          <x>139.658356</x>
+          <y>0.5510078</y>
+          <z>37.23256</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>137.5078</x>
-          <y>0.55</y>
-          <z>32.7351074</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>13.196250915527344</weight>
-      <startNode>
-        <position>
-          <x>137.5078</x>
-          <y>0.55</y>
-          <z>32.7351074</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>150.584534</x>
-          <y>0.55</y>
-          <z>30.9631023</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>11.105744361877441</weight>
-      <startNode>
-        <position>
-          <x>150.584534</x>
-          <y>0.55</y>
-          <z>30.9631023</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>161.685364</x>
-          <y>0.55</y>
-          <z>31.2934284</z>
+          <x>135.560287</x>
+          <y>0.5510082</y>
+          <z>33.5187759</z>
         </position>
       </endNode>
     </Edge>
@@ -2600,88 +2579,47 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>6.3813991546630859</weight>
-      <startNode>
+      <weight>4.26453971862793</weight>
+      <startNode xsi:type="BayNode">
         <position>
-          <x>157.25705</x>
-          <y>0.55</y>
-          <z>69.80611</z>
+          <x>159.6672</x>
+          <y>0.5510071</y>
+          <z>43.2454376</z>
         </position>
+        <destination>
+          <Name />
+        </destination>
+        <occupied>false</occupied>
+        <priority>0</priority>
       </startNode>
       <endNode>
         <position>
-          <x>158.918945</x>
-          <y>0.55</y>
-          <z>63.64491</z>
+          <x>159.574615</x>
+          <y>0.5510076</y>
+          <z>38.9819031</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>9.52344799041748</weight>
+      <weight>11.250371932983398</weight>
       <startNode>
         <position>
-          <x>158.918945</x>
-          <y>0.55</y>
-          <z>63.64491</z>
+          <x>159.157822</x>
+          <y>0.5510058</y>
+          <z>54.484272</z>
         </position>
       </startNode>
-      <endNode>
+      <endNode xsi:type="BayNode">
         <position>
-          <x>159.232513</x>
-          <y>0.55</y>
-          <z>54.1266251</z>
+          <x>159.6672</x>
+          <y>0.5510071</y>
+          <z>43.2454376</z>
         </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>7.6430697441101074</weight>
-      <startNode>
-        <position>
-          <x>159.232513</x>
-          <y>0.55</y>
-          <z>54.1266251</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>160.051041</x>
-          <y>0.55</y>
-          <z>46.52751</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>6.5645813941955566</weight>
-      <startNode>
-        <position>
-          <x>160.051041</x>
-          <y>0.55</y>
-          <z>46.52751</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>160.250641</x>
-          <y>0.55</y>
-          <z>39.9659653</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>8.7904109954833984</weight>
-      <startNode>
-        <position>
-          <x>160.250641</x>
-          <y>0.55</y>
-          <z>39.9659653</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>161.685364</x>
-          <y>0.55</y>
-          <z>31.2934284</z>
-        </position>
+        <destination>
+          <Name />
+        </destination>
+        <occupied>false</occupied>
+        <priority>0</priority>
       </endNode>
     </Edge>
     <Edge>
@@ -2702,19 +2640,19 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>5.7666449546813965</weight>
+      <weight>15.439286231994629</weight>
       <startNode>
         <position>
-          <x>153.91571</x>
+          <x>157.25705</x>
           <y>0.55</y>
-          <z>66.51228</z>
+          <z>69.80611</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>158.918945</x>
-          <y>0.55</y>
-          <z>63.64491</z>
+          <x>159.157822</x>
+          <y>0.5510058</y>
+          <z>54.484272</z>
         </position>
       </endNode>
     </Edge>
@@ -2770,87 +2708,70 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>2.8764677047729492</weight>
+      <weight>4.9942526817321777</weight>
       <startNode>
         <position>
-          <x>55.55474</x>
-          <y>0.55</y>
-          <z>125.802818</z>
+          <x>-4.74807</x>
+          <y>0.550995052</y>
+          <z>144.245758</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>53.9824066</x>
-          <y>0.55</y>
-          <z>123.394119</z>
+          <x>0.223640442</x>
+          <y>0.5509951</y>
+          <z>143.771774</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>13.321445465087891</weight>
+      <weight>12.047298431396484</weight>
       <startNode>
         <position>
-          <x>53.9824066</x>
-          <y>0.55</y>
-          <z>123.394119</z>
+          <x>90.396965</x>
+          <y>0.5510029</y>
+          <z>78.15533</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>51.3804436</x>
-          <y>0.55</y>
-          <z>136.458984</z>
+          <x>88.91188</x>
+          <y>0.5510015</y>
+          <z>90.11074</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>9.7671518325805664</weight>
+      <weight>2.6733460426330566</weight>
       <startNode>
         <position>
-          <x>53.9824066</x>
-          <y>0.55</y>
-          <z>123.394119</z>
+          <x>-4.74807</x>
+          <y>0.550995052</y>
+          <z>144.245758</z>
         </position>
       </startNode>
-      <endNode>
+      <endNode xsi:type="ExitNode">
         <position>
-          <x>48.3655663</x>
-          <y>0.55</y>
-          <z>115.4036</z>
+          <x>-7.362053</x>
+          <y>0.550995</y>
+          <z>144.806</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>8.5733528137207031</weight>
+      <weight>6.8770904541015625</weight>
       <startNode>
         <position>
-          <x>66.02313</x>
-          <y>0.55</y>
-          <z>116.684296</z>
+          <x>16.5429077</x>
+          <y>0.5509953</y>
+          <z>142.1291</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>57.6400146</x>
-          <y>0.55</y>
-          <z>118.480324</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>9.7714691162109375</weight>
-      <startNode>
-        <position>
-          <x>57.6400146</x>
-          <y>0.55</y>
-          <z>118.480324</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>48.3655663</x>
-          <y>0.55</y>
-          <z>115.4036</z>
+          <x>23.3902817</x>
+          <y>0.5509954</y>
+          <z>141.490479</z>
         </position>
       </endNode>
     </Edge>
@@ -3637,36 +3558,19 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>9.0930900573730469</weight>
+      <weight>3.9243893623352051</weight>
       <startNode>
         <position>
-          <x>130.889252</x>
-          <y>0.55</y>
-          <z>38.97042</z>
+          <x>159.354721</x>
+          <y>0.551008165</y>
+          <z>34.45079</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>137.5078</x>
+          <x>161.685364</x>
           <y>0.55</y>
-          <z>32.7351074</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>10.77828311920166</weight>
-      <startNode>
-        <position>
-          <x>141.6541</x>
-          <y>0.55</y>
-          <z>36.9978943</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>150.584534</x>
-          <y>0.55</y>
-          <z>30.9631023</z>
+          <z>31.2934284</z>
         </position>
       </endNode>
     </Edge>
@@ -3722,70 +3626,70 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>5.9466938972473145</weight>
+      <weight>4.4185891151428223</weight>
       <startNode>
         <position>
-          <x>137.5078</x>
-          <y>0.55</y>
-          <z>32.7351074</z>
+          <x>41.527</x>
+          <y>0.5509955</y>
+          <z>140.0548</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>141.6541</x>
-          <y>0.55</y>
-          <z>36.9978943</z>
+          <x>45.4461746</x>
+          <y>0.550995767</y>
+          <z>138.0142</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>5.5927534103393555</weight>
+      <weight>5.6078062057495117</weight>
       <startNode>
         <position>
-          <x>150.584534</x>
-          <y>0.55</y>
-          <z>30.9631023</z>
+          <x>150.7618</x>
+          <y>0.551008</y>
+          <z>35.8058624</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>153.811432</x>
+          <x>147.964218</x>
           <y>0.55</y>
-          <z>35.5310364</z>
+          <z>40.66601</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>6.1256413459777832</weight>
+      <weight>6.0467414855957031</weight>
       <startNode>
         <position>
-          <x>53.9824066</x>
-          <y>0.55</y>
-          <z>123.394119</z>
+          <x>10.5439529</x>
+          <y>0.550995231</y>
+          <z>142.8878</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>57.6400146</x>
-          <y>0.55</y>
-          <z>118.480324</z>
+          <x>16.5429077</x>
+          <y>0.5509953</y>
+          <z>142.1291</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>5.314631462097168</weight>
+      <weight>4.18897008895874</weight>
       <startNode>
         <position>
-          <x>58.69145</x>
-          <y>0.55</y>
-          <z>123.689911</z>
+          <x>6.369835</x>
+          <y>0.5509952</y>
+          <z>143.240234</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>57.6400146</x>
-          <y>0.55</y>
-          <z>118.480324</z>
+          <x>10.5439529</x>
+          <y>0.550995231</y>
+          <z>142.8878</z>
         </position>
       </endNode>
     </Edge>
@@ -3807,129 +3711,70 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>8.1269311904907227</weight>
-      <startNode xsi:type="BayNode">
-        <position>
-          <x>153.894867</x>
-          <y>0.551007032</y>
-          <z>43.65754</z>
-        </position>
-        <destination>
-          <Name />
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
-      </startNode>
-      <endNode>
-        <position>
-          <x>153.811432</x>
-          <y>0.55</y>
-          <z>35.5310364</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>3.6645493507385254</weight>
-      <startNode xsi:type="BayNode">
-        <position>
-          <x>159.429169</x>
-          <y>0.551007032</y>
-          <z>43.5372543</z>
-        </position>
-        <destination>
-          <Name />
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
-      </startNode>
-      <endNode>
-        <position>
-          <x>160.250641</x>
-          <y>0.55</y>
-          <z>39.9659653</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>10.59119701385498</weight>
-      <startNode xsi:type="BayNode">
-        <position>
-          <x>159.429169</x>
-          <y>0.551007032</y>
-          <z>43.5372543</z>
-        </position>
-        <destination>
-          <Name />
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
-      </startNode>
-      <endNode>
-        <position>
-          <x>159.232513</x>
-          <y>0.55</y>
-          <z>54.1266251</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>7.384305477142334</weight>
+      <weight>14.5491361618042</weight>
       <startNode>
         <position>
-          <x>129.721786</x>
-          <y>0.55</y>
-          <z>43.4747047</z>
+          <x>124.35907</x>
+          <y>0.5510074</y>
+          <z>40.66795</z>
         </position>
       </startNode>
-      <endNode xsi:type="BayNode">
+      <endNode>
         <position>
-          <x>136.07518</x>
-          <y>0.5510066</y>
-          <z>47.2379951</z>
+          <x>110.607063</x>
+          <y>0.55</y>
+          <z>35.9182472</z>
         </position>
-        <destination>
-          <Name>Vlottenburg</Name>
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
       </endNode>
     </Edge>
     <Edge>
-      <weight>2.5290954113006592</weight>
-      <startNode xsi:type="BayNode">
+      <weight>5.1217079162597656</weight>
+      <startNode>
         <position>
-          <x>130.3157</x>
+          <x>124.452209</x>
           <y>0.5510068</y>
-          <z>45.933075</z>
+          <z>45.78881</z>
         </position>
-        <destination>
-          <Name>Somerset West</Name>
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
       </startNode>
       <endNode>
         <position>
-          <x>129.721786</x>
-          <y>0.55</y>
-          <z>43.4747047</z>
+          <x>124.35907</x>
+          <y>0.5510074</y>
+          <z>40.66795</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>8.213897705078125</weight>
+      <weight>7.4766926765441895</weight>
       <startNode>
         <position>
-          <x>136.194046</x>
-          <y>0.5510071</y>
-          <z>43.13434</z>
+          <x>124.452209</x>
+          <y>0.5510068</y>
+          <z>45.78881</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>141.6541</x>
+          <x>118.149544</x>
           <y>0.55</y>
-          <z>36.9978943</z>
+          <z>41.7667046</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>5.3024978637695313</weight>
+      <startNode>
+        <position>
+          <x>155.379333</x>
+          <y>0.551007748</y>
+          <z>37.9597473</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>159.354721</x>
+          <y>0.551008165</y>
+          <z>34.45079</z>
         </position>
       </endNode>
     </Edge>
@@ -3959,7 +3804,7 @@
           <z>45.3202477</z>
         </position>
         <destination>
-          <Name>Koelenhof</Name>
+          <Name>KOELENHOF</Name>
         </destination>
         <occupied>false</occupied>
         <priority>0</priority>
@@ -3973,134 +3818,19 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>2.8574573993682861</weight>
-      <startNode xsi:type="BayNode">
+      <weight>6.2831301689147949</weight>
+      <startNode>
         <position>
-          <x>101.1155</x>
-          <y>0.551006258</y>
-          <z>50.3975449</z>
+          <x>106.448425</x>
+          <y>0.551006556</y>
+          <z>47.81189</z>
         </position>
-        <destination>
-          <Name>KYLEMORE</Name>
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
       </startNode>
       <endNode>
         <position>
-          <x>100.720123</x>
+          <x>100.986984</x>
           <y>0.55</y>
-          <z>47.5675735</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>3.6645493507385254</weight>
-      <startNode xsi:type="BayNode">
-        <position>
-          <x>159.429169</x>
-          <y>0.551007032</y>
-          <z>43.5372543</z>
-        </position>
-        <destination>
-          <Name />
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
-      </startNode>
-      <endNode>
-        <position>
-          <x>160.250641</x>
-          <y>0.55</y>
-          <z>39.9659653</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>3.6159236431121826</weight>
-      <startNode xsi:type="BayNode">
-        <position>
-          <x>118.378906</x>
-          <y>0.5510065</y>
-          <z>48.1949463</z>
-        </position>
-        <destination>
-          <Name>Kayamandi</Name>
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
-      </startNode>
-      <endNode>
-        <position>
-          <x>118.101547</x>
-          <y>0.55</y>
-          <z>44.5896759</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>3.7780952453613281</weight>
-      <startNode xsi:type="BayNode">
-        <position>
-          <x>112.552475</x>
-          <y>0.5510064</y>
-          <z>49.2998238</z>
-        </position>
-        <destination>
-          <Name>Idas Valley</Name>
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
-      </startNode>
-      <endNode>
-        <position>
-          <x>112.784157</x>
-          <y>0.55</y>
-          <z>45.52884</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>2.9934134483337402</weight>
-      <startNode xsi:type="BayNode">
-        <position>
-          <x>106.703506</x>
-          <y>0.551006258</y>
-          <z>50.06442</z>
-        </position>
-        <destination>
-          <Name>Cloetesville</Name>
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
-      </startNode>
-      <endNode>
-        <position>
-          <x>106.762291</x>
-          <y>0.55</y>
-          <z>47.0715828</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>4.0290007591247559</weight>
-      <startNode xsi:type="BayNode">
-        <position>
-          <x>141.673538</x>
-          <y>0.551006734</y>
-          <z>46.153553</z>
-        </position>
-        <destination>
-          <Name>Devon Valley</Name>
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
-      </startNode>
-      <endNode>
-        <position>
-          <x>142.073242</x>
-          <y>0.55</y>
-          <z>42.14443</z>
+          <z>44.7053833</z>
         </position>
       </endNode>
     </Edge>
@@ -4120,32 +3850,27 @@
           <z>45.3202477</z>
         </position>
         <destination>
-          <Name>Koelenhof</Name>
+          <Name>KOELENHOF</Name>
         </destination>
         <occupied>false</occupied>
         <priority>0</priority>
       </endNode>
     </Edge>
     <Edge>
-      <weight>20.114126205444336</weight>
+      <weight>4.536445140838623</weight>
       <startNode>
         <position>
-          <x>158.918945</x>
-          <y>0.55</y>
-          <z>63.64491</z>
+          <x>159.574615</x>
+          <y>0.5510076</y>
+          <z>38.9819031</z>
         </position>
       </startNode>
-      <endNode xsi:type="BayNode">
+      <endNode>
         <position>
-          <x>159.429169</x>
-          <y>0.551007032</y>
-          <z>43.5372543</z>
+          <x>159.354721</x>
+          <y>0.551008165</y>
+          <z>34.45079</z>
         </position>
-        <destination>
-          <Name />
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
       </endNode>
     </Edge>
     <Edge>
@@ -4164,7 +3889,7 @@
           <z>43.65754</z>
         </position>
         <destination>
-          <Name />
+          <Name>EERSTERIVIER</Name>
         </destination>
         <occupied>false</occupied>
         <priority>0</priority>
@@ -4186,7 +3911,7 @@
           <z>48.1949463</z>
         </position>
         <destination>
-          <Name>Kayamandi</Name>
+          <Name>KAYAMANDI</Name>
         </destination>
         <occupied>false</occupied>
         <priority>0</priority>
@@ -4208,7 +3933,7 @@
           <z>47.50058</z>
         </position>
         <destination>
-          <Name>Jamestown</Name>
+          <Name>JAMESTOWN</Name>
         </destination>
         <occupied>false</occupied>
         <priority>0</priority>
@@ -4230,7 +3955,7 @@
           <z>47.2379951</z>
         </position>
         <destination>
-          <Name>Vlottenburg</Name>
+          <Name>VLOTTENBURG</Name>
         </destination>
         <occupied>false</occupied>
         <priority>0</priority>
@@ -4252,43 +3977,26 @@
           <z>45.933075</z>
         </position>
         <destination>
-          <Name>Somerset West</Name>
+          <Name>SOMERSET WEST</Name>
         </destination>
         <occupied>false</occupied>
         <priority>0</priority>
       </endNode>
     </Edge>
     <Edge>
-      <weight>7.8186960220336914</weight>
+      <weight>9.23697566986084</weight>
       <startNode>
         <position>
-          <x>160.250641</x>
-          <y>0.55</y>
-          <z>39.9659653</z>
+          <x>135.560287</x>
+          <y>0.5510082</y>
+          <z>33.5187759</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>153.811432</x>
+          <x>126.327873</x>
           <y>0.55</y>
-          <z>35.5310364</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>4.3249168395996094</weight>
-      <startNode>
-        <position>
-          <x>93.54801</x>
-          <y>0.55</y>
-          <z>68.7797852</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>91.24659</x>
-          <y>0.55</y>
-          <z>65.11804</z>
+          <z>33.2285271</z>
         </position>
       </endNode>
     </Edge>
@@ -4400,41 +4108,36 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>6.7438158988952637</weight>
+      <weight>5.0699620246887207</weight>
       <startNode>
         <position>
-          <x>136.194046</x>
-          <y>0.5510071</y>
-          <z>43.13434</z>
+          <x>118.325874</x>
+          <y>0.5510067</y>
+          <z>46.8336</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>130.889252</x>
+          <x>118.149544</x>
           <y>0.55</y>
-          <z>38.97042</z>
+          <z>41.7667046</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>4.1053781509399414</weight>
-      <startNode xsi:type="BayNode">
+      <weight>5.0158429145812988</weight>
+      <startNode>
         <position>
-          <x>136.07518</x>
+          <x>112.412979</x>
           <y>0.5510066</y>
-          <z>47.2379951</z>
+          <z>47.1176643</z>
         </position>
-        <destination>
-          <Name>Vlottenburg</Name>
-        </destination>
-        <occupied>false</occupied>
-        <priority>0</priority>
       </startNode>
       <endNode>
         <position>
-          <x>136.194046</x>
-          <y>0.5510071</y>
-          <z>43.13434</z>
+          <x>109.902367</x>
+          <y>0.55</y>
+          <z>42.77537</z>
         </position>
       </endNode>
     </Edge>
@@ -4524,19 +4227,19 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>12.297832489013672</weight>
+      <weight>7.0722169876098633</weight>
       <startNode>
         <position>
-          <x>71.34012</x>
-          <y>0.55</y>
-          <z>108.9252</z>
+          <x>34.50712</x>
+          <y>0.550995469</y>
+          <z>140.913574</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>83.40187</x>
-          <y>0.55</y>
-          <z>111.323288</z>
+          <x>41.527</x>
+          <y>0.5509955</y>
+          <z>140.0548</z>
         </position>
       </endNode>
     </Edge>
@@ -4558,36 +4261,19 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>23.9681339263916</weight>
+      <weight>4.368558406829834</weight>
       <startNode>
         <position>
-          <x>93.83376</x>
-          <y>0.55</y>
-          <z>92.7462158</z>
+          <x>30.1389313</x>
+          <y>0.550995469</y>
+          <z>140.856628</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>93.54801</x>
-          <y>0.55</y>
-          <z>68.7797852</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>12.635690689086914</weight>
-      <startNode>
-        <position>
-          <x>71.34012</x>
-          <y>0.55</y>
-          <z>108.9252</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>80.3893356</x>
-          <y>0.55</y>
-          <z>100.106339</z>
+          <x>34.50712</x>
+          <y>0.550995469</y>
+          <z>140.913574</z>
         </position>
       </endNode>
     </Edge>
@@ -4677,53 +4363,58 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>21.361454010009766</weight>
+      <weight>9.7434988021850586</weight>
       <startNode>
         <position>
-          <x>118.149544</x>
-          <y>0.55</y>
-          <z>41.7667046</z>
+          <x>66.04732</x>
+          <y>0.550998151</y>
+          <z>118.452187</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>137.5078</x>
+          <x>74.37733</x>
           <y>0.55</y>
-          <z>32.7351074</z>
+          <z>113.397812</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>21.260791778564453</weight>
+      <weight>3.74503755569458</weight>
       <startNode>
         <position>
-          <x>130.889252</x>
-          <y>0.55</y>
-          <z>38.97042</z>
+          <x>100.596611</x>
+          <y>0.5510065</y>
+          <z>48.43002</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>150.584534</x>
+          <x>100.986984</x>
           <y>0.55</y>
-          <z>30.9631023</z>
+          <z>44.7053833</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>20.827686309814453</weight>
-      <startNode>
+      <weight>5.8879942893981934</weight>
+      <startNode xsi:type="BayNode">
         <position>
-          <x>141.6541</x>
-          <y>0.55</y>
-          <z>36.9978943</z>
+          <x>153.894867</x>
+          <y>0.551007032</y>
+          <z>43.65754</z>
         </position>
+        <destination>
+          <Name>EERSTERIVIER</Name>
+        </destination>
+        <occupied>false</occupied>
+        <priority>0</priority>
       </startNode>
       <endNode>
         <position>
-          <x>161.685364</x>
-          <y>0.55</y>
-          <z>31.2934284</z>
+          <x>155.379333</x>
+          <y>0.551007748</y>
+          <z>37.9597473</z>
         </position>
       </endNode>
     </Edge>
@@ -4762,34 +4453,756 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>3.3182082176208496</weight>
+      <weight>3.345869779586792</weight>
+      <startNode>
+        <position>
+          <x>130.134018</x>
+          <y>0.551007</y>
+          <z>44.3276329</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>128.550018</x>
+          <y>0.55100733</y>
+          <z>41.3804665</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>4.2510857582092285</weight>
+      <startNode>
+        <position>
+          <x>128.550018</x>
+          <y>0.55100733</y>
+          <z>41.3804665</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>124.35907</x>
+          <y>0.5510074</y>
+          <z>40.66795</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>6.4783473014831543</weight>
+      <startNode>
+        <position>
+          <x>141.808121</x>
+          <y>0.5510071</y>
+          <z>43.34382</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>139.658356</x>
+          <y>0.5510078</y>
+          <z>37.23256</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>6.3059873580932617</weight>
+      <startNode>
+        <position>
+          <x>124.35907</x>
+          <y>0.5510074</y>
+          <z>40.66795</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>118.149544</x>
+          <y>0.55</y>
+          <z>41.7667046</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>6.7472128868103027</weight>
+      <startNode>
+        <position>
+          <x>130.889252</x>
+          <y>0.55</y>
+          <z>38.97042</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>124.35907</x>
+          <y>0.5510074</y>
+          <z>40.66795</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>6.0505690574646</weight>
+      <startNode>
+        <position>
+          <x>49.888</x>
+          <y>0.55</y>
+          <z>143.562775</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>50.7791138</x>
+          <y>0.5509958</y>
+          <z>137.578186</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>6.2219548225402832</weight>
+      <startNode>
+        <position>
+          <x>50.7791138</x>
+          <y>0.5509958</y>
+          <z>137.578186</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>52.64978</x>
+          <y>0.550996542</y>
+          <z>131.6441</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>4.4780402183532715</weight>
+      <startNode>
+        <position>
+          <x>52.64978</x>
+          <y>0.550996542</y>
+          <z>131.6441</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>55.2909241</x>
+          <y>0.550996959</y>
+          <z>128.027863</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>9.8903207778930664</weight>
+      <startNode>
+        <position>
+          <x>48.3655663</x>
+          <y>0.55</y>
+          <z>115.4036</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>57.28188</x>
+          <y>0.550998</y>
+          <z>119.683533</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>9.4832096099853516</weight>
+      <startNode>
+        <position>
+          <x>48.3655663</x>
+          <y>0.55</y>
+          <z>115.4036</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>53.0670776</x>
+          <y>0.5509975</y>
+          <z>123.63932</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>7.6558713912963867</weight>
+      <startNode>
+        <position>
+          <x>0.223640442</x>
+          <y>0.5509951</y>
+          <z>143.771774</z>
+        </position>
+      </startNode>
+      <endNode xsi:type="ExitNode">
+        <position>
+          <x>-7.362053</x>
+          <y>0.550995</y>
+          <z>144.806</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>4.9251208305358887</weight>
+      <startNode>
+        <position>
+          <x>50.652504</x>
+          <y>0.55</y>
+          <z>151.53653</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>49.7295074</x>
+          <y>0.5509936</y>
+          <z>156.37439</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>4.4415616989135742</weight>
+      <startNode>
+        <position>
+          <x>49.7295074</x>
+          <y>0.5509936</y>
+          <z>156.37439</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>54.0343437</x>
+          <y>0.5509935</y>
+          <z>157.467941</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>7.2503547668457031</weight>
+      <startNode>
+        <position>
+          <x>54.0343437</x>
+          <y>0.5509935</y>
+          <z>157.467941</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>60.652565</x>
+          <y>0.550993145</y>
+          <z>160.428818</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>15.11814022064209</weight>
+      <startNode>
+        <position>
+          <x>60.652565</x>
+          <y>0.550993145</y>
+          <z>160.428818</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>75.48202</x>
+          <y>0.5509928</y>
+          <z>163.369141</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>13.111201286315918</weight>
+      <startNode>
+        <position>
+          <x>88.575676</x>
+          <y>0.550992846</y>
+          <z>162.691132</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>75.48202</x>
+          <y>0.5509928</y>
+          <z>163.369141</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>13.53700065612793</weight>
+      <startNode>
+        <position>
+          <x>85.92938</x>
+          <y>0.5509918</y>
+          <z>171.977448</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>75.48202</x>
+          <y>0.5509928</y>
+          <z>163.369141</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>9.656010627746582</weight>
+      <startNode>
+        <position>
+          <x>85.92938</x>
+          <y>0.5509918</y>
+          <z>171.977448</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>88.575676</x>
+          <y>0.550992846</y>
+          <z>162.691132</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>15.874870300292969</weight>
+      <startNode>
+        <position>
+          <x>85.92938</x>
+          <y>0.5509918</y>
+          <z>171.977448</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>98.80478</x>
+          <y>0.550992846</y>
+          <z>162.691132</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>11.96036434173584</weight>
+      <startNode>
+        <position>
+          <x>73.97758</x>
+          <y>0.5509918</y>
+          <z>171.525055</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>85.92938</x>
+          <y>0.5509918</y>
+          <z>171.977448</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>12.955636978149414</weight>
+      <startNode>
+        <position>
+          <x>61.5981674</x>
+          <y>0.55099225</y>
+          <z>167.704224</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>73.97758</x>
+          <y>0.5509918</y>
+          <z>171.525055</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>10.695473670959473</weight>
+      <startNode>
+        <position>
+          <x>61.5981674</x>
+          <y>0.55099225</y>
+          <z>167.704224</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>52.80309</x>
+          <y>0.550992966</y>
+          <z>161.6182</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>5.76853084564209</weight>
+      <startNode>
+        <position>
+          <x>52.80309</x>
+          <y>0.550992966</y>
+          <z>161.6182</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>49.48942</x>
+          <y>0.5509924</y>
+          <z>166.340012</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>6.0781898498535156</weight>
+      <startNode>
+        <position>
+          <x>52.80309</x>
+          <y>0.550992966</y>
+          <z>161.6182</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>49.7295074</x>
+          <y>0.5509936</y>
+          <z>156.37439</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>6.4525008201599121</weight>
+      <startNode>
+        <position>
+          <x>49.7295074</x>
+          <y>0.5509936</y>
+          <z>156.37439</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>44.1660538</x>
+          <y>0.5509932</y>
+          <z>159.642838</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>13.821109771728516</weight>
+      <startNode>
+        <position>
+          <x>44.1660538</x>
+          <y>0.5509932</y>
+          <z>159.642838</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>30.41867</x>
+          <y>0.550993</y>
+          <z>161.068512</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>10.486307144165039</weight>
+      <startNode>
+        <position>
+          <x>30.41867</x>
+          <y>0.550993</y>
+          <z>161.068512</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>19.9620667</x>
+          <y>0.550992966</y>
+          <z>161.857224</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>12.755030632019043</weight>
+      <startNode>
+        <position>
+          <x>19.9620667</x>
+          <y>0.550992966</y>
+          <z>161.857224</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>7.21322632</x>
+          <y>0.5509929</y>
+          <z>162.254547</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>8.8605709075927734</weight>
+      <startNode>
+        <position>
+          <x>-1.44554138</x>
+          <y>0.550992668</y>
+          <z>164.134827</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>7.21322632</x>
+          <y>0.5509929</y>
+          <z>162.254547</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>10.604377746582031</weight>
+      <startNode>
+        <position>
+          <x>6.764183</x>
+          <y>0.5509912</y>
+          <z>176.550766</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>17.3674622</x>
+          <y>0.550991237</y>
+          <z>176.3981</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>14.287348747253418</weight>
+      <startNode>
+        <position>
+          <x>17.3674622</x>
+          <y>0.550991237</y>
+          <z>176.3981</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>31.475769</x>
+          <y>0.5509915</y>
+          <z>174.143326</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>7.278414249420166</weight>
+      <startNode>
+        <position>
+          <x>31.475769</x>
+          <y>0.5509915</y>
+          <z>174.143326</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>38.7514648</x>
+          <y>0.550991535</y>
+          <z>173.944427</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>13.157919883728027</weight>
+      <startNode>
+        <position>
+          <x>38.7514648</x>
+          <y>0.550991535</y>
+          <z>173.944427</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>49.48942</x>
+          <y>0.5509924</y>
+          <z>166.340012</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>9.06672477722168</weight>
+      <startNode>
+        <position>
+          <x>35.0848846</x>
+          <y>0.5509905</y>
+          <z>182.2367</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>38.7514648</x>
+          <y>0.550991535</y>
+          <z>173.944427</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>5.6402087211608887</weight>
+      <startNode>
+        <position>
+          <x>177.340332</x>
+          <y>0.55</y>
+          <z>30.8177853</z>
+        </position>
+      </startNode>
+      <endNode xsi:type="ExitNode">
+        <position>
+          <x>182.3191</x>
+          <y>0.55</y>
+          <z>33.46802</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>4.6641030311584473</weight>
       <startNode xsi:type="BayNode">
         <position>
-          <x>124.763763</x>
-          <y>0.551006556</y>
-          <z>47.50058</z>
+          <x>147.661</x>
+          <y>0.551006854</y>
+          <z>45.3202477</z>
         </position>
         <destination>
-          <Name>Jamestown</Name>
+          <Name>KOELENHOF</Name>
         </destination>
         <occupied>false</occupied>
         <priority>0</priority>
       </startNode>
       <endNode>
         <position>
-          <x>124.180695</x>
-          <y>0.551007</y>
-          <z>44.234</z>
+          <x>147.964218</x>
+          <y>0.55</y>
+          <z>40.66601</z>
         </position>
       </endNode>
     </Edge>
     <Edge>
-      <weight>3.9857618808746338</weight>
+      <weight>5.8879942893981934</weight>
+      <startNode xsi:type="BayNode">
+        <position>
+          <x>153.894867</x>
+          <y>0.551007032</y>
+          <z>43.65754</z>
+        </position>
+        <destination>
+          <Name>EERSTERIVIER</Name>
+        </destination>
+        <occupied>false</occupied>
+        <priority>0</priority>
+      </startNode>
+      <endNode>
+        <position>
+          <x>155.379333</x>
+          <y>0.551007748</y>
+          <z>37.9597473</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>4.26453971862793</weight>
+      <startNode xsi:type="BayNode">
+        <position>
+          <x>159.6672</x>
+          <y>0.5510071</y>
+          <z>43.2454376</z>
+        </position>
+        <destination>
+          <Name />
+        </destination>
+        <occupied>false</occupied>
+        <priority>0</priority>
+      </startNode>
+      <endNode>
+        <position>
+          <x>159.574615</x>
+          <y>0.5510076</y>
+          <z>38.9819031</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>26.723371505737305</weight>
+      <startNode xsi:type="BayNode">
+        <position>
+          <x>147.661</x>
+          <y>0.551006854</y>
+          <z>45.3202477</z>
+        </position>
+        <destination>
+          <Name>KOELENHOF</Name>
+        </destination>
+        <occupied>false</occupied>
+        <priority>0</priority>
+      </startNode>
+      <endNode>
+        <position>
+          <x>147.209778</x>
+          <y>0.55</y>
+          <z>72.03981</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>22.854753494262695</weight>
       <startNode>
         <position>
-          <x>112.784157</x>
+          <x>153.91571</x>
           <y>0.55</y>
-          <z>45.52884</z>
+          <z>66.51228</z>
+        </position>
+      </startNode>
+      <endNode xsi:type="BayNode">
+        <position>
+          <x>153.894867</x>
+          <y>0.551007032</y>
+          <z>43.65754</z>
+        </position>
+        <destination>
+          <Name>EERSTERIVIER</Name>
+        </destination>
+        <occupied>false</occupied>
+        <priority>0</priority>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>11.250371932983398</weight>
+      <startNode>
+        <position>
+          <x>159.157822</x>
+          <y>0.5510058</y>
+          <z>54.484272</z>
+        </position>
+      </startNode>
+      <endNode xsi:type="BayNode">
+        <position>
+          <x>159.6672</x>
+          <y>0.5510071</y>
+          <z>43.2454376</z>
+        </position>
+        <destination>
+          <Name />
+        </destination>
+        <occupied>false</occupied>
+        <priority>0</priority>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>9.5116157531738281</weight>
+      <startNode>
+        <position>
+          <x>90.396965</x>
+          <y>0.5510029</y>
+          <z>78.15533</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>90.53081</x>
+          <y>0.551004052</y>
+          <z>68.64465</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>6.3479213714599609</weight>
+      <startNode>
+        <position>
+          <x>116.181122</x>
+          <y>0.551007032</y>
+          <z>43.7098961</z>
         </position>
       </startNode>
       <endNode>
@@ -4801,12 +5214,29 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>6.241239070892334</weight>
+      <weight>3.7891271114349365</weight>
       <startNode>
         <position>
-          <x>106.762291</x>
-          <y>0.55</y>
-          <z>47.0715828</z>
+          <x>118.325874</x>
+          <y>0.5510067</y>
+          <z>46.8336</z>
+        </position>
+      </startNode>
+      <endNode>
+        <position>
+          <x>116.181122</x>
+          <y>0.551007032</y>
+          <z>43.7098961</z>
+        </position>
+      </endNode>
+    </Edge>
+    <Edge>
+      <weight>7.1988968849182129</weight>
+      <startNode>
+        <position>
+          <x>108.181137</x>
+          <y>0.5510069</y>
+          <z>44.9666939</z>
         </position>
       </startNode>
       <endNode>
@@ -4818,36 +5248,19 @@
       </endNode>
     </Edge>
     <Edge>
-      <weight>5.9019713401794434</weight>
+      <weight>4.7471213340759277</weight>
       <startNode>
         <position>
-          <x>100.720123</x>
-          <y>0.55</y>
-          <z>47.5675735</z>
+          <x>108.181137</x>
+          <y>0.5510069</y>
+          <z>44.9666939</z>
         </position>
       </startNode>
       <endNode>
         <position>
-          <x>94.96858</x>
-          <y>0.55</y>
-          <z>46.24355</z>
-        </position>
-      </endNode>
-    </Edge>
-    <Edge>
-      <weight>8.5270166397094727</weight>
-      <startNode>
-        <position>
-          <x>124.180695</x>
-          <y>0.551007</y>
-          <z>44.234</z>
-        </position>
-      </startNode>
-      <endNode>
-        <position>
-          <x>130.889252</x>
-          <y>0.55</y>
-          <z>38.97042</z>
+          <x>112.412979</x>
+          <y>0.5510066</y>
+          <z>47.1176643</z>
         </position>
       </endNode>
     </Edge>

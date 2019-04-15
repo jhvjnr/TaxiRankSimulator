@@ -44,18 +44,25 @@ namespace Assets
         public override bool checkProceduralPrecondition(GameObject agent)
         {
             Node exitNode = null;
-
+            Taxi taxi = GetComponent<Taxi>();
+            
             foreach (Node node in ClickObject.carNavGraph.nodes)
             {
                 if (node is ExitNode)
                 {
-                    exitNode = node;
-                    break;
+                    
+                    Debug.Log("<color=magenta>I found a possible exit</color>" + node.position);
+                    if (taxi.planRoute(new Node(taxi.GetAppropriateBay().transform.position), node))
+                    {
+                        exitNode = node;
+                        print("My exit node is: " + node.position);
+                    }
                 }
             }
+            //if (exitNode == null) return false;
             target = exitNode.GetCorrespondingGameObject();
 
-            Taxi taxi = GetComponent<Taxi>();
+            
             /*if ((bool)taxi.getWorldState()["LoadedPassengers"] == false)
             {
                 //return false;
@@ -76,7 +83,9 @@ namespace Assets
 
         public override bool perform(GameObject agent)
         {
+            
             Taxi currentTaxi = GetComponent<Taxi>();
+            currentTaxi.moveAgent(this);
             agent.GetComponent<CarAIControl>().startCar();
             return (bool) currentTaxi.getWorldState()["Left"];
         }

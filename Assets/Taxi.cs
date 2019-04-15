@@ -7,7 +7,8 @@ using System.Linq;
 using System;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
-
+using MathNet;
+using Accord;
 public class Taxi : MonoBehaviour, IGoap {
 
     // Use this for initialization
@@ -25,6 +26,7 @@ public class Taxi : MonoBehaviour, IGoap {
     [SerializeField] private bool loadingPassengers;
     [SerializeField] public bool alightingPassengers = false;
     [SerializeField] public bool alightedPassengers = false;
+    private string JuanNaam = "";
     [SerializeField] private LinkedList<GameObject> passengers = new LinkedList<GameObject>();
     private Node endNode;
     public Dictionary<string, object> worldState = new Dictionary<string, object>();
@@ -157,8 +159,17 @@ public class Taxi : MonoBehaviour, IGoap {
         if (NumSeated() < maxSeated && !loadingPassenger && !alightingPassengers)
         {
             loadingPassenger = true;
-            var loadTime = UnityEngine.Random.Range(3f, 60);
-            yield return new WaitForSeconds(loadTime);
+            var loadTime = 3.0;
+            var m = 7.87;
+            var v = 2.06 * 2.06;
+            var mu = Math.Log(m / Math.Sqrt(1 + v / (m * m)));
+            var ss = Math.Log(1 + v / (m * m));
+            Accord.Statistics.Distributions.Univariate.LognormalDistribution accLogNormal = new Accord.Statistics.Distributions.Univariate.LognormalDistribution(mu, Math.Sqrt(ss));
+
+            var dx = 7.87 - accLogNormal.Generate();
+            loadTime = 7.87 + dx;
+           // print(loadTime);
+            yield return new WaitForSeconds((float)loadTime);
             queue.Commuters.First().SetActive(false);
             passengers.AddLast(queue.Commuters.First.Value);
             queue.Commuters.RemoveFirst();
@@ -264,13 +275,14 @@ public class Taxi : MonoBehaviour, IGoap {
 
         foreach (Node node in ClickObject.carNavGraph.nodes)
         {
-            if (Vector3.Distance(node.position, transform.position) < Vector3.Distance(startNode.position, transform.position))
+            if (Vector3.Distance(node.position, transform.position) < Vector3.Distance(startNode.position, transform.position) && !(node is BayNode) && !(node is ExitNode))
             {
                 startNode = node;
             }
         }
 
         Dictionary<Node, Node> pathParented = ClickObject.carNavGraph.FindShortestPathDijkstra(startNode, endNode);
+        if (pathParented == null) print("o-o The path is null");
         path = new Queue<Node>();
         var iterNode = endNode;
         LinkedList<Node> pathSorter = new LinkedList<Node>();
@@ -295,6 +307,91 @@ public class Taxi : MonoBehaviour, IGoap {
             GetComponent<CarAIControl>().SetTarget(navtarget.transform);
         }
         this.endNode = endNode;
+    }
+
+    public bool planRoute(Node inputNode, Node endNode)
+    {
+        print("Input node coords: " + inputNode.position);
+        Node startNode = new Node(Vector3.positiveInfinity);
+        foreach (Node node in ClickObject.carNavGraph.nodes)
+        {
+            if (Vector3.Distance(node.position, inputNode.position) < Vector3.Distance(startNode.position, inputNode.position) && !(node is BayNode) && !(node is ExitNode))
+            {
+                startNode = node;
+            }
+        }
+        print("Start Node coords: " + startNode.position);
+        Dictionary<Node, Node> pathParented = ClickObject.carNavGraph.FindShortestPathDijkstra(startNode, endNode);
+        if (pathParented == null) return false;
+        print("I found a non null path to:" + endNode.position);
+        var path = new Queue<Node>();
+        var iterNode = endNode;
+        LinkedList<Node> pathSorter = new LinkedList<Node>();
+        while (iterNode != startNode)
+        {
+            pathSorter.AddFirst(iterNode);
+            iterNode = pathParented[iterNode];
+        }
+        foreach (Node node in pathSorter)
+        {
+            path.Enqueue(node);/*
+            GameObject pathMarker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            pathMarker.transform.position = node.position;
+            pathMarker.GetComponent<Collider>().isTrigger = true;
+            pathMarker.transform.localScale += new Vector3(0, 5, 0);*/
+        }
+        path.Reverse();
+        if (path.Count > 0)
+        {
+            navtarget = new GameObject();
+            navtarget.transform.SetPositionAndRotation(path.Dequeue().position, Quaternion.identity);
+            GetComponent<CarAIControl>().SetTarget(navtarget.transform);
+        }
+        //this.endNode = endNode;
+        if (path != null) return true;
+        return false;
+    }
+
+    public Queue<Node> predictRoute(Node endNode)
+    {        Node startNode = new Node(Vector3.positiveInfinity);
+
+        foreach (Node node in ClickObject.carNavGraph.nodes)
+        {
+            if (Vector3.Distance(node.position, transform.position) < Vector3.Distance(startNode.position, transform.position) && !(node is BayNode) && !(node is ExitNode))
+            {
+                startNode = node;
+            }
+        }
+
+        Dictionary<Node, Node> pathParented = ClickObject.carNavGraph.FindShortestPathDijkstra(startNode, endNode);
+        //Debug.Log("<color=purple>I predict a path of length: " + pathParented.Count + "</color>");
+        if (pathParented == null) return null;
+        var predPath = new Queue<Node>();
+        var iterNode = endNode;
+        LinkedList<Node> pathSorter = new LinkedList<Node>();
+        while (iterNode != startNode)
+        {
+            pathSorter.AddFirst(iterNode);
+            iterNode = pathParented[iterNode];
+        }
+        foreach (Node node in pathSorter)
+        {
+            predPath.Enqueue(node);/*
+            GameObject pathMarker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            pathMarker.transform.position = node.position;
+            pathMarker.GetComponent<Collider>().isTrigger = true;
+            pathMarker.transform.localScale += new Vector3(0, 5, 0);*/
+        }
+        predPath.Reverse();
+       /* if (predPath.Count > 0)
+        {
+            navtarget = new GameObject();
+            navtarget.transform.SetPositionAndRotation(predPath.Dequeue().position, Quaternion.identity);
+            GetComponent<CarAIControl>().SetTarget(navtarget.transform);
+        }*/
+        //this.endNode = endNode;
+
+        return predPath;
     }
 
     public void planRoute()
@@ -339,7 +436,8 @@ public class Taxi : MonoBehaviour, IGoap {
         }
         foreach (Node node in pathSorter)
         {
-            path.Enqueue(node);/*
+            path.Enqueue(node);
+/*
             GameObject pathMarker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             pathMarker.transform.position = node.position;
             pathMarker.GetComponent<Collider>().isTrigger = true;
@@ -501,6 +599,7 @@ public class Taxi : MonoBehaviour, IGoap {
                 }
             }
         }
+        if (targetBayNode.getCorrespondingBay() == null) Debug.Log("<color=red>I wanted " + this.nextDestination.Name + "</color>");
         return targetBayNode.getCorrespondingBay().gameObject;
     }
 }

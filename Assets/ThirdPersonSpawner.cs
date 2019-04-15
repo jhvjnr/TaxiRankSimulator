@@ -8,6 +8,7 @@ using System.IO;
 using UnityStandardAssets.Utility;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.ThirdPerson;
+using System;
 
 public class ThirdPersonSpawner : MonoBehaviour {
 
@@ -18,13 +19,15 @@ public class ThirdPersonSpawner : MonoBehaviour {
     public static LinkedList<GameObject> taxis;
   //  public static LinkedList<GameObject> aiChars = new LinkedList<GameObject>();
     public int maxToSpawn = 10;
+    public static float firstArrivalTime = float.PositiveInfinity;
 
 	void Start ()
     {
+       
         Time.timeScale = 6;
         print(Time.fixedDeltaTime);
         Time.fixedDeltaTime = 0.005f *  Time.timeScale;
-        var frictionModification = 8f/(Time.timeScale);
+        var frictionModification = 9f/(Time.timeScale);
         WheelFrictionCurve tempForwardFrictionCurve = taxi.GetComponentInChildren<WheelCollider>().forwardFriction;
         WheelFrictionCurve tempSidewaysFrictionCurve = taxi.GetComponentInChildren<WheelCollider>().sidewaysFriction;
         tempForwardFrictionCurve.stiffness = frictionModification;
@@ -40,45 +43,83 @@ public class ThirdPersonSpawner : MonoBehaviour {
         print(Time.fixedDeltaTime);
         
 
-        var fileName = "BergzightAM.csv";
+        var fileName = "RankObservations.csv";
 
         StreamReader taxiReader = new StreamReader(fileName);
 
         taxis = new LinkedList<GameObject>();
 
         taxiReader.ReadLine();
-        int k = 0;
         taxi.SetActive(false);
+        firstArrivalTime = float.PositiveInfinity;
+        var fillDelta = 0f;
         while (!taxiReader.EndOfStream)
         {
             string line = taxiReader.ReadLine();
             var record = line.Split(',');
-
-            float timeToSpawn = float.Parse(record[3]);
-            int numPassengers = int.Parse(record[4]);
-            float fare = float.Parse(record[8]);
-            Destination destination = new Destination(record[7]);
+            // Debug.Log(record[3]);
+            float timeToSpawn = float.Parse(record[3], System.Globalization.CultureInfo.InvariantCulture);
+            //float timeToSpawn = float.Parse(record[3]) ;//record[3], System.Globalization.NumberStyles.Float);
+            //Debug.Log("Record 4:" + record[4]);
+            int numPassengers = 0;
+            if (record[4].Length > 0)
+            {
+                numPassengers = int.Parse(record[4]);
+            }
+            float fare = float.PositiveInfinity;
+            if (record[8].Length > 0)
+            {
+                fare = float.Parse(record[8], System.Globalization.CultureInfo.InvariantCulture);
+            }
+            Destination destination = new Destination(record[7].ToUpper());
             string routeNumber = record[9];
 
             GameObject newTaxi = Instantiate(taxi);
               
 
             Taxi taxiToAddScript = newTaxi.GetComponent<Taxi>();
-            taxiToAddScript.ArrivalTime = (timeToSpawn - 6.028f) * 3600;// (timeToSpawn - 6.03f) * 3600;
+
+            if (timeToSpawn < firstArrivalTime)
+            {
+                firstArrivalTime = timeToSpawn;
+            }
+            fillDelta = 0;
+            if (timeToSpawn == firstArrivalTime)
+            {
+                fillDelta += 10f;
+            }
+            taxiToAddScript.ArrivalTime = (fillDelta + timeToSpawn - firstArrivalTime) * 3600;// (timeToSpawn - 6.03f) * 3600;
+           // print(taxiToAddScript.ArrivalTime);
             taxiToAddScript.Passengers = SpawnInactivePeopleInTaxi(numPassengers);
             taxiToAddScript.Fare = fare;
             taxiToAddScript.NextDestination = destination;
             taxiToAddScript.RouteNumber = routeNumber;
             taxiToAddScript.MaxSeated = 15;
 
-            k++;
             taxis.AddLast(newTaxi);
             newTaxi.transform.SetPositionAndRotation(new Vector3(50, 0, 160), taxi.transform.rotation);
             StartCoroutine(TaxiSpawn(newTaxi, taxiToAddScript.ArrivalTime));
-            SpawnCommutersForTaxi(15, destination, taxiToAddScript.ArrivalTime);
+            Destination.destinations[destination.Name].TotalCommuters += 15;
+            //SpawnCommutersForTaxi(15, destination, taxiToAddScript.ArrivalTime);
             //print("Spawn Coroutines started");
         }
 
+        foreach(Destination dest in Destination.destinations.Values)
+        {
+            print(dest.TotalCommuters);
+            var Q = (double)dest.TotalCommuters / (3 * 3600);
+            print(dest.Name + " Q: " + Q);
+            var t = 0.0;
+            for (int i = 0; i < dest.TotalCommuters; i++)
+            {
+                var rand = Accord.Math.Random.Generator.Random.NextDouble();
+               // print("Rand: " + rand);
+                t += (-1.0 / Q) * Mathf.Log(1 - (float)rand);
+                //print("Com arrival time: " + t);
+                StartCoroutine(SpawnCommuter(dest, (float)t));
+            }
+            
+        }
 
         //Invoke("spawnMen", 1f);
         //spawnMen();
@@ -100,7 +141,7 @@ public class ThirdPersonSpawner : MonoBehaviour {
             
         }*/
         List<string> dests = new List<string>();
-        foreach (Destination dest in Destination.destinations)
+        foreach (Destination dest in Destination.destinations.Values)
         {
             dests.Add(dest.Name);
             
@@ -114,7 +155,7 @@ public class ThirdPersonSpawner : MonoBehaviour {
         yield return new WaitForSeconds(time);
 
         taxi.SetActive(true);
-        taxi.transform.position += new Vector3(Random.Range(-30, 30), 0, Random.Range(0, 30));
+        taxi.transform.position += new Vector3(UnityEngine.Random.Range(-40, 120), 0, UnityEngine.Random.Range(0, 50));
     }
 
     private LinkedList<GameObject> SpawnInactivePeopleInTaxi(int number)
@@ -124,9 +165,9 @@ public class ThirdPersonSpawner : MonoBehaviour {
         for (int i = 0; i < number; i++)
         {
             GameObject spawn = Instantiate(exampleCommuter);
-            spawn.GetComponent<NavMeshAgent>().speed = Random.Range(0.3f, 0.8f);
+            spawn.GetComponent<NavMeshAgent>().speed = UnityEngine.Random.Range(0.3f, 0.8f);
             spawn.name = "" + i;
-            spawn.transform.SetPositionAndRotation(spawn.transform.position + new Vector3(Random.Range(60f, 200f), 0, Random.Range(60f, 200f)), spawn.transform.rotation);
+            spawn.transform.SetPositionAndRotation(spawn.transform.position + new Vector3(UnityEngine.Random.Range(60f, 200f), 0, UnityEngine.Random.Range(60f, 200f)), spawn.transform.rotation);
             spawn.SetActive(false);
             passengers.AddLast(spawn);
         }
@@ -150,22 +191,22 @@ public class ThirdPersonSpawner : MonoBehaviour {
     }
     IEnumerator SpawnCommuter(Destination destination, float time)
     {
-        var adjTime = time - Random.Range(0f, 180f);
+        var adjTime = time - UnityEngine.Random.Range(0f, 180f);
         //print("adjTime: " + adjTime);
 
         yield return new WaitForSeconds(adjTime);
        // print("Spawning commuter at: " + adjTime);
         //GameObject toSpawn = GameObject.Find("Ethan");
         GameObject spawn = Instantiate(exampleCommuter);
-        spawn.GetComponent<NavMeshAgent>().speed = Random.Range(0.3f, 0.8f);
+        spawn.GetComponent<NavMeshAgent>().speed = UnityEngine.Random.Range(0.3f, 0.8f);
         spawn.name = ":)";
-        if (Random.Range(0, 2) == 0)
+        if (UnityEngine.Random.Range(0, 2) == 0)
         {
-            spawn.transform.SetPositionAndRotation(new Vector3(Random.Range(20f,170f), 0, Random.Range(155f, 160f)), spawn.transform.rotation);
+            spawn.transform.SetPositionAndRotation(new Vector3(UnityEngine.Random.Range(20f,170f), 0, UnityEngine.Random.Range(155f, 160f)), spawn.transform.rotation);
         }
         else
         {
-            spawn.transform.SetPositionAndRotation(new Vector3(Random.Range(180f, 185f), 0, Random.Range(20f, 160f)), spawn.transform.rotation);
+            spawn.transform.SetPositionAndRotation(new Vector3(UnityEngine.Random.Range(180f, 185f), 0, UnityEngine.Random.Range(20f, 160f)), spawn.transform.rotation);
         }
         spawn.GetComponent<Commuter>().destination = destination;
        // aiChars.AddLast(spawn);

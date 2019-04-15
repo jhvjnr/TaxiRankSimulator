@@ -4,6 +4,7 @@ namespace Assets
 {
     public class ExitNode : Node
     {
+        public string Name { get; set; }
 
         public ExitNode()
         {

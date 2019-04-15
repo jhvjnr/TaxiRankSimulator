@@ -1243,7 +1243,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9, y: 2.2, z: 5.4}
+  m_Size: {x: 1.9, y: 2.2, z: 5.6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &82056334387556942
 AudioSource:
@@ -1819,6 +1819,7 @@ MonoBehaviour:
   navtarget: {fileID: 0}
   loadingPassengers: 0
   alightingPassengers: 0
+  alightedPassengers: 0
   hasStoppedForPassengers: 0
   loadingPassenger: 0
 --- !u!114 &114707208160900402
@@ -1838,7 +1839,7 @@ MonoBehaviour:
   sideSensorAngles: 30
   avoiding: 0
   steerSensitivity: 0
-  brakingSensitivity: 0.5
+  brakingSensitivity: 0.7
   boxSize: 3
   m_CautiousSpeedFactor: 0.5
   m_CautiousMaxAngle: 180
@@ -1912,13 +1913,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1.3333334
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1.3333334
+    m_Stiffness: 1.5
   m_Enabled: 1
 --- !u!146 &146345791568163468
 WheelCollider:
@@ -1941,13 +1942,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1.3333334
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1.3333334
+    m_Stiffness: 1.5
   m_Enabled: 1
 --- !u!146 &146515972963762764
 WheelCollider:
@@ -1970,13 +1971,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1.3333334
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1.3333334
+    m_Stiffness: 1.5
   m_Enabled: 1
 --- !u!146 &146883916569786340
 WheelCollider:
@@ -1999,13 +2000,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1.3333334
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1.3333334
+    m_Stiffness: 1.5
   m_Enabled: 1
 --- !u!208 &208313331771226212
 NavMeshObstacle:

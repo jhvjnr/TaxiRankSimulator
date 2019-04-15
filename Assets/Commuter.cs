@@ -177,14 +177,16 @@ public class Commuter : MonoBehaviour, IGoap {
 
     public bool moveAgent(GoapAction nextAction)
     {
-        if (gameObject.GetComponent<AICharacterControl>().target.transform.position != nextAction.target.transform.position)
+        var aiCharControl = gameObject.GetComponent<AICharacterControl>();
+
+        if (aiCharControl.target.gameObject != nextAction.target)
         {
-            gameObject.GetComponent<AICharacterControl>().SetTarget(nextAction.target.transform);
+            aiCharControl.SetTarget(nextAction.target.transform);
         }
 
         var dist = distance(nextAction.target.transform, gameObject.transform);
 
-        if (dist <= gameObject.GetComponent<AICharacterControl>().agent.stoppingDistance)
+        if (dist <= aiCharControl.agent.stoppingDistance)
         {
             nextAction.setInRange(true);
             //Debug.Log("I am in range to: " + nextAction.ActionName);
