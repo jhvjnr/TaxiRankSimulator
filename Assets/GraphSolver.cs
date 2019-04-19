@@ -104,6 +104,7 @@ public Vector3Graph()
 		
         foreach (Edge edge in edges)
         {
+
             weight = edge.weight;
             
             if (edge.startNode.Equals(node))

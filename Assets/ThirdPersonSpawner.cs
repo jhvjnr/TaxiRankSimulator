@@ -27,7 +27,7 @@ public class ThirdPersonSpawner : MonoBehaviour {
         Time.timeScale = 6;
         print(Time.fixedDeltaTime);
         Time.fixedDeltaTime = 0.005f *  Time.timeScale;
-        var frictionModification = 9f/(Time.timeScale);
+        var frictionModification = 12f/(Time.timeScale);
         WheelFrictionCurve tempForwardFrictionCurve = taxi.GetComponentInChildren<WheelCollider>().forwardFriction;
         WheelFrictionCurve tempSidewaysFrictionCurve = taxi.GetComponentInChildren<WheelCollider>().sidewaysFriction;
         tempForwardFrictionCurve.stiffness = frictionModification;
@@ -53,6 +53,7 @@ public class ThirdPersonSpawner : MonoBehaviour {
         taxi.SetActive(false);
         firstArrivalTime = float.PositiveInfinity;
         var fillDelta = 0f;
+       
         while (!taxiReader.EndOfStream)
         {
             string line = taxiReader.ReadLine();
@@ -86,7 +87,7 @@ public class ThirdPersonSpawner : MonoBehaviour {
             fillDelta = 0;
             if (timeToSpawn == firstArrivalTime)
             {
-                fillDelta += 10f;
+                //fillDelta += 10f;
             }
             taxiToAddScript.ArrivalTime = (fillDelta + timeToSpawn - firstArrivalTime) * 3600;// (timeToSpawn - 6.03f) * 3600;
            // print(taxiToAddScript.ArrivalTime);
@@ -100,6 +101,14 @@ public class ThirdPersonSpawner : MonoBehaviour {
             newTaxi.transform.SetPositionAndRotation(new Vector3(50, 0, 160), taxi.transform.rotation);
             StartCoroutine(TaxiSpawn(newTaxi, taxiToAddScript.ArrivalTime));
             Destination.destinations[destination.Name].TotalCommuters += 15;
+            if (!Destination.destinations[destination.Name].Fluxes.ContainsKey(taxiToAddScript.ArrivalTime))
+            {
+                Destination.destinations[destination.Name].Fluxes.Add(taxiToAddScript.ArrivalTime, 15);
+            }
+            else
+            {
+                Destination.destinations[destination.Name].Fluxes[taxiToAddScript.ArrivalTime] += 15;
+            }
             //SpawnCommutersForTaxi(15, destination, taxiToAddScript.ArrivalTime);
             //print("Spawn Coroutines started");
         }
@@ -107,17 +116,49 @@ public class ThirdPersonSpawner : MonoBehaviour {
         foreach(Destination dest in Destination.destinations.Values)
         {
             print(dest.TotalCommuters);
-            var Q = (double)dest.TotalCommuters / (3 * 3600);
-            print(dest.Name + " Q: " + Q);
-            var t = 0.0;
+            var Q = 0f; //(float)dest.TotalCommuters / (3 * 3600);
+           
+            var t = 0f;
+           // float currentLowerFluxBound = 0;
+
+            var commutersToSpawn = dest.TotalCommuters;
+
+            while (commutersToSpawn > 0)
+            {
+
+
+                Q = (float) dest.Fluxes.Where(x => (x.Key > t - 7.5f * 60f) && (x.Key < t + 7.5f * 60f)).Sum(g => g.Value) / (15f * 60f);//>= currentLowerFluxBound && x.Key < currentLowerFluxBound + 15 * 60).Sum(x => x.Value) / (15f * 60f);
+                if (Q == 0 && t < 3600 * 3)
+                {
+                    //currentLowerFluxBound += 15 * 60;
+                    //t = currentLowerFluxBound;
+                    t += 1f;
+                    //commutersToSpawn -= 1;
+                    continue;
+                }
+                //if (t < currentLowerFluxBound) t = currentLowerFluxBound;
+                var rand = Accord.Math.Random.Generator.Random.NextDouble();
+                // print("Rand: " + rand);
+                if (t > 3 * 3600) Q = 0.1f;
+                t += (-1f / Q) * Mathf.Log(1 - (float)rand);
+                //print("Com arrival time: " + t);
+                print(dest.Name + " Q: " + Q +  " Time: " + t);
+                StartCoroutine(SpawnCommuter(dest, (float)t));
+                commutersToSpawn -= 1;
+                //if (t > currentLowerFluxBound + 15 * 60) currentLowerFluxBound += 15 * 60;
+            }
+/*
             for (int i = 0; i < dest.TotalCommuters; i++)
             {
                 var rand = Accord.Math.Random.Generator.Random.NextDouble();
-               // print("Rand: " + rand);
+                // print("Rand: " + rand);
+                Q = (float) dest.Fluxes.Where(x => x.Key >= currentLowerFluxBound && x.Key < currentLowerFluxBound + 15 * 60).Sum(x => x.Value) / (15f * 60f);
                 t += (-1.0 / Q) * Mathf.Log(1 - (float)rand);
                 //print("Com arrival time: " + t);
+                print(dest.Name + " Q: " + Q + " LowerBound: " + currentLowerFluxBound + " Time: " + t);
                 StartCoroutine(SpawnCommuter(dest, (float)t));
-            }
+                if (t > currentLowerFluxBound + 15 * 60) currentLowerFluxBound += 15 * 60;
+            }*/
             
         }
 
@@ -184,17 +225,19 @@ public class ThirdPersonSpawner : MonoBehaviour {
 
         for (int i = 0; i < number; i++)
         {
-          //  print("before coroutine");
-            StartCoroutine(SpawnCommuter(destination, time));
+            //  print("before coroutine");
+            var adjTime = time - UnityEngine.Random.Range(0f, 180f);
+            print("adjTime: " + adjTime);
+            StartCoroutine(SpawnCommuter(destination, adjTime));
            // print("after coroutine");
         }
     }
+
     IEnumerator SpawnCommuter(Destination destination, float time)
     {
-        var adjTime = time - UnityEngine.Random.Range(0f, 180f);
-        //print("adjTime: " + adjTime);
 
-        yield return new WaitForSeconds(adjTime);
+
+        yield return new WaitForSeconds(time);
        // print("Spawning commuter at: " + adjTime);
         //GameObject toSpawn = GameObject.Find("Ethan");
         GameObject spawn = Instantiate(exampleCommuter);

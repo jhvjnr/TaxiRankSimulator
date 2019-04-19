@@ -156,7 +156,7 @@ public class Taxi : MonoBehaviour, IGoap {
     public IEnumerator addPassengerFromQueue(CommuterQueue queue)
     {
         
-        if (NumSeated() < maxSeated && !loadingPassenger && !alightingPassengers)
+        if (queue.Commuters.Count > 0 && NumSeated() < maxSeated && !loadingPassenger && !alightingPassengers)
         {
             loadingPassenger = true;
             var loadTime = 3.0;
@@ -170,9 +170,12 @@ public class Taxi : MonoBehaviour, IGoap {
             loadTime = 7.87 + dx;
            // print(loadTime);
             yield return new WaitForSeconds((float)loadTime);
-            queue.Commuters.First().SetActive(false);
-            passengers.AddLast(queue.Commuters.First.Value);
-            queue.Commuters.RemoveFirst();
+            if (queue.Commuters.Count > 0)
+            {
+                queue.Commuters.First().SetActive(false);
+                passengers.AddLast(queue.Commuters.First.Value);
+                queue.Commuters.RemoveFirst();
+            }
             loadingPassenger = false;
         }
     }
@@ -186,29 +189,40 @@ public class Taxi : MonoBehaviour, IGoap {
 	// Update is called once per frame
 	void Update () {
 
+        var aiController = GetComponent<CarAIControl>();
+        /* if (aiController.isDriving && GetComponent<Rigidbody>().velocity.magnitude <= 0.1f)
+         {
+             aiController.stopCar();
+             aiController.startCar();
+         }*/
         if (navtarget && Vector3.Distance(transform.position, navtarget.transform.position) < 3)
         {
             if (path.Count > 0)
             {
                 navtarget.transform.SetPositionAndRotation(path.Dequeue().position, Quaternion.identity);
                 //GetComponent<CarController>().Move(0, 0, 0, 0);
-                return;
+               // return;
             }
         }
 
+        var carController = GetComponent<CarController>();
         if (endNode != null)
         {
             if (Vector3.Distance(transform.position, endNode.position) < 15)
             {
                // Debug.Log("Slowing");
-                GetComponent<CarController>().SetTopSpeed(5F);
+                carController.SetTopSpeed(5f);
+                //aiController.startCar();
+                
             }
             else
             {
-               // Debug.Log("Accelerating");
-                GetComponent<CarController>().SetTopSpeed(30f);
+                // Debug.Log("Accelerating");
+                carController.SetTopSpeed(30f);
+               // aiController.startCar();
             }
         }
+
 
 /*
         if (endNode is BayNode)
@@ -282,7 +296,11 @@ public class Taxi : MonoBehaviour, IGoap {
         }
 
         Dictionary<Node, Node> pathParented = ClickObject.carNavGraph.FindShortestPathDijkstra(startNode, endNode);
-        if (pathParented == null) print("o-o The path is null");
+        if (pathParented == null)
+        {
+            print("o-o The path is null");
+            return;
+        }
         path = new Queue<Node>();
         var iterNode = endNode;
         LinkedList<Node> pathSorter = new LinkedList<Node>();
@@ -520,6 +538,7 @@ public class Taxi : MonoBehaviour, IGoap {
     public bool moveAgent(GoapAction nextAction)
     {
         var dist = Vector3.Distance(nextAction.target.transform.position, gameObject.transform.position);
+        var carAiControl = GetComponent<CarAIControl>();
 
         if (dist >= gameObject.GetComponent<CarAIControl>().ReachTargetThreshold)
         {
@@ -542,7 +561,7 @@ public class Taxi : MonoBehaviour, IGoap {
         else
         {
             endNode = null;
-            GetComponent<CarAIControl>().stopCar();
+            carAiControl.stopCar();
             nextAction.setInRange(true);
             return true;
         }

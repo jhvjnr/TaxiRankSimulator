@@ -152,12 +152,12 @@ public class Commuter : MonoBehaviour, IGoap {
 
     public void planFound(Dictionary<string, object> goal, Queue<GoapAction> actions)
     {
-        Debug.Log("<color=yellow>I found a plan :):</color>");
+       /* Debug.Log("<color=yellow>I found a plan :):</color>");
         int i = 0;
         foreach (GoapAction action in actions)
         {
             Debug.Log("Step " + ++i + ": " + action.ActionName);
-        }
+        }*/
         return;
 
         throw new NotImplementedException();

@@ -73,7 +73,12 @@ namespace Assets
             return passengersLoaded;
         }
 /*
-        private IEnumerator LoadPassengers(GameObject taxi)
+        private IEnumerator 
+        
+            
+            
+            
+            s(GameObject taxi)
         {
             Taxi currentTaxi = taxi.GetComponent<Taxi>();
             currentTaxi.loadPassengers();

@@ -60,6 +60,13 @@ namespace UnityStandardAssets.Vehicles.Car
         private Vector3 localTarget;
         private float steer, accel;
 
+        public bool isDriving
+        {
+            get
+            {
+                return m_Driving;
+            }
+        }
         public float ReachTargetThreshold
         {
             get
@@ -84,14 +91,13 @@ namespace UnityStandardAssets.Vehicles.Car
             m_Rigidbody = GetComponent<Rigidbody>();
         }
 
-
         private void FixedUpdate()
         {
             if (m_Target == null || !m_Driving)
             {
                 // Car should not be moving,
                 // use handbrake to stop
-                m_CarController.Move(0, 0, -1f, 1f);
+               m_CarController.Move(0, 0, -1f, 1f);
             }
             else
             {
@@ -207,12 +213,12 @@ namespace UnityStandardAssets.Vehicles.Car
         public void startCar()
         {
             m_Driving = true;
-            print("I've started the car");
+            //print("I've started the car");
         }
         public void stopCar()
         {
             m_Driving = false;
-            print("PleaseStop");
+            //print("PleaseStop");
         }
         private void OnCollisionStay(Collision col)
         {
@@ -306,10 +312,10 @@ namespace UnityStandardAssets.Vehicles.Car
             // }
             //}
 
-            //Debug.DrawRay(sensorStartPosition, direction * sensorLength, Color.blue);
+            Debug.DrawRay(sensorStartPosition, direction * sensorLength, Color.blue);
             if (Physics.Raycast(sensorStartPosition, direction * sensorLength, out raycastHit, sensorLength))
             {
-                if (raycastHit.transform.tag != "Terrain" && raycastHit.transform.tag != "RankGeometry")
+                if (raycastHit.transform.tag == "Taxi")//)raycastHit.transform.tag != "Terrain" && raycastHit.transform.tag != "RankGeometry")
                 {
                     var other = raycastHit.collider.gameObject;
                     var xmDot = this.gameObject.GetComponent<Rigidbody>().velocity;

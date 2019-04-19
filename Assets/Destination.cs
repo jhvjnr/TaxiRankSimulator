@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class Destination {
    // public enum dests { Strand, Stellenbosch, Jonkershoek, Bellville, CapeTown, Somerset, Mthatha};
     private string name;
     public long TotalCommuters{ get; set; }
-
+    [XmlIgnore] public Dictionary<float, int> Fluxes = new Dictionary<float, int>();
 
     public Destination()
     {
