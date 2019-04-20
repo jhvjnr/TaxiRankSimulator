@@ -270,6 +270,9 @@ namespace UnityStandardAssets.Vehicles.Car
 
 
             Vector3 direction = transform.forward;
+            direction += transform.right * Mathf.Sin(-Mathf.Deg2Rad * (m_CarController.GetWheelAngle() - 180));
+            direction -= transform.forward * Mathf.Cos(-Mathf.Deg2Rad * (m_CarController.GetWheelAngle() - 180));
+            //print("Wheel angle: " + m_CarController.GetWheelAngle());
             // direction = gameObject.transform.GetChild(5).GetChild(0).forward;
             //direction.y = 0f;
             //sensorStartPosition.y = 0.1f;

@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Jurie/OneDrive/Unity Projects/JATSim/Build33Saturday/Build33Saturday.exe
+C:/Users/Jurie/OneDrive/Unity Projects/JATSim/Build34WithSmarterSensingAndAccurateMass/Build34WithSmarterSensingAndAccurateMass.exe
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?

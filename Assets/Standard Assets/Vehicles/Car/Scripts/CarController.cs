@@ -60,6 +60,11 @@ namespace UnityStandardAssets.Vehicles.Car
         {
             m_Topspeed = topSpeed;
         }
+
+        public float GetWheelAngle()
+        {
+            return m_WheelColliders[0].steerAngle;
+        }
         // Use this for initialization
         private void Start()
         {
