@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Jurie/OneDrive/Unity Projects/JATSim/Build34WithSmarterSensingAndAccurateMass/Build34WithSmarterSensingAndAccurateMass.exe
+C:/Users/Jurie/OneDrive/Unity Projects/JATSim/Build38ParkFirstAskQuestionsLater/Build38ParkFirstAskQuestionsLater.exe
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
@@ -231,7 +231,7 @@ d2af69ce28cda6fcf0b7728ae3f251b4 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 71ed44096f44bf505e8f927b5d9a655a Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.Mudguard
 76119242f799591c84bce8d3be04eee2 Assembly-CSharp.dll:Assets.TaxiLeaveRank
 3073f6d8af9d737e4e72afa03e0ce866 Assembly-CSharp.dll:UnityStandardAssets.SceneUtils.PlaceTargetWithMouse
-c80c98708bec21b129ca25f3826876cd Assembly-CSharp.dll:.Taxi
+d5f76626d2dfcbe1ea97497e51165732 Assembly-CSharp.dll:.Taxi
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
@@ -256,6 +256,7 @@ f4b175ffc1eeca85d2783436b4c764a7 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 6746ad828d32ad6e5c07a63950fd4be6 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.WaterTile
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.FPSCounter
 66d7f5fabc1b14436a342060bb3a057a Assembly-CSharp.dll:.Bay
+76119242f799591c84bce8d3be04eee2 Assembly-CSharp.dll:.ParkTaxiAction
 b886e72cee4a42c703d33ad67ead8234 Assembly-CSharp.dll:.ClickObject
 a412f64ff4e4667098f82b7fa0bf56e2 Assembly-CSharp-firstpass.dll:UnityStandardAssets._2D.PlatformerCharacter2D
 0f3d4bb7128a287827d041c696039525 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch

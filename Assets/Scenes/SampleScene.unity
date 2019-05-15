@@ -2832,7 +2832,7 @@ MonoBehaviour:
     type: 2}
   NavNode: {fileID: 1874778413002644, guid: bfd1971b3f6cd334d8b470a838cc32ba, type: 2}
   BayNode: {fileID: 1589696511297796, guid: e90c3a2226209d841a256086cfb1e89c, type: 2}
-  ParkingNode: {fileID: 1589696511297796, guid: e90c3a2226209d841a256086cfb1e89c,
+  ParkingNode: {fileID: 1062957266031218, guid: 2274f6697a94c9442b807b9386727769,
     type: 2}
   ExitNode: {fileID: 1333809290699044, guid: 9517f5f672499c14fb2d8ff0406505e9, type: 2}
   clickNumber: 0

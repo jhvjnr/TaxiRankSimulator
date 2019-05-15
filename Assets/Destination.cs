@@ -14,7 +14,7 @@ public class Destination {
    // public enum dests { Strand, Stellenbosch, Jonkershoek, Bellville, CapeTown, Somerset, Mthatha};
     private string name;
     public long TotalCommuters{ get; set; }
-    [XmlIgnore] public Dictionary<float, int> Fluxes = new Dictionary<float, int>();
+    [XmlIgnore] public Dictionary<float, int> CommuterCounts = new Dictionary<float, int>();
 
     public Destination()
     {

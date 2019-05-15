@@ -15,6 +15,8 @@ public class Taxi : MonoBehaviour, IGoap {
 
     public  Destination previousDestination;
     [SerializeField] public Destination nextDestination { get; set; }
+    [SerializeField] public string ID;
+    [SerializeField] public string ExpectedDeparture;
     [SerializeField] public CommuterQueue queue;
     [SerializeField] private float arrivalTime;
     [SerializeField] private int maxSeated;
@@ -32,6 +34,7 @@ public class Taxi : MonoBehaviour, IGoap {
     public Dictionary<string, object> worldState = new Dictionary<string, object>();
     public bool hasStoppedForPassengers = false;
     public bool loadingPassenger;
+    public Bay bayAccessObject { get; set; }
 
 
     public Destination NextDestination
@@ -144,8 +147,28 @@ public class Taxi : MonoBehaviour, IGoap {
     }
 	void Start ()
     {
-        initializeWorldState();
+        
         queue = new CommuterQueue();
+
+        BayNode targetBayNode = new BayNode();
+        foreach (Node node in ClickObject.carNavGraph.nodes)
+        {
+            if (node is BayNode)
+            {
+                var bayNode = (BayNode)node;
+                if (bayNode.destination.Equals(nextDestination))
+                {
+                    if (bayNode.priority == 1)
+                    {
+                        targetBayNode = bayNode;
+                        break;
+                    }
+                }
+            }
+        }
+        if (targetBayNode.getCorrespondingBay() == null) Debug.Log("<color=red>I wanted " + this.nextDestination.Name + "</color>");
+        bayAccessObject = targetBayNode.getCorrespondingBay();
+        initializeWorldState();
     }
 
     public void addCommuterToQueue(GameObject commuter)
@@ -298,7 +321,7 @@ public class Taxi : MonoBehaviour, IGoap {
         Dictionary<Node, Node> pathParented = ClickObject.carNavGraph.FindShortestPathDijkstra(startNode, endNode);
         if (pathParented == null)
         {
-            print("o-o The path is null");
+            print(startNode.position + "o-o The path is null" + endNode.position);
             return;
         }
         path = new Queue<Node>();
@@ -329,7 +352,7 @@ public class Taxi : MonoBehaviour, IGoap {
 
     public bool planRoute(Node inputNode, Node endNode)
     {
-        print("Input node coords: " + inputNode.position);
+       // print("Input node coords: " + inputNode.position);
         Node startNode = new Node(Vector3.positiveInfinity);
         foreach (Node node in ClickObject.carNavGraph.nodes)
         {
@@ -338,10 +361,10 @@ public class Taxi : MonoBehaviour, IGoap {
                 startNode = node;
             }
         }
-        print("Start Node coords: " + startNode.position);
+       // print("Start Node coords: " + startNode.position);
         Dictionary<Node, Node> pathParented = ClickObject.carNavGraph.FindShortestPathDijkstra(startNode, endNode);
         if (pathParented == null) return false;
-        print("I found a non null path to:" + endNode.position);
+        //print("I found a non null path to:" + endNode.position);
         var path = new Queue<Node>();
         var iterNode = endNode;
         LinkedList<Node> pathSorter = new LinkedList<Node>();
@@ -473,11 +496,24 @@ public class Taxi : MonoBehaviour, IGoap {
         Dictionary<string, object> worldState = new Dictionary<string, object>();
         worldState.Add("LoadedPassengers", false);
         worldState.Add("PassengersAlighted", false);
+        worldState.Add("BayAccessible", isBayAccesible());
+        worldState.Add("TaxiStopped", false);
         //worldState.Add("fullTaxi", new Func<bool>(this.isTaxiFull));
         //worldState.Add("stoppedAtAppropriateBay", false);
         worldState.Add("Left", false);
         this.worldState = worldState;
         return worldState;
+    }
+
+    public bool isBayAccesible()
+    {
+        var bayOccupant = bayAccessObject.occupant;//this.GetBay(1).occupant;
+        if (bayOccupant && bayOccupant.GetComponentInParent<Rigidbody>().velocity.magnitude < 1)
+        {
+           // print(false);
+            return false;
+        }
+        return true;
     }
 
     public bool isTaxiFull()
@@ -599,6 +635,42 @@ public class Taxi : MonoBehaviour, IGoap {
         }*/
     }
 
+    public Bay GetBay(int priority)
+    {
+        BayNode targetBayNode = new BayNode();
+        foreach (Node node in ClickObject.carNavGraph.nodes)
+        {
+            if (node is BayNode)
+            {
+                var bayNode = (BayNode)node;
+                if (bayNode.destination.Equals(nextDestination))
+                {
+                    if (bayNode.priority == priority)
+                    {
+                        targetBayNode = bayNode;
+                        break;
+                    }
+                }
+            }
+        }
+        if (targetBayNode.getCorrespondingBay() == null) Debug.Log("<color=red>I wanted " + this.nextDestination.Name + "</color>");
+        return targetBayNode.getCorrespondingBay();
+    }
+
+    public ParkingNode GetApplicableParking()
+    {
+        foreach (Node node in ClickObject.carNavGraph.nodes)
+        {
+            if (node is ParkingNode)
+            {
+                var parkingNode = (ParkingNode)node;
+                // if (!parkingNode.occupied) return parkingNode;
+                return parkingNode;
+            }
+
+        }
+        return null;
+    }
     public GameObject GetAppropriateBay()
     {
         BayNode targetBayNode = new BayNode();

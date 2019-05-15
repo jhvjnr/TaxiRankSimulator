@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 114847241522995178}
   - component: {fileID: 114793627460110054}
   - component: {fileID: 114116241345041786}
+  - component: {fileID: 114359962143476088}
   m_Layer: 0
   m_Name: AITaxi
   m_TagString: Taxi
@@ -699,7 +700,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1540636260490060}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 105.8007, y: 0.0019204341, z: 60.253204}
+  m_LocalPosition: {x: 126.7, y: 0.001908046, z: 165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4573534889588898}
@@ -1798,6 +1799,18 @@ MonoBehaviour:
   m_RevRangeBoundary: 6
   m_SlipLimit: 0.4
   m_BrakeTorque: 20000
+--- !u!114 &114359962143476088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1540636260490060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b515dbe79686bb4996757d4aa85f966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &114368033462106536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1809,6 +1822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc9fabba6c1c424c8e2bcbdc2c407f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   arrivalTime: 0
   maxSeated: 0
   fare: 0
@@ -1829,8 +1843,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d963df58504b69045b8d0d746ba6f777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensorLength: 10
-  frontSensorPos: {x: 0, y: 1.5, z: 2.6}
+  sensorLength: 3
+  frontSensorPos: {x: 0, y: 1.5, z: 1.5}
   rightSideSensorPos: 0.6
   sideSensorAngles: 30
   avoiding: 0

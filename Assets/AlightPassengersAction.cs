@@ -17,6 +17,8 @@ public class AlightPassengersAction : GoapAction
     public AlightPassengersAction()
     {
         addEffect("PassengersAlighted", true);
+        addEffect("TaxiStopped", true);
+        addPrecondition("BayAccessible", true);
     }
 
     void Start()
@@ -64,7 +66,7 @@ public class AlightPassengersAction : GoapAction
             passengersAlighted = true;
             currentTaxi.alightingPassengers = false;
             currentTaxi.alightedPassengers = true;
-            Debug.Log("<color=Lime>Successfully alighted passengers</color>");
+           // Debug.Log("<color=Lime>Successfully alighted passengers</color>");
         }
         
         return true;

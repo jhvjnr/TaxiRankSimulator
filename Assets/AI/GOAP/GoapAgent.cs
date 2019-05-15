@@ -19,7 +19,10 @@ public sealed class GoapAgent : MonoBehaviour {
 
 	private GoapPlanner planner;
 
-
+    public GoapAction[] GetCurrentPlan()
+    {
+        return this.currentActions.ToArray();
+    }
 	void Start () {
 		stateMachine = new FSM ();
 		availableActions = new HashSet<GoapAction> ();
@@ -73,7 +76,7 @@ public sealed class GoapAgent : MonoBehaviour {
 			Queue<GoapAction> plan = planner.plan(gameObject, availableActions, worldState, goal);
 			if (plan != null) {
                 // we have a plan, hooray!
-                Debug.Log("<color=green>Plan found :) !</color>");
+                //Debug.Log("<color=green>Plan found :) !</color>");
 				currentActions = plan;
 				dataProvider.planFound(goal, plan);
 

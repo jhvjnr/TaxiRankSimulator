@@ -30,7 +30,7 @@ public class Commuter : MonoBehaviour, IGoap {
 
         foreach (Bay bay in bays)
         {
-            if (bay.destination.Equals(destination))
+            if (bay.destination.Equals(destination) && bay.priority == 0)
             {
                 appropriateBay = bay;
             }

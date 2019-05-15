@@ -32,7 +32,11 @@ public class Exit : MonoBehaviour {
 
                 double outNum = Time.time / 3600 + ThirdPersonSpawner.firstArrivalTime;
                 double inNum = currentTaxi.ArrivalTime / 3600 + ThirdPersonSpawner.firstArrivalTime;
-                writer.WriteLine("" + outNum + "," + inNum);
+                string soutNum = "" + outNum;
+                soutNum = soutNum.Replace(',', '.');
+                string sinNum = "" + inNum;
+                sinNum = sinNum.Replace(',', '.');
+                writer.WriteLine(soutNum + "," + sinNum + "," + currentTaxi.ID + "," + currentTaxi.nextDestination.Name + "," + currentTaxi.ExpectedDeparture);
             }
            // writer.Close();
         }

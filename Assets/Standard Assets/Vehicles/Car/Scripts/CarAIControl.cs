@@ -201,7 +201,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
                 // feed input to the car controller.
                 Sense();
-                m_CarController.Move(steer, accel, accel, 0f);
+                m_CarController.Move(steer, Mathf.Max(accel, 0), accel, 0f);
 
                 // if appropriate, stop driving when we're close enough to the target.
                 if (m_StopWhenTargetReached && localTarget.magnitude < ReachTargetThreshold)
@@ -263,6 +263,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
             // Debug.Log("<color=magenta>Sensing</color>");
             //RaycastHit raycastHit;
+            sensorLength = Mathf.Max(0.5f * m_CarController.CurrentSpeed, 2.5f);
             Vector3 sensorStartPosition = transform.position;
             //Vector3 sensorStartPosition = transform.position + frontSensorPos;
             sensorStartPosition += transform.forward * frontSensorPos.z;
@@ -270,7 +271,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
 
             Vector3 direction = transform.forward;
-            direction += transform.right * Mathf.Sin(-Mathf.Deg2Rad * (m_CarController.GetWheelAngle() - 180));
+            direction += transform.right * 2 * Mathf.Sin(-Mathf.Deg2Rad * ( m_CarController.GetWheelAngle() - 180));
             direction -= transform.forward * Mathf.Cos(-Mathf.Deg2Rad * (m_CarController.GetWheelAngle() - 180));
             //print("Wheel angle: " + m_CarController.GetWheelAngle());
             // direction = gameObject.transform.GetChild(5).GetChild(0).forward;
@@ -330,11 +331,14 @@ namespace UnityStandardAssets.Vehicles.Car
                     var xm = gameObject.transform.position;
                     var xn = other.transform.position;
                     var dx = Vector3.Distance(xm, xn);
-                    var l = 1;
-                    var m = 2;
+                    var l = 2;
+                    var m = 0;
 
-                    accel = (float)( brakingSensitivity * (Mathf.Pow(xmDot.magnitude, m)/Mathf.Pow(dx, l)) * (xmDot - xnDot).magnitude * Mathf.Sign(xnDot.magnitude - xmDot.magnitude));
+                    //accel = (float)( brakingSensitivity * (Mathf.Pow(xmDot.magnitude, m)/Mathf.Pow(dx, l)) * (xmDot - xnDot).magnitude * Mathf.Sign(xnDot.magnitude - xmDot.magnitude));
+                    //print("ACCEL: " + accel);
                     accel = brakingSensitivity * (1f / dx) * Mathf.Sign(xnDot.magnitude - xmDot.magnitude);
+                    if (dx < 1) accel = -1;
+                    //if (m_CarController.CurrentSpeed < 0f) steer = -steer;
                     //Debug.Log("<color=green>Acceleration = " + accel + "</color>");
                     //accel += -brakingSensitivity * (1 / dx);
                     //Debug.DrawLine(sensorStartPosition, raycastHit.point, Color.red);

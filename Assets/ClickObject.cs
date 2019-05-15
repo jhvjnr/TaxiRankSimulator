@@ -61,6 +61,11 @@ public class ClickObject : MonoBehaviour {
                 GameObject newNode = Instantiate(ExitNode);
                 newNode.transform.SetPositionAndRotation(node.position, Quaternion.identity);
             }
+            else if (node is ParkingNode)
+            {
+                GameObject newNode = Instantiate(ParkingNode);
+                newNode.transform.SetPositionAndRotation(node.position, Quaternion.identity);
+            }
             else
             {
                 GameObject newNode = Instantiate(NavNode);
@@ -82,7 +87,7 @@ public class ClickObject : MonoBehaviour {
 
             if ((Physics.Raycast(camRay, out objHit, 200f))) //&& (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()))
             {
-                if (objHit.collider.gameObject.tag == "NavNode" || objHit.collider.gameObject.tag == "ExitNode" || objHit.collider.gameObject.tag == "BayNode")
+                if (objHit.collider.gameObject.tag == "ParkingNode" || objHit.collider.gameObject.tag == "NavNode" || objHit.collider.gameObject.tag == "ExitNode" || objHit.collider.gameObject.tag == "BayNode")
                 {
                     Destroy(objHit.collider.gameObject);
                     HashSet<Edge> edgesToRemove = new HashSet<Edge>();
@@ -120,25 +125,33 @@ public class ClickObject : MonoBehaviour {
 
                 if ((Physics.Raycast(camRay, out objHit, 200f))) //&& (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()))
                 {
-                    if (objHit.collider.gameObject.tag == "NavNode" || objHit.collider.gameObject.tag == "ExitNode" || objHit.collider.gameObject.tag == "BayNode")
+                    if (objHit.collider.gameObject.tag == "ParkingNode" || objHit.collider.gameObject.tag == "NavNode" || objHit.collider.gameObject.tag == "ExitNode" || objHit.collider.gameObject.tag == "BayNode")
                     {
                         if ((clickNumber == 1) && (objHit.collider.gameObject.transform.position != firstNode.position ))
                         {
 
                             var bay = objHit.collider.gameObject.GetComponent<Bay>();
+                           // print(objHit.collider.gameObject.tag);
                             if (bay != null)
                             {
                                 secondNode = new BayNode(objHit.collider.gameObject.transform.position, bay.destination, bay.priority);
                                 carNavGraph.addNode(secondNode);
                             }
-                            else if ( objHit.collider.gameObject.GetComponent<Exit>() != null)
+                            if (objHit.collider.gameObject.tag == "ExitNode")
                             {
                                 secondNode = new ExitNode(objHit.collider.gameObject.transform.position);
                                 carNavGraph.addNode(secondNode);
                             }
-                            else
+                            if (objHit.collider.gameObject.tag == "NavNode")
                             {
+                                
                                 secondNode = new Node(objHit.collider.gameObject.transform.position);
+                                carNavGraph.addNode(secondNode);
+                            }
+                            if (objHit.collider.gameObject.tag == "ParkingNode")
+                            {
+                                //print("1 Detected Parking NODE :))");
+                                secondNode = new ParkingNode(objHit.collider.gameObject.transform.position);
                                 carNavGraph.addNode(secondNode);
                             }
 
@@ -153,18 +166,31 @@ public class ClickObject : MonoBehaviour {
 
                         if (clickNumber == 0)
                         {
+                            //print(objHit.collider.gameObject.tag);
                             var bay = objHit.collider.gameObject.GetComponent<Bay>();
                             if (bay != null)
                             {
                                 firstNode = new BayNode(objHit.collider.gameObject.transform.position, bay.destination, bay.priority);
                                 carNavGraph.addNode(firstNode);
                             }
-                            else
+                            if (objHit.collider.gameObject.tag == "ParkingNode")
+                            {
+                                //print("0 Detected Parking NODE :))");
+                                firstNode = new ParkingNode(objHit.collider.gameObject.transform.position);
+                                carNavGraph.addNode(firstNode);
+                            }
+                            if (objHit.collider.gameObject.tag == "ExitNode")
+                            {
+                                firstNode = new ExitNode(objHit.collider.gameObject.transform.position);
+                                carNavGraph.addNode(firstNode);
+                            }
+                            if (objHit.collider.gameObject.tag == "NavNode")
                             {
                                 firstNode = new Node(objHit.collider.gameObject.transform.position);
                                 carNavGraph.addNode(firstNode);
                             }
                             clickNumber++;
+                            //print("Handled click 0");
                             return;
                         }
                         
@@ -211,10 +237,18 @@ public class ClickObject : MonoBehaviour {
                                     print("bayNode");
                                     break;
                                 }
+                            case "tglParking":
+                                {
+                                    GameObject newParkingNode = Instantiate(ParkingNode);
+                                    newParkingNode.transform.SetPositionAndRotation(new Vector3(objHit.point.x, objHit.point.y + 0.55f, objHit.point.z), Quaternion.identity);
+                                    print("ParkingNode put down");
+                                    break;
+                                }
                             case "tglExitNode":
                                 {
                                     GameObject newNode = Instantiate(ExitNode);
                                     newNode.transform.SetPositionAndRotation(new Vector3(objHit.point.x, objHit.point.y + 0.55f, objHit.point.z), Quaternion.identity);
+                                    print("ExitNode put down");
                                     break;
                                 }
                             default:
@@ -351,7 +385,7 @@ public class ClickObject : MonoBehaviour {
         lineOut.AddComponent<LineRenderer>();
         LineRenderer myline = lineOut.GetComponent<LineRenderer>();
         myline.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
-        myline.startColor = Color.grey;
+        myline.startColor = Color.blue;
         myline.endColor = Color.grey;
         myline.SetWidth(0.3f, 0.3f);
         myline.transform.position = edge.startNode.position;

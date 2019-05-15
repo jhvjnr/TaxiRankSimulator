@@ -51,11 +51,11 @@ namespace Assets
                 if (node is ExitNode)
                 {
                     
-                    Debug.Log("<color=magenta>I found a possible exit</color>" + node.position);
+                    //Debug.Log("<color=magenta>I found a possible exit</color>" + node.position);
                     if (taxi.planRoute(new Node(taxi.GetAppropriateBay().transform.position), node))
                     {
                         exitNode = node;
-                        print("My exit node is: " + node.position);
+                       // print("My exit node is: " + node.position);
                     }
                 }
             }

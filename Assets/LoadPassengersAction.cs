@@ -25,6 +25,7 @@ namespace Assets
         public LoadPassengersAction()
         {
             addEffect("LoadedPassengers", true);
+            addPrecondition("TaxiStopped", true);
             addPrecondition("PassengersAlighted", true);
            // addEffect("stoppedAtAppropriateBay", true);
             //addPrecondition("fullTaxi", false);
@@ -94,7 +95,7 @@ namespace Assets
             {
                 currentTaxi.getWorldState()["LoadedPassengers"] = true;
                 passengersLoaded = true;
-                Debug.Log("<color=Lime>Successfully picked up passengers</color>");
+               // Debug.Log("<color=Lime>Successfully picked up passengers</color>");
             }
             return true;
         }

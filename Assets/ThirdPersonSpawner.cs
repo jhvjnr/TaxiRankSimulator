@@ -96,18 +96,20 @@ public class ThirdPersonSpawner : MonoBehaviour {
             taxiToAddScript.NextDestination = destination;
             taxiToAddScript.RouteNumber = routeNumber;
             taxiToAddScript.MaxSeated = 15;
-
+            taxiToAddScript.ID = "" + record[6];
+            taxiToAddScript.ExpectedDeparture = "" + record[11];
             taxis.AddLast(newTaxi);
             newTaxi.transform.SetPositionAndRotation(new Vector3(50, 0, 160), taxi.transform.rotation);
             StartCoroutine(TaxiSpawn(newTaxi, taxiToAddScript.ArrivalTime));
             Destination.destinations[destination.Name].TotalCommuters += 15;
-            if (!Destination.destinations[destination.Name].Fluxes.ContainsKey(taxiToAddScript.ArrivalTime))
+
+            if (!Destination.destinations[destination.Name].CommuterCounts.ContainsKey(taxiToAddScript.ArrivalTime))
             {
-                Destination.destinations[destination.Name].Fluxes.Add(taxiToAddScript.ArrivalTime, 15);
+                Destination.destinations[destination.Name].CommuterCounts.Add(taxiToAddScript.ArrivalTime, 15);
             }
             else
             {
-                Destination.destinations[destination.Name].Fluxes[taxiToAddScript.ArrivalTime] += 15;
+                Destination.destinations[destination.Name].CommuterCounts[taxiToAddScript.ArrivalTime] += 15;
             }
             //SpawnCommutersForTaxi(15, destination, taxiToAddScript.ArrivalTime);
             //print("Spawn Coroutines started");
@@ -127,7 +129,7 @@ public class ThirdPersonSpawner : MonoBehaviour {
             {
 
 
-                Q = (float) dest.Fluxes.Where(x => (x.Key > t - 7.5f * 60f) && (x.Key < t + 7.5f * 60f)).Sum(g => g.Value) / (15f * 60f);//>= currentLowerFluxBound && x.Key < currentLowerFluxBound + 15 * 60).Sum(x => x.Value) / (15f * 60f);
+                Q = (float) dest.CommuterCounts.Where(x => (x.Key > t - 15f * 60f) && (x.Key < t + 0f * 60f)).Sum(g => g.Value) / (15f * 60f);//>= currentLowerFluxBound && x.Key < currentLowerFluxBound + 15 * 60).Sum(x => x.Value) / (15f * 60f);
                 if (Q == 0 && t < 3600 * 3)
                 {
                     //currentLowerFluxBound += 15 * 60;
@@ -142,7 +144,7 @@ public class ThirdPersonSpawner : MonoBehaviour {
                 if (t > 3 * 3600) Q = 0.1f;
                 t += (-1f / Q) * Mathf.Log(1 - (float)rand);
                 //print("Com arrival time: " + t);
-                print(dest.Name + " Q: " + Q +  " Time: " + t);
+                //print(dest.Name + " Q: " + Q +  " Time: " + t);
                 StartCoroutine(SpawnCommuter(dest, (float)t));
                 commutersToSpawn -= 1;
                 //if (t > currentLowerFluxBound + 15 * 60) currentLowerFluxBound += 15 * 60;

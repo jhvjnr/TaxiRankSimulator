@@ -9,7 +9,13 @@ namespace Assets
     public class BayNode : Node
     {
         public Destination destination;
-        public bool occupied;
+        public bool occupied
+        {
+            get
+            {
+                return getCorrespondingBay().occupant;
+            }
+        }
         public int priority;
 
         public BayNode()

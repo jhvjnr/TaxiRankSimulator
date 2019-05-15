@@ -76,7 +76,7 @@ public Vector3Graph()
         var iterNode = endNode;
         IList<Node> path = new List<Node>();
 
-        Debug.Log("endNode:" + endNode.ToString());
+      //  Debug.Log("endNode:" + endNode.ToString());
         if (!nodeParents.ContainsKey(endNode)) return null;
         if (endNode.Equals(startNode) || !nodeParents.ContainsKey(nodeParents[endNode]) || iterNode == null)
         {
@@ -112,10 +112,10 @@ public Vector3Graph()
                 if (!output.ContainsKey(edge.endNode)) output.Add(edge.endNode, weight);
             }
 
-            if (edge.endNode.Equals(node))
-            {
-                if (!output.ContainsKey(edge.startNode)) output.Add(edge.startNode, weight);
-            }
+            /*   if (edge.endNode.Equals(node))
+               {
+                   if (!output.ContainsKey(edge.startNode)) output.Add(edge.startNode, weight);
+               }*/
         }
         //Debug.Log(output.Count);
         return output;
@@ -125,10 +125,11 @@ public Vector3Graph()
     {
         using (var writer = new StreamWriter("NavGraph.xml"))
         {
-            Type[] types = new Type[3];
+            Type[] types = new Type[4];
             types[0] = typeof(BayNode);
             types[1] = typeof(Node);
             types[2] = typeof(ExitNode);
+            types[3] = typeof(ParkingNode);
             var serializer = new XmlSerializer(GetType(),types);
             serializer.Serialize(writer, this);
             writer.Flush();
@@ -140,10 +141,11 @@ public Vector3Graph()
         Vector3Graph output;
         using (var reader = new StreamReader(FileName))
         {
-            Type[] types = new Type[3];
+            Type[] types = new Type[4];
             types[0] = typeof(BayNode);
             types[1] = typeof(Node);
             types[2] = typeof(ExitNode);
+            types[3] = typeof(ParkingNode);
             var deserializer = new XmlSerializer(typeof(Vector3Graph), types);
             output = (Vector3Graph) deserializer.Deserialize(reader);
             reader.Close();

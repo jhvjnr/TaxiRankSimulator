@@ -11,6 +11,7 @@ TagManager:
   - ExitNode
   - BayNode
   - RankGeometry
+  - ParkingNode
   layers:
   - Default
   - TransparentFX
