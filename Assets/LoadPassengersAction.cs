@@ -11,7 +11,7 @@ namespace Assets
     public class LoadPassengersAction : GoapAction
     {
         private bool passengersLoaded = false;
-        
+
 
         public override string ActionName
         {
@@ -25,8 +25,10 @@ namespace Assets
         public LoadPassengersAction()
         {
             addEffect("LoadedPassengers", true);
-            addPrecondition("TaxiStopped", true);
+            //addEffect("TaxiParked", true);
+            //addPrecondition("TaxiStopped", true);
             addPrecondition("PassengersAlighted", true);
+            addPrecondition("BayAccessible", true);
            // addEffect("stoppedAtAppropriateBay", true);
             //addPrecondition("fullTaxi", false);
         }
@@ -42,13 +44,14 @@ namespace Assets
             {
                 thisTaxi.getWorldState()["fulltaxi"] = true;
             }
+            var a = this.ActionName;
         }
 
         public override bool checkProceduralPrecondition(GameObject agent)
         {
             Taxi thisTaxi = GetComponent<Taxi>();
             target = thisTaxi.GetAppropriateBay();
-            if (thisTaxi.alightingPassengers == true) return false;
+            if (thisTaxi.alightingPassenger == true) return false;
             if (isDone()) return false;
             /*RaycastHit hitInfo = new RaycastHit();
 
@@ -107,8 +110,8 @@ namespace Assets
 
         public override void reset()
         {
-            //passengersLoaded = false;
-            //target = null;
+            passengersLoaded = false;
+            target = null;
         }
     }
 }

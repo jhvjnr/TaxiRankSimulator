@@ -1795,7 +1795,7 @@ MonoBehaviour:
   m_MaxHandbrakeTorque: 100
   m_Downforce: 100
   m_SpeedType: 1
-  m_Topspeed: 30
+  m_Topspeed: 5
   m_RevRangeBoundary: 6
   m_SlipLimit: 0.4
   m_BrakeTorque: 20000
@@ -1823,15 +1823,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 
+  ExpectedDeparture: 
   arrivalTime: 0
   maxSeated: 0
   fare: 0
   navtarget: {fileID: 0}
-  loadingPassengers: 0
-  alightingPassengers: 0
-  alightedPassengers: 0
-  hasStoppedForPassengers: 0
+  alightingPassenger: 0
   loadingPassenger: 0
+  alightedPassengers: 0
 --- !u!114 &114707208160900402
 MonoBehaviour:
   m_ObjectHideFlags: 1

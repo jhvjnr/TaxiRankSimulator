@@ -234,4 +234,9 @@ public sealed class GoapAgent : MonoBehaviour {
 		String s = ""+action.GetType().Name;
 		return s;
 	}
+
+    public Queue<GoapAction> getActionSequence()
+    {
+        return this.currentActions;
+    }
 }

@@ -2828,15 +2828,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da4dbbf2e489824284d28dabeea8990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platFormPrefab: {fileID: 1786582614775516, guid: 60f2b4d67ba1de44db117aac3da67f72,
-    type: 2}
+  platFormPrefab: {fileID: 0}
   NavNode: {fileID: 1874778413002644, guid: bfd1971b3f6cd334d8b470a838cc32ba, type: 2}
   BayNode: {fileID: 1589696511297796, guid: e90c3a2226209d841a256086cfb1e89c, type: 2}
   ParkingNode: {fileID: 1062957266031218, guid: 2274f6697a94c9442b807b9386727769,
     type: 2}
   ExitNode: {fileID: 1333809290699044, guid: 9517f5f672499c14fb2d8ff0406505e9, type: 2}
-  clickNumber: 0
-  bayLabelFont: {fileID: 12800000, guid: b51a3e520f9164da198dc59c8acfccd6, type: 3}
+  bayLabelFont: {fileID: 0}
 --- !u!1 &1359470203
 GameObject:
   m_ObjectHideFlags: 0
@@ -3973,10 +3971,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b0544860e08b44ba7877834222c6bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taxi: {fileID: 1540636260490060, guid: 4b5c594cecc8ecf41b4e4f8ca153897c, type: 2}
+  exampleTaxi: {fileID: 1540636260490060, guid: 4b5c594cecc8ecf41b4e4f8ca153897c,
+    type: 2}
   exampleCommuter: {fileID: 1048667100758864, guid: 8627b7ff140246e4aa9c5e024c9f83dd,
     type: 2}
-  maxToSpawn: 200
 --- !u!1 &1778789853
 GameObject:
   m_ObjectHideFlags: 0
@@ -4112,7 +4110,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Add Platform
+  m_Text: Remove collider
 --- !u!222 &1783343639
 CanvasRenderer:
   m_ObjectHideFlags: 0

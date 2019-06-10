@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Jurie/OneDrive/Unity Projects/JATSim/Build38ParkFirstAskQuestionsLater/Build38ParkFirstAskQuestionsLater.exe
+C:/Users/Jurie/OneDrive/Unity Projects/JATSim/Build41Resetter/Build41Resetter.exe
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
@@ -178,7 +178,7 @@ cfa93710d56cd4da2a3b2eec27bc1139 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 e97ff9540a49b92b779792c195839d33 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.AfterburnerPhysicsForce
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SetState
 0f3d832b4eab173f4ea15e0db137bc91 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.CarController
-fb0dea27b6c904b4f78658cdbeeecdfc Assembly-CSharp.dll:.ThirdPersonSpawner
+855dfb0dbc4edd5b8d966e6702278378 Assembly-CSharp.dll:.ACTSScheduler
 1c5c7f2ff1d59badb995985d6dbf9be3 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.CarAIControl
 ed5b1294bf25c955351a414cffe1c3ab Assembly-CSharp.dll:RTS_Cam.RTS_Camera
 787e2b9ae31dffd9c6c22a49250dbd1c Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.CarSelfRighting
@@ -231,7 +231,7 @@ d2af69ce28cda6fcf0b7728ae3f251b4 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 71ed44096f44bf505e8f927b5d9a655a Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.Mudguard
 76119242f799591c84bce8d3be04eee2 Assembly-CSharp.dll:Assets.TaxiLeaveRank
 3073f6d8af9d737e4e72afa03e0ce866 Assembly-CSharp.dll:UnityStandardAssets.SceneUtils.PlaceTargetWithMouse
-d5f76626d2dfcbe1ea97497e51165732 Assembly-CSharp.dll:.Taxi
+4cac5ade6cbe9e5d6008477dfd5bd2eb Assembly-CSharp.dll:.Taxi
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
@@ -244,19 +244,19 @@ ac0e5e8ccd6c031d45307738e1b2ad59 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 ab232dc3d94359ca42eabb9c72cbbb82 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.WaterHoseParticles
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 c9576c6a51e2e71bc5caab85a96801e8 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.SmokeParticles
-76119242f799591c84bce8d3be04eee2 Assembly-CSharp.dll:.CommuterLeaveRank
+76119242f799591c84bce8d3be04eee2 Assembly-CSharp.dll:Assets.CommuterLeaveRankAction
 db3b233e35a88802fed1717d19c3d9ec Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.FollowTarget
 600bf2432747463c84424edccb3c1d05 Assembly-CSharp-firstpass.dll:UnityStandardAssets._2D.Camera2DFollow
 a8796ecdc9d5c260bbe32f30c4b10708 Assembly-CSharp-firstpass.dll:UnityStandardAssets.CrossPlatformInput.TouchPad
 b7f557c19cce3b6f593e26edfe1ec859 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Ball.Ball
 0ad469aca31264c6140b1e503c43ab6b Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.TimedObjectDestructor
-fcff8f09bdad16dd06bd88dab23f0b32 Assembly-CSharp.dll:.Commuter
+a86d5c5ed476eb3b98e26e17c879fd77 Assembly-CSharp.dll:.Commuter
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.GerstnerDisplace
 f4b175ffc1eeca85d2783436b4c764a7 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.Explosive
 6746ad828d32ad6e5c07a63950fd4be6 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.WaterTile
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.FPSCounter
 66d7f5fabc1b14436a342060bb3a057a Assembly-CSharp.dll:.Bay
 76119242f799591c84bce8d3be04eee2 Assembly-CSharp.dll:.ParkTaxiAction
-b886e72cee4a42c703d33ad67ead8234 Assembly-CSharp.dll:.ClickObject
+602a027cdce2c920666624dba06cf3da Assembly-CSharp.dll:.IOACTS
 a412f64ff4e4667098f82b7fa0bf56e2 Assembly-CSharp-firstpass.dll:UnityStandardAssets._2D.PlatformerCharacter2D
 0f3d4bb7128a287827d041c696039525 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch

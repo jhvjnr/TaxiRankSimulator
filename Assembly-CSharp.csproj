@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ACTSScheduler.cs" />
     <Compile Include="Assets\AI\FSM\FSM.cs" />
     <Compile Include="Assets\AI\FSM\FSMState.cs" />
     <Compile Include="Assets\AI\GOAP\GoapAction.cs" />
@@ -70,9 +71,8 @@
     <Compile Include="Assets\Bay.cs" />
     <Compile Include="Assets\BayNode.cs" />
     <Compile Include="Assets\CarExit.cs" />
-    <Compile Include="Assets\ClickObject.cs" />
     <Compile Include="Assets\Commuter.cs" />
-    <Compile Include="Assets\CommuterLeaveRank.cs" />
+    <Compile Include="Assets\CommuterLeaveRankAction.cs" />
     <Compile Include="Assets\CommuterQueue.cs" />
     <Compile Include="Assets\Destination.cs" />
     <Compile Include="Assets\Edge.cs" />
@@ -80,6 +80,7 @@
     <Compile Include="Assets\ExitNode.cs" />
     <Compile Include="Assets\GetOnAppropriateTaxiAction.cs" />
     <Compile Include="Assets\GraphSolver.cs" />
+    <Compile Include="Assets\IOACTS.cs" />
     <Compile Include="Assets\LoadPassengersAction.cs" />
     <Compile Include="Assets\NavigationBaker.cs" />
     <Compile Include="Assets\Node.cs" />
@@ -101,7 +102,6 @@
     <Compile Include="Assets\StartNode.cs" />
     <Compile Include="Assets\Taxi.cs" />
     <Compile Include="Assets\TaxiLeaveRank.cs" />
-    <Compile Include="Assets\ThirdPersonSpawner.cs" />
     <None Include="Assets\StandardShader.shader" />
     <None Include="Assets\NavGraphExperiment1.xml" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />

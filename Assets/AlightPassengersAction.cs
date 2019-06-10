@@ -17,8 +17,10 @@ public class AlightPassengersAction : GoapAction
     public AlightPassengersAction()
     {
         addEffect("PassengersAlighted", true);
-        addEffect("TaxiStopped", true);
-        addPrecondition("BayAccessible", true);
+        //addPrecondition("TaxiParked", true);
+
+       // addEffect("TaxiStopped", true);
+        //addPrecondition("BayAccessible", true);
     }
 
     void Start()
@@ -35,7 +37,15 @@ public class AlightPassengersAction : GoapAction
     public override bool checkProceduralPrecondition(GameObject agent)
     {
         Taxi thisTaxi = GetComponent<Taxi>();
-        target = thisTaxi.GetAppropriateBay();
+        //ParkTaxiAction taxisParkAction = GetComponent<ParkTaxiAction>();
+        if (!thisTaxi.isBayAccesible())
+        {
+            target = thisTaxi.GetApplicableParking().GetCorrespondingGO();
+        }
+        else
+        {
+            target = thisTaxi.GetAppropriateBay();
+        }
         if (isDone()) return false;
         return true;
     }
@@ -56,15 +66,15 @@ public class AlightPassengersAction : GoapAction
     {
         Taxi currentTaxi = agent.GetComponent<Taxi>();
         
-        if (!currentTaxi.alightingPassengers && !passengersAlighted)
+        if (!currentTaxi.alightingPassenger && !passengersAlighted)
         {
             currentTaxi.alightPassengers();
-            currentTaxi.alightingPassengers = true;
+            currentTaxi.alightingPassenger = true;
         }
         if (currentTaxi.Passengers.Count == 0)
         {
             passengersAlighted = true;
-            currentTaxi.alightingPassengers = false;
+            currentTaxi.alightingPassenger = false;
             currentTaxi.alightedPassengers = true;
            // Debug.Log("<color=Lime>Successfully alighted passengers</color>");
         }

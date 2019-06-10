@@ -20,7 +20,7 @@ public class ParkTaxiAction : GoapAction {
     public ParkTaxiAction()
     {
         addEffect("BayAccessible", true);
-        addEffect("TaxiStopped", true);
+       // addEffect("TaxiParked", true);
         cost = 100;
     }
 

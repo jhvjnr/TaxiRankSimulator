@@ -28,7 +28,7 @@ public class Bay : MonoBehaviour
             if (queue.Commuters.Count > 0 )
             {
                 queue.Commuters.First().GetComponent<AICharacterControl>().SetTarget(gameObject.transform.GetChild(0).transform);
-                if (!taxi.loadingPassenger && !taxi.alightingPassengers && taxi.alightedPassengers)
+                if (!taxi.loadingPassenger && !taxi.alightingPassenger && taxi.alightedPassengers)
                 {
                     StartCoroutine(taxi.addPassengerFromQueue(queue));
                 }

@@ -14,7 +14,7 @@ public class GetOnAppropriateTaxiAction : GoapAction {
 
     public GetOnAppropriateTaxiAction()
     {
-        addEffect("getToDestination", true);
+        addEffect("gotToDestination", true);
     }
     public override bool checkProceduralPrecondition(GameObject agent)
     {
@@ -77,7 +77,7 @@ public class GetOnAppropriateTaxiAction : GoapAction {
         {
             Debug.Log("<color=magenta>Goal: </color>" + goal);
         }*/
-        if (currentCommuter.goalState.ContainsKey("getToDestination"))
+        if (currentCommuter.getGoalState().ContainsKey("gotToDestination"))
         {
             var bay = currentCommuter.toEmbarkAt;
             if (bay != null)

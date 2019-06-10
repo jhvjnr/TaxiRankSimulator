@@ -10,7 +10,7 @@ namespace Assets
 
     public class Edge
     {
-        private string name;
+        public string name { get; set; }
         public double weight { get; set; }
         public Node startNode { get; set; }
         public Node endNode { get; set; }

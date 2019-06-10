@@ -46,7 +46,7 @@ namespace Assets
             Node exitNode = null;
             Taxi taxi = GetComponent<Taxi>();
             
-            foreach (Node node in ClickObject.carNavGraph.nodes)
+            foreach (Node node in IOACTS.carNavGraph.nodes)
             {
                 if (node is ExitNode)
                 {

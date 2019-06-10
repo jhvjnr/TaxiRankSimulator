@@ -336,7 +336,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
                     //accel = (float)( brakingSensitivity * (Mathf.Pow(xmDot.magnitude, m)/Mathf.Pow(dx, l)) * (xmDot - xnDot).magnitude * Mathf.Sign(xnDot.magnitude - xmDot.magnitude));
                     //print("ACCEL: " + accel);
-                    accel = brakingSensitivity * (1f / dx) * Mathf.Sign(xnDot.magnitude - xmDot.magnitude);
+                    accel = brakingSensitivity * (1f / dx) * (xnDot.magnitude - xmDot.magnitude);
                     if (dx < 1) accel = -1;
                     //if (m_CarController.CurrentSpeed < 0f) steer = -steer;
                     //Debug.Log("<color=green>Acceleration = " + accel + "</color>");
@@ -353,6 +353,9 @@ namespace UnityStandardAssets.Vehicles.Car
 
                 }
             }
+
+
+
 
 
             /*

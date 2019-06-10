@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114822064217099526}
   - component: {fileID: 114425016766763770}
   - component: {fileID: 114449722057479380}
-  - component: {fileID: 114775128464188678}
+  - component: {fileID: 114510786873523934}
   m_Layer: 0
   m_Name: Commuter
   m_TagString: Untagged
@@ -2545,7 +2545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
---- !u!114 &114775128464188678
+--- !u!114 &114510786873523934
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2568,11 +2568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629c635d1cecd6043afbcd3daefd888b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeStanding: 0
-  timeSiting: 0
-  timeInSim: 0
   inQueue: 0
-  atBackOfQueue: 0
   toEmbarkAt: {fileID: 0}
 --- !u!136 &136911936840007086
 CapsuleCollider:

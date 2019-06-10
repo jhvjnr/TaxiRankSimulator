@@ -10,15 +10,15 @@ public class Commuter : MonoBehaviour, IGoap {
 
 
     public Destination destination;
-    public double timeStanding;
-    public double timeSiting;
-    public double timeInSim;
+  //  public double timeStanding;
+   // public double timeSiting;
+  ///  public double timeInSim;
     public bool inQueue = false;
-    public bool atBackOfQueue;
+   // public bool atBackOfQueue;
     public Bay toEmbarkAt;
-    public Dictionary<string, object> goalState;// = new Dictionary<string, object>();
-
-
+    private Dictionary<string, object> goalState;// = new Dictionary<string, object>();
+    private Dictionary<string, object> worldState;
+    
     
 
     public Bay getAppropriateBay()
@@ -37,7 +37,7 @@ public class Commuter : MonoBehaviour, IGoap {
         }
         if (appropriateBay == null)
         {
-            Debug.Log("No appropriate bay found:(");
+            Debug.Log("No appropriate bay found for:)");
         }
         else
         {
@@ -51,6 +51,7 @@ public class Commuter : MonoBehaviour, IGoap {
     void Start ()
     {
         initializeGoalState();
+        initializeWorldState();
         /*
         inQueue = false;
 
@@ -121,19 +122,21 @@ public class Commuter : MonoBehaviour, IGoap {
 
     public Dictionary<string, object> getWorldState()
     {
-        Dictionary<string, object> worldState = new Dictionary<string, object>();
-        worldState.Add("getToDestination", false);
-        worldState.Add("LeaveRank", false);
-        //worldState.Add("stayHealthy", false);
         return worldState;
     }
 
-    public Dictionary<string, object> initializeGoalState()
+    public void initializeWorldState()
+    {
+        worldState = new Dictionary<string, object>();
+        worldState.Add("gotToDestination", false);
+        worldState.Add("LeaveRank", false);
+        worldState.Add("stayHealthy", false);
+    }
+
+    public void initializeGoalState()
     {
         goalState = new Dictionary<string, object>();
-        goalState.Add("getToDestination", true);
-        
-        return goalState;
+        goalState.Add("gotToDestination", true);
     }
 
     public Dictionary<string, object> getGoalState()
@@ -152,7 +155,8 @@ public class Commuter : MonoBehaviour, IGoap {
 
     public void planFound(Dictionary<string, object> goal, Queue<GoapAction> actions)
     {
-       /* Debug.Log("<color=yellow>I found a plan :):</color>");
+        /*
+        Debug.Log("<color=yellow>I found a plan :):</color>");
         int i = 0;
         foreach (GoapAction action in actions)
         {
@@ -165,12 +169,14 @@ public class Commuter : MonoBehaviour, IGoap {
 
     public void actionsFinished()
     {
+        Debug.Log("<color=white>I finished all my actions :)</color>");
         return;
         throw new NotImplementedException();
     }
 
     public void planAborted(GoapAction aborter)
     {
+        Debug.Log("<color=orange>Plan aborted</color>" + "Aborter: " + aborter.ActionName);
         return;
         throw new NotImplementedException();
     }

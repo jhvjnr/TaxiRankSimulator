@@ -4,25 +4,25 @@ public class SetState : MonoBehaviour{
 
 	public void changeStateToCreatePlatform()
     { 
-        ClickObject.state = ClickObject.clickState.CreatePlatform;
+        IOACTS.state = IOACTS.clickState.CreatePlatform;
         print("StateChanged to Creat Platform");
 	}
 
     public void changeStateToSetWaypoint()
     {
-        ClickObject.state = ClickObject.clickState.SetWaypoint;
+        IOACTS.state = IOACTS.clickState.SetWaypoint;
         print("StateChanged to Set waypoint");
     }
 
     public void changeStateToAddNavNode()
     {
-        ClickObject.state = ClickObject.clickState.AddNavNode;
+        IOACTS.state = IOACTS.clickState.AddNavNode;
         print("State changed to add Nav Node");
     }
 
     public void changeStateToAddNavEdge()
     {
-        ClickObject.state = ClickObject.clickState.AddNavEdge;
+        IOACTS.state = IOACTS.clickState.AddNavEdge;
         print("State changed to add Nav Edge");
     }
 
