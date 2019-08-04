@@ -31,7 +31,7 @@ public class Exit : MonoBehaviour {
             using (StreamWriter writer = new StreamWriter("ExitLog" + simNum + ".txt", append: true))
             {
 
-                double outNum = Time.time / 3600 + ACTSScheduler.firstArrivalTime;
+                double outNum = (Time.time - ACTSScheduler.iterTime) / 3600 + ACTSScheduler.firstArrivalTime;
                 double inNum = currentTaxi.ArrivalTime / 3600 + ACTSScheduler.firstArrivalTime;
                 string soutNum = "" + outNum;
                 soutNum = soutNum.Replace(',', '.');

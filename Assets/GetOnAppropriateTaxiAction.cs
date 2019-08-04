@@ -77,7 +77,7 @@ public class GetOnAppropriateTaxiAction : GoapAction {
         {
             Debug.Log("<color=magenta>Goal: </color>" + goal);
         }*/
-        if (currentCommuter.getGoalState().ContainsKey("gotToDestination"))
+        if (currentCommuter.getGoalState().ContainsKey("gotToDestination") && !currentCommuter.inQueue)
         {
             var bay = currentCommuter.toEmbarkAt;
             if (bay != null)

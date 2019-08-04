@@ -130,7 +130,7 @@ public class Commuter : MonoBehaviour, IGoap {
         worldState = new Dictionary<string, object>();
         worldState.Add("gotToDestination", false);
         worldState.Add("LeaveRank", false);
-        worldState.Add("stayHealthy", false);
+        //worldState.Add("stayHealthy", false);
     }
 
     public void initializeGoalState()

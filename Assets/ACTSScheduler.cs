@@ -21,10 +21,12 @@ public class ACTSScheduler : MonoBehaviour {
   //  public static LinkedList<GameObject> aiChars = new LinkedList<GameObject>();
     //public int maxToSpawn = 10;
     public static float firstArrivalTime = float.PositiveInfinity;
+    public static float iterTime;
     // Use this for initialization
     void Start ()
     {
-        StartCoroutine(ResetSimulation(60f * 60f * 3.1f));
+        StartCoroutine(ResetSimulation(60f * 60f * 4f));
+
         Time.timeScale = 6;
         print(Time.fixedDeltaTime);
         Time.fixedDeltaTime = 0.005f *  Time.timeScale;
@@ -241,6 +243,8 @@ public class ACTSScheduler : MonoBehaviour {
 
 
         yield return new WaitForSeconds(time);
+        Destination.destinations = new Dictionary<string, Destination>();
+        iterTime = Time.time;
         SceneManager.LoadScene(0);
         Exit.simNum += 1;
         print(Exit.simNum);

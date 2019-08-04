@@ -10,7 +10,7 @@ public class Destination {
 
 
     public static Dictionary<string, Destination> destinations = new Dictionary<string, Destination>();
-    public static HashSet<string> destStrings = new HashSet<string>();
+    //public static HashSet<string> destStrings = new HashSet<string>();
    // public enum dests { Strand, Stellenbosch, Jonkershoek, Bellville, CapeTown, Somerset, Mthatha};
     private string name;
     public long TotalCommuters{ get; set; }
@@ -23,12 +23,12 @@ public class Destination {
 
     public Destination(string name)
     {
+
         this.name = name;
         TotalCommuters = 0;
-        if (!destStrings.Contains(this.name))
+        if (!destinations.ContainsKey(this.name))
         {
             destinations.Add(this.name, this);
-            destStrings.Add(this.name);
         }
 
     }
