@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Jurie/OneDrive/Unity Projects/JATSim/Build41Resetter/Build41Resetter.exe
+C:/Users/Jurie/OneDrive/Unity Projects/JATSim/ACTS/ACTS.exe
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
