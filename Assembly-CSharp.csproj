@@ -83,6 +83,7 @@
     <Compile Include="Assets\IOACTS.cs" />
     <Compile Include="Assets\LoadPassengersAction.cs" />
     <Compile Include="Assets\NavigationBaker.cs" />
+    <Compile Include="Assets\newMission.cs" />
     <Compile Include="Assets\Node.cs" />
     <Compile Include="Assets\ObstacleAvoidance.cs" />
     <Compile Include="Assets\ParkingNode.cs" />
